@@ -1,0 +1,18 @@
+\babel@toc {brazil}{}
+\contentsline {chapter}{\numberline {1}INTRODUÇÃO}{16}
+\contentsline {chapter}{\numberline {2}SURGIMENTO E EVOLUÇÃO DO LINUX É UMA REVOLUÇÃO TECNOLÓGICA CAPAZ DE CONDUZIR MILHARES DE SERES NA TERRA COM CONSIÇÕES DE VIVER MELHOR.}{17}
+\contentsline {section}{\numberline {2.1}HISTÓRICO DO LINUX}{17}
+\contentsline {subsection}{\numberline {2.1.1}Ações}{17}
+\contentsline {subsubsection}{\numberline {2.1.1.1}No Atual Momento}{17}
+\contentsline {chapter}{\numberline {3}SERVIDORES LINUX}{20}
+\contentsline {subsection}{\numberline {3.0.1}Anexando Documentos}{20}
+\contentsline {subsubsection}{\numberline {3.0.1.1}Documento Formulário}{20}
+\contentsline {chapter}{\numberline {4}NOVO CAPÍTULO...}{22}
+\contentsline {chapter}{\numberline {5}RESULTADOS E DISCUSSÕES}{23}
+\contentsline {chapter}{\numberline {6}CONCLUSÕES}{24}
+\contentsline {chapter}{\hspace {1.3cm}REFERÊNCIAS~~~~~~~~~~~~}{25}
+\contentsline {chapter}{\hspace {1.3cm}APÊNDICE{} A{} -{} LINUX}{26}
+\contentsline {section}{\hspace {1.3cm}APÊNDICE A.1 - HISTÓRICO DO LINUX}{26}
+\contentsline {chapter}{\hspace {1.3cm}APÊNDICE{} B{} -{} AINDA FALANDO DO LINUX}{27}
+\contentsline {section}{\hspace {1.3cm}APÊNDICE B.1 - MELHORIAS PARA O LINUX EM UM AMBIENTE COORPORATIVOS DE DUAS GRNDES FRNTES INTERPRETATIVAS}{27}
+\contentsline {chapter}{\hspace {1.3cm}ÍNDICE REMISSIVO~~~~~~~~~~~~\vspace {-0.3cm}}{30}
