@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex 2019.5.18)  26 JUN 2019 21:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex 2019.10.26)  26 OCT 2019 17:03
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -774,11 +774,11 @@ Overfull \vbox (4.11192pt too high) has occurred while \output is active []
 ] (./modelo.aux) ) 
 Here is how much of TeX's memory you used:
  6697 strings out of 492983
- 94395 string characters out of 6134922
- 220201 words of memory out of 5000000
+ 94395 string characters out of 6134921
+ 220203 words of memory out of 5000000
  9957 multiletter control sequences out of 15000+600000
  58968 words of font info for 114 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  36i,12n,41p,720b,490s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on modelo.dvi (30 pages, 60000 bytes).
+Output written on modelo.dvi (30 pages, 60380 bytes).
