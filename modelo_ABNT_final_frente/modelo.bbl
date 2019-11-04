@@ -5,6 +5,21 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{1.45.2.1 }
 
+\bibitem[Aggleton et al. 2017]{Aggleton2017}
+\abntrefinfo{Aggleton et al.}{AGGLETON et al.}{2017}
+{AGGLETON, R.; ARDILA-PEREZ, L.; BALL, F.; BALZER, M.; BOUDOUL, G.; BROOKE, J.;
+  CASELLE, M.; CALLIGARIS, L.; CIERI, D.; CLEMENT, E.; DUTTA, S.; HALL, G.;
+  HARDER, K.; HOBSON, P.; ILES, G.; JAMES, T.; MANOLOPOULOS, K.; MATSUSHITA,
+  T.; MORTON, A.; NEWBOLD, D.; PARAMESVARAN, S.; PESARESI, M.; POZZOBON, N.;
+  REID, I.; ROSE, A.; SANDER, O.; SHEPHERD-THEMISTOCLEOUS, C.; SHTIPLIYSKI, A.;
+  SCHUH, T.; SKINNARI, L.; SUMMERS, S.; TAPPER, A.; THEA, A.; TOMALIN, I.;
+  UCHIDA, K.; VICHOUDIS, P.; VIRET, S.; WEBER, M. An {FPGA} based track finder
+  for the l1 trigger of the {CMS} experiment at the high luminosity {LHC}.
+\emph{Journal of Instrumentation}, {IOP} Publishing, v.~12, n.~12, p.
+  P12019--P12019, dec 2017.
+Dispon{\'\i}vel em:
+  $<$https://doi.org/10.1088%2F1748-0221%2F12%2F12%2Fp12019$>$.}
+
 \bibitem[Antonello e Maciel 2004]{bandlimit}
 \abntrefinfo{Antonello e Maciel}{ANTONELLO; MACIEL}{2004}
 {ANTONELLO, F.; MACIEL, M. \emph{Bandlimit}.
@@ -16,11 +31,34 @@
 {BOKHARI, S.~H. The linux operation system.
 \emph{IEEE Computer Society}, New York, v.~28, n.~8, p. 74 -- 79, Ago. 1995.}
 
+\bibitem[BRÜNING 2019]{Lucio2019}
+\abntrefinfo{BRÜNING}{BRÜNING}{2019}
+{BRÜNING, L.~R. \emph{HIGH LUMINOSITY LARGE HADRON COLLIDER A DESCRIPTION FOR
+  THE EUROPEAN STRATEGY PREPARATORY GROUP}. 2019.
+Dispon{\'\i}vel em:
+  $<$https://cds.cern.ch/record/1471000/files/CERN-ATS-2012-236.pdf$>$. Acesso
+  em: 17 set. 2019.}
+
+\bibitem[Collaboration 2019]{Cms2019}
+\abntrefinfo{Collaboration}{COLLABORATION}{2019}
+{COLLABORATION, C. \emph{Techninal Proposal for the Phase-II Upgrade of the
+  Compact Muon Solenoid}. 2019.
+Dispon{\'\i}vel em:
+  $<$http://www.desy.de/~garutti/LECTURES/ParticleDetectorSS12/JournalClub/lhc-CMS.pdf$>$.
+  Acesso em: 20 set. 2019.}
+
 \bibitem[Droms 1997]{droms}
 \abntrefinfo{Droms}{DROMS}{1997}
 {DROMS, R. \emph{Dynamic Host Configuration Protocol}.
 [S.l.], 1997. Dispon{\'\i}vel em:
   $<$http://ds.internice.net/ds/dspglintdoc.html$>$. Acesso em: 10 Mar. 2012.}
+
+\bibitem[FERREIRA 2009]{Ferreira2009}
+\abntrefinfo{FERREIRA}{FERREIRA}{2009}
+{FERREIRA, B.~C.
+\emph{DETECÇÃO DE RAIOS CÓSMICOS COM CALORIMETRIA DE ALTAS ENERGIAS}.
+118~p. Disserta??o (Mestrado em Engenharia Elétrica) --- UNIVERSIDADE FEDERAL
+  do Rio de Janeiro, Rio de Janeiro, 2009.}
 
 \bibitem[Garver 1970]{garver_sept70}
 \abntrefinfo{Garver}{GARVER}{1970a}
@@ -34,10 +72,33 @@
 \emph{IEEE Transactions on Power Apparatus and Systems}, São Paulo, PAS-89,
   n.~7, p. 1688--1697, Sep. 1970.}
 
+\bibitem[Ghatak e Thyagarajan 1998]{ghatak1998}
+\abntrefinfo{Ghatak e Thyagarajan}{GHATAK; THYAGARAJAN}{1998}
+{GHATAK, A.; THYAGARAJAN, K. \emph{An Introduction to Fiber Optics}. [S.l.]:
+  Cambridge University Press, 1998.}
+
 \bibitem[Machado e Maia 2007]{machado}
 \abntrefinfo{Machado e Maia}{MACHADO; MAIA}{2007}
 {MACHADO, F.~B.; MAIA, L.~P. \emph{Arquitetura de Sistemas Operacionais}. 4.
   ed. Rio de Janeiro: LTC, 2007. 105 p.~p.}
+
+\bibitem[Mobs 2016]{esmaMobs}
+\abntrefinfo{Mobs}{MOBS}{2016}
+{MOBS, E. The cern accelerator complex. complexe des accélérateurs du cern.
+Jul 2016.
+General Photo.
+Dispon{\'\i}vel em: $<$https://cds.cern.ch/record/2197559$>$.}
+
+\bibitem[RANDALL 2013]{Randal2013}
+\abntrefinfo{RANDALL}{RANDALL}{2013}
+{RANDALL, L. \emph{BATENDO À PORTA DO CÉU: O BÓSON DE HIGGS E COMO A FÍSICA
+  MODERNA ILUMINA O UNIVERSO}. São Paulo: Companhia das Letras, 2013. 576~p.}
+
+\bibitem[Sklar 1988]{Sklar1988}
+\abntrefinfo{Sklar}{SKLAR}{1988}
+{SKLAR, B. \emph{Digital Communications: Fundamentals and Applications}. Upper
+  Saddle River, NJ, USA: Prentice-Hall, Inc., 1988.
+ISBN 0-13-211939-0.}
 
 \bibitem[Song et al. 2006]{servidores}
 \abntrefinfo{Song et al.}{SONG et al.}{2006}
@@ -46,5 +107,32 @@
   AND 2006 1st IEEE/ACIS INTERNATIONAL WORKSHOP ON COMPONENT-BASED SOFTWARE
   ENGINEERING, SOFTWARE ARCHITECTURE AND REUSE. ICIS-COMSAR 2006. 5th IEEE/ACIS
   INTERNATIONAL CONFERENCE}. [S.l.: s.n.], 2006. p. 56 --62.}
+
+\bibitem[SPRACE 2019]{Sprace2019}
+\abntrefinfo{SPRACE}{SPRACE}{2019}
+{SPRACE. \emph{Sprace research group}. São Paulo: [s.n.], 2019.
+Dispon{\'\i}vel em: $<$http://sprace.org.br$>$. Acesso em: 15 set. 2018.}
+
+\bibitem[Team 2019]{lpgbt}
+\abntrefinfo{Team}{TEAM}{2019}
+{TEAM, L.~D. \emph{lpGBT Documentation}.
+[S.l.], 2019. Dispon{\'\i}vel em:
+  $<$http://padley.rice.edu/cms/OH\_GE21\_LpGBT/lpGBT\_20190215.pdf$>$. Acesso em:
+  20 Set. 2019.}
+
+\bibitem[TOMEI 2012]{tomei}
+\abntrefinfo{TOMEI}{TOMEI}{2012}
+{TOMEI, T. F.~P.
+\emph{Busca por dimensões extras no detector CMS do Large Hadron Collider}.
+Tese (Tese(doutorado)) --- Universidade Estadual Paulista, Instituto de Física
+  Teórica, São Paulo, 2012. Disponível em:
+  <http://hdl.handle.net/11449/102537>.}
+
+\bibitem[WIKIPÉDIA 2019]{Wikipedia2019}
+\abntrefinfo{WIKIPÉDIA}{WIKIPÉDIA}{2019}
+{WIKIPÉDIA. \emph{GRANDE COLISOR DE HÁDRONS}. 2019.
+Dispon{\'\i}vel em:
+  $<$https://pt.wikipedia.org/wiki/Grande\_Colisor\_de\_Hádrons$>$. Acesso em: 15
+  set. 2019.}}
 
 \end{thebibliography}

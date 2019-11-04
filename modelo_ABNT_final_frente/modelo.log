@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex 2019.10.26)  26 OCT 2019 17:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex 2019.10.26)  4 NOV 2019 15:05
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -688,61 +688,82 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
 
 (./siglas/listadesiglas.tex [9
 
-]) (./simbolos/simbolos.tex [10
+]
+Overfull \hbox (12.58388pt too wide) in paragraph at lines 10--102
+[] 
+ []
+
+) (./simbolos/simbolos.tex [10
 
 ] [11
 
-]) [12]
-(./modelo.toc)
+] [12]) [13] (./modelo.toc [14
+
+])
 \tf@toc=\write7
 \openout7 = `modelo.toc'.
 
- [13
-
-] (./capitulo_1/capitulo_1.tex
+ [15]
+(./capitulo_1/capitulo_1.tex
 Cap\'{\i }tulo 1.
-) (./capitulo_2/capitulo_2.tex [16
+[16
 
 
 ]
+File: ./capitulo_1/lhc.eps Graphic file (type eps)
+ <./capitulo_1/lhc.eps>
+File: ./capitulo_1/chambMuon.eps Graphic file (type eps)
+ <./capitulo_1/chambMuon.eps> [17] [18]
+File: ./capitulo_1/L1TT.eps Graphic file (type eps)
+
+<./capitulo_1/L1TT.eps> [19]
+File: ./capitulo_1/lpgbtSchematic.eps Graphic file (type eps)
+ <./capitulo_1/lpgbtSchematic.eps> [20])
+(./capitulo_2/capitulo_2.tex [21]
 Cap\'{\i }tulo 2.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 21.
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <24.88> not available
 (Font)              Font shape `T1/ptm/b/it' tried instead on input line 21.
 File: ./capitulo_2/tux-linux.eps Graphic file (type eps)
-<./capitulo_2/tux-linux.eps> [17
+<./capitulo_2/tux-linux.eps> [22
 
-] [18]) (./capitulo_3/capitulo_3.tex [19]
+] [23]) (./capitulo_3/capitulo_3.tex [24]
 Cap\'{\i }tulo 3.
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 70.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-) [20
+) [25
 
 ])
 (./capitulo_4/capitulo_4.tex
 Overfull \vbox (4.11192pt too high) has occurred while \output is active []
 
 
-[21]
+[26]
 Cap\'{\i }tulo 4.
-[22
+[27
 
 ]) (./capitulo_5/capitulo_5.tex
 Cap\'{\i }tulo 5.
-[23
+[28
 
 ]) (./capitulo_6/capitulo_6.tex
 Cap\'{\i }tulo 6.
-[24
+[29
 
-]) (./modelo.bbl) (./apa/apa.tex [25
+]) (./modelo.bbl
+Underfull \hbox (badness 1248) in paragraph at lines 44--49
+\T1/ptm/m/it/12 grade of the Com-pact Muon So-le-noid\T1/ptm/m/n/12 . 2019. Dis
+-po-ní-vel em: 
+ []
 
-]
+[30
+
+]) (./apa/apa.tex [31]
 Apendice A.
 File: ./apa/linus_torvalds.eps Graphic file (type eps)
-<./apa/linus_torvalds.eps>) (./apb/apb.tex [26
+<./apa/linus_torvalds.eps>) (./apb/apb.tex [32
 
 ]
 Apendice B.
@@ -754,31 +775,31 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 Underfull \vbox (badness 10000) detected at line 100
  []
 
-[27
+[33
 
 ]
 Overfull \vbox (4.11192pt too high) has occurred while \output is active []
 
 
-[28])
+[34])
 Overfull \vbox (4.11192pt too high) has occurred while \output is active []
 
 
-[29] (./modelo.ind)
+[35] (./modelo.ind)
 +-------------------------------------------------------------------+
 | Comentario, sugestao ou critica sobre o abnTeX? Entre em contato: |
 |                  http://abntex.codigolivre.org.br                 |
 +-------------------------------------------------------------------+
-[30
+[36
 
 ] (./modelo.aux) ) 
 Here is how much of TeX's memory you used:
- 6697 strings out of 492983
- 94395 string characters out of 6134921
- 220203 words of memory out of 5000000
- 9957 multiletter control sequences out of 15000+600000
+ 6773 strings out of 492983
+ 95716 string characters out of 6134921
+ 220799 words of memory out of 5000000
+ 10029 multiletter control sequences out of 15000+600000
  58968 words of font info for 114 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 36i,12n,41p,720b,490s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,12n,41p,1090b,490s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on modelo.dvi (30 pages, 60380 bytes).
+Output written on modelo.dvi (38 pages, 85652 bytes).

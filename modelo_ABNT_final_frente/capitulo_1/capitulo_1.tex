@@ -2,32 +2,102 @@
 \label{cap:ini}
 \vspace{-2cm}
 
-Em qualquer sistema de comunicação deve-se garantir uma alta confiabilidade dos dados transmitidos, de forma que no lado do receptor sejam recebidos os mesmos dados enviado pelo transmissor. A forma de onda do sinal transmitido  é afetado por dois mecanismos básicos: todas as linhas de transmissão e circuitos possuem função de transferência não lineares no domínio da frequência e ruídos elétricos não desejáveis ou algum tipo de interferência que distorce o sinal enviado \cite{Sklar1988}. Em comunicações digitais e seriais de alta velocidade presentes em um ambiente com alto nível de radiação eletromagnética, o uso de transmissões por fibra óptica são mais adequadas para atingir o nível de performance exigido. Entretanto, transmissões em fibras ópticas estão sujeitas a perdas devido aos efeitos ópticos lineares e não-lineares. Os tipos de perda são: atenuação, dispersão, auto-modulação de fase, mistura de quatro ondas, espalhamento Brillouin Estimulado e espalhamento Raman estimulado \cite{ghatak1998}. 
+Em qualquer sistema de comunicação deve-se garantir uma alta confiabilidade dos dados transmitidos, de forma que no lado do receptor sejam recebidos os mesmos dados enviado pelo transmissor. A forma de onda do sinal transmitido  é afetado por dois mecanismos básicos: todas as linhas de transmissão e circuitos possuem função de transferência não lineares no domínio da frequência e ruídos elétricos não desejáveis ou algum tipo de interferência que distorce o sinal enviado \cite[p.~3]{Sklar1988}. Em comunicações digitais e seriais de alta velocidade presentes em um ambiente com alto nível de radiação eletromagnética, o uso de transmissões por fibra óptica são mais adequadas para atingir o nível de performance exigido. Entretanto, transmissões em fibras ópticas estão sujeitas a perdas devido aos efeitos ópticos lineares e não-lineares. Os tipos de perda são: atenuação, dispersão, auto-modulação de fase, mistura de quatro ondas, espalhamento Brillouin Estimulado e espalhamento Raman estimulado \cite{ghatak1998}. 
 
 Desta forma, em transmissões seriais de alta velocidade é empregado protocolos de comunicação para garantir a maior eficiência e o menor número de erros possível. Este tipo de implementação é extremamente útil em sistemas para física de altas energias. Nestes sistemas, há a presença de uma alta taxa de transmissão combinado com uma alta radiação eletromagnética e um interesse de uma alta confiabilidade no canal, implicando na necessidade de implementação de protocolos de comunicação. Estes protocolos possibilitam a introdução de sistemas para identificar e corrigir possíveis erros, além de possibilitar que circuitos externos sincronizem os dispositivos comunicantes.
 
 \section{Motivação}
 
-Este trabalho é parte de uma colaboração com o laboratório ?São Paulo Research and Analysis Center? (SPRACE) \cite{Sprace2019}. O laboratório SPRACE possui vários ramos de pesquisa, sendo uma delas a instrumentação eletrônica para os sistemas do LHC. O LHC tem uma extensão de 27 km de circunferência, localizado na fronteira Franco-Suiça, tendo por objetivo descobrir a origem da massa das partículas elementares e outras dimensões do espaço \cite{Wikipedia2019}. O colisor é o maior equipamento já construído para pesquisa em física de altas energias do mundo, obtendo resultados expressivos como a descoberta do Bóson de Higgs. Este Bóson é uma partícula elementar prevista pelo modelo padrão de partículas, que ajuda a explicar a massa de outras partículas elementares \cite{Randal2013}.
+Este trabalho é parte de uma colaboração com o laboratório \textit{São Paulo Research and Analysis Center} (SPRACE) \cite{Sprace2019}. O laboratório SPRACE possui vários ramos de pesquisa, sendo uma delas a instrumentação eletrônica para os sistemas do LHC. Este possui uma extensão de 27 km de circunferência, localizado na fronteira Franco-Suiça, tendo por objetivo descobrir a origem da massa das partículas elementares e outras dimensões do espaço \cite{Wikipedia2019}. O colisor é o maior equipamento já construído para pesquisa em física de altas energias do mundo, obtendo resultados expressivos como a descoberta do Bóson de Higgs. Este Bóson é uma partícula elementar prevista pelo modelo padrão de partículas, que ajuda a explicar a massa de outras partículas elementares \cite{Randal2013}.
 
-No percurso do colisor há 4 detectores : ATLAS, CMS, Alice, e LHCb. O acelerador de partículas fornece velocidade e os detectores captam os produtos do impacto das partículas. Dessa forma, pode-se observar a existência de traços de partículas elementares que explicam teorias importantes sobre a física de altas energias \cite{Ferreira2009}. Na \autoref{lhc} é ilustrado um esquema do grande colisor de Hádrons que está localizado a 175 metros abaixo do solo.
+No percurso do colisor há 4 detectores : \textit{A Toroidal LHC ApparatuS} (ATLAS), \textit{Compact Muon Solenoid} (CMS), \textit{A Large Ion Collider} (Alice) e o \textit{LHC beauty} LHCb. O acelerador de partículas fornece velocidade e os detectores captam os produtos do impacto das partículas. Dessa forma, pode-se observar a existência de traços de partículas elementares que explicam teorias importantes sobre a física de altas energias \cite{Ferreira2009}. Na Figura \ref{lhc} é ilustrado um esquema do grande colisor de Hádrons que está localizado a 175 metros abaixo do solo.
 
+%\begin{figure}[htbp]
 \begin{figure}[H]
-	\caption{\label{lhc} Esquema do grande colisor de Hádrons (LHC).}
-	\centering
-	\includegraphics[scale=0.5]{./capitulo_1/lhc.jpg}
+	\tiny \caption{\small Esquema do grande colisor de Hádrons (LHC). \label{lhc}}
+	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
+	\vspace{-0.3 cm}
 	\begin{center}
-		Fonte: Elaborado pelo Autor
-	\end{center}	
+		\begin{psfrags}
+			\epsfxsize=4cm
+			\centerline{\includegraphics[width=16.0 cm]{./capitulo_1/lhc.eps}}
+		\end{psfrags}
+		{\small Fonte: Adaptado de \citeonline{esmaMobs}}
+	\end{center}
 \end{figure}
 
-O grande colisor está em um processo de pesquisa para realizar uma grande atualização, a chamada "Grande Luminosidade". Desta forma, a instrumentação existente no colisor deve ser atualizada para suportar o novo volume de dados gerados. Os sistemas desenvolvidos devem serem capazes de transmitir e processar um grande volume de dados em uma faixa muito curta de tempo \cite{Lucio2019}.
 
-O trabalho desenvolvido pelo laboratório SPRACE está diretamente ligado ao detector ?Solenóide de Muon Compacto? (CMS) do LHC. Os detectores do LHC tem estruturas diferentes e cada um obtém dados de partículas específicas. A junção de todos os dados de todos os detectores forma uma imagem completa do experimento, ajudando a realizar novas descobertas.
+O grande colisor está em um processo de pesquisa para realizar uma grande atualização, a chamada Grande Luminosidade ou da sigla em inglês \textit{High Luminosity - Large Hadron Collider} (HL-LHC). Com isto é esperado um aumento no número médio de colisões próton-próton de 100 para em torno de 140 a 200, denominadas \textit{pileup} (PU). Estas colisões médias são obtidas pelo cruzamento de um grupo de prótons em uma frequência de 40MHz. Consequentemente, um grupo de prótons se cruza no ponto de colisão dentro do detector, para a cada 25ns \cite[p.~2]{Aggleton2017}.
 
-O detector CMS tem 6 metros de diâmetro e 13 metros de comprimento captando ao longo do diâmetro as posições das partículas. Dessa forma, é possível traçar o caminho das partículas por produzirem dados de posições ao longo do diâmetro do detector. As partículas carregadas seguirão caminho em espiral no campo magnético de 4 Tesla (T) do detector possibilitando calcular os seus momentos, uma vez que momentos diferentes indicam partículas diferentes. Portanto, por meio desses dados é possível coletar evidências para comprovar teorias de novas partículas \cite{Emanuel2019}.
+Em cada um dos 4 detectores há um ponto de colisão sendo possível por monitorar os eventos decorrentes do choque d. Especificamente, o projeto descrito é idealizado para atuar no detector de propósito geral CMS. Este é um grande detector com o objetivo de investigar uma vasta variedade de fenômenos físicos. O detector possui uma solenóide supercondutora central de 6 metros de diâmetro, provendo um campo magnético de 3,8T. Na figura \ref{detecCMS} é ilustrado um esquemático do detector CMS \cite[p.~2]{Aggleton2017}.
+
+%\begin{figure}[htbp]
+\begin{figure}[H]
+	\tiny \caption{\small Esquerda - Máquina do LHC. Direita - Sub-detectores do CMS \label{detecCMS}}
+	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
+	\vspace{-0.3 cm}
+	\begin{center}
+		\begin{psfrags}
+			\epsfxsize=4cm
+			\centerline{\includegraphics[width=16.0 cm]{./capitulo_1/chambMuon.eps}}
+		\end{psfrags}
+		{\small Fonte: Adaptado de \citeonline[p.~19]{tomei}}
+	\end{center}
+\end{figure}
+  
+Pela figura \ref{detecCMS}, há vários componentes no colisor para a medição dos fenômenos ou elementos gerados pela colisão das partículas. Para o aumento na taxa de colisão, a instrumentação eletrônica presente no detector deverá ser atualizada para suportar o novo volume de dados gerados. Os sistemas desenvolvidos devem serem capazes de transmitir e processar um grande volume de dados em uma faixa muito curta de tempo \cite{Lucio2019}.
+
+O trabalho desenvolvido pelo laboratório SPRACE está diretamente ligado ao detector Solenóide de Muon Compacto (CMS) do LHC. Os detectores do LHC tem estruturas diferentes e cada um obtém dados de partículas específicas. A junção de todos os dados de todos os detectores forma uma imagem completa do experimento, ajudando a realizar novas descobertas.
+
+O detector CMS foi designado para registrar, direta ou indiretamente, o caminho e a energia de todos os modelos padrões de partículas resultantes da colisão \cite{tomei}. O detector é composto de várias camadas de sub-detectores especializados para medir as diferentes características das partículas produzidas, como ilustrado no lado direito da Figura \ref{detecCMS}. A instrumentação do CMS inclui diferentes componentes, dentre eles: \textit{Muon Chamber, Hadronic Calorimeter}(HCAL), \textit{Eletromagnetic Calorimeter} (ECAL) e o \textit{Silicon Tracker}. Dentro do detector há um solenóide supercondutor aplicando um alto campo magnético que é capaz de curvar a trajetória da partícula após a colisão. Portanto, quanto maior a energia da partícula menor a curvatura na sua trajetória \cite[p.~3]{Aggleton2017}.  
+
+Pela análise do caminho e da energia da partícula, medida pelo \textit{Tracker}, \textit{muon chamber} e os calorímetros é possível reconstruir os eventos resultantes da colisão. Nos dispositivos de medição há uma pré-seleção para partículas com um limiar de momento transversal (pT) das partículas carregadas tipicamente mair do que 2 ou 3 Giga Eletrovolt (GeV). Entretanto, devido ao grande número de colisões os dados devem serem filtrados por questões de armazenamento e capacidade de transmissão. Assim, os dados passam por um filtro denominado \textit{Level 1  Track and Trigger} (L1TT). Este sistema faz e a reconstrução dos caminhos das partículas e seleciona os eventos que são interessantes para estudo.\cite{Aggleton2017}.
 
 A colaboração entre o laboratório SPRACE com o CMS objetiva-se colaborar no desenvolvimento de sistemas na área da instrumentação eletrônica, o qual serão implementados dentro de um sistema completo de detecção. O novo sistema que está em desenvolvimento, principalmente objetiva-se eliminar as restrições de latência que o atual possui \cite{Cms2019}.
+
+Para este propósito, foi desenvolvido um sistema chamado \textit{Low Power GigaBit Transceiver} (LpGBT) para transmitir dados coletados nos dispositivos eletrônicos do colisor pelos \textit{Front End module} (FE module), para um sistema responsável pela análise e seleção das amostras coletadas localizado fora do detector denominado \textit{Data, Trigger and Control} (DTC). Na Figura \ref{sysDTC} é descrito um esquema do sistema presente no colisor para a decisão dos eventos a serem armazenados, chamado L1TT. 
+
+%\begin{figure}[htbp]
+\begin{figure}[H]
+	\tiny \caption{\small Descrição do sistema, fluxo de dados e especificação de latência por meio dos dispositivos eletrônicos fora do detector que formam a decisão do L1TT. \label{sysDTC}}
+	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
+	\vspace{-0.3 cm}
+	\begin{center}
+		\begin{psfrags}
+			\epsfxsize=4cm
+			\centerline{\includegraphics[width=16.0 cm]{./capitulo_1/L1TT.eps}}
+		\end{psfrags}
+		{\small Fonte: Adaptado de \citeonline{Aggleton2017}}
+	\end{center}
+\end{figure}
+
+No \textit{FE module} captura-se os dados da colisão das partículas. Esses dados são transmitidos para um sistema, fora do colisor, o \textit{Data, Trigger and Control} (DTC). Este sistema, acompanhado do \textit{Track Finder} e o \textit{L1 Correlator} gera a decisão de armazenar o dado coletado no colisor. O tempo total para a decisão de quais eventos medidos nos sensores do detector é de 12.5?s \cite[p.~4]{Aggleton2017}. 
+
+O \textit{L1 correlator} necessita de 3.5?s para correlacionar os caminhos com dados primitivos do calorímetro e o sistema Muon e tomar a decisão se o evento é de interesse do estudo. A propagação da decisão do \textit{L1 correlator} para os buffers do \textit{FE module} leva mais 1?s, enquanto outros 3?s são necessários como margem de segurança. Isso significa que para as caminhos sejam utilizadas pelo  \textit{L1 correlator} para tomar a decisão, os eventos devem ser extraídos dos componentes eletrônicos do rastreador, organizados e feito a reconstrução das trilhas no \textit{Track Finder} em aproximadamente 5 ?s após a colisão. Em torno de 1 µs é necessário para geração, empacotamento e transmissão dos eventos do \textit{FE module} para o DTC. Portanto, a latência de processamento para reconstruir os rastros a partir dos dados chegando ao DTC é fixado em 4?s \cite[p.~5]{Aggleton2017}.
+
+Portanto, com o L1TT é possível selecionar os eventos físicos de interesse e reduzir a taxa de dados do detector. A redução é de 40MHz para um número menor do que 750kHz, sendo esta a máxima taxa que o sistema suporta. O transporte dos dados entre \textit{FE module} e o DTC, feito pelo \textit{LpGBT ASIC} e um FGPA com o protocolo LpGBT implementado, com uma latência tolerada de 1?s \cite[p.~4]{Aggleton2017}. 
+
+No sistema L1TT há 3 sinais lógicos: \textit{Timing and Trigger Control} (TTC), \textit{Data Acquisition} (DAQ) e \textit{Slow Control} (SC). Estes sinais não necessitam possuir caminhos físicos diferentes, sendo possível transmiti-los em canal óptico através do LpGBT. Na figura \ref{schLpgbt} é ilustrado sistema usando o protocolo LpGBT em que pode-se observar a transmissão dos sinais lógicos. As cores dos sinais lógicos da Figura \ref{schLpgbt} representam as mesmas cores dos sinais lógicos da Figura \ref{sysDTC}.
+
+%\begin{figure}[htbp]
+\begin{figure}[H]
+	\tiny \caption{\small Arquitetura do Sistema de comunicação Serial LpGBT.  \label{schLpgbt}}
+	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
+	\vspace{-0.3 cm}
+	\begin{center}
+		\begin{psfrags}
+			\epsfxsize=4cm
+			\centerline{\includegraphics[width=16.0 cm]{./capitulo_1/lpgbtSchematic.eps}}
+		\end{psfrags}
+		{\small Fonte: Adaptado de \citeonline[p.~3]{lpgbt}}
+	\end{center}
+\end{figure}
+
+O sistema FPGA com a implementação do LpGBT, o qual está fora do detector, já está descrito e implementado. Entretanto, o sistema LpGBT ASIC que fica alocado dentro do Detector, em uma região de alta radiação eletromagnética, ainda está em fase de desenvolvimento. Todavia, o sistema LpGBT dentro do detector está descrito em códigos de descrição de hardware, porém não são sintetizáveis em um FPGA. A grande motivação do trabalho é descrever o sistema LpGBT ASIC de uma forma que seja sintetizável em um FPGA.
+
+
+\section{Descrição do Sistema LpGBT ASIC}
+
 
 \section{TRABALHO DESENVOLVIDO}
 
