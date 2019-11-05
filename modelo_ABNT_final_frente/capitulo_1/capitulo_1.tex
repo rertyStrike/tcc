@@ -67,21 +67,21 @@ Para este propósito, foi desenvolvido um sistema chamado \textit{Low Power GigaB
 			\epsfxsize=4cm
 			\centerline{\includegraphics[width=16.0 cm]{./capitulo_1/L1TT.eps}}
 		\end{psfrags}
-		{\small Fonte: Adaptado de \citeonline{Aggleton2017}}
+		{\small Fonte: \citeonline{Aggleton2017}}
 	\end{center}
 \end{figure}
 
-No \textit{FE module} captura-se os dados da colisão das partículas. Esses dados são transmitidos para um sistema, fora do colisor, o \textit{Data, Trigger and Control} (DTC). Este sistema, acompanhado do \textit{Track Finder} e o \textit{L1 Correlator} gera a decisão de armazenar o dado coletado no colisor. O tempo total para a decisão de quais eventos medidos nos sensores do detector é de 12.5?s \cite[p.~4]{Aggleton2017}. 
+No \textit{FE module} captura-se os dados da colisão das partículas. Esses dados são transmitidos para um sistema, fora do colisor, o \textit{Data, Trigger and Control} (DTC). Este sistema, acompanhado do \textit{Track Finder} e o \textit{L1 Correlator} gera a decisão de armazenar o dado coletado no colisor. O tempo total para a decisão de quais eventos medidos nos sensores do detector é de 12.5$\mu$s \cite[p.~4]{Aggleton2017}. 
 
-O \textit{L1 correlator} necessita de 3.5?s para correlacionar os caminhos com dados primitivos do calorímetro e o sistema Muon e tomar a decisão se o evento é de interesse do estudo. A propagação da decisão do \textit{L1 correlator} para os buffers do \textit{FE module} leva mais 1?s, enquanto outros 3?s são necessários como margem de segurança. Isso significa que para as caminhos sejam utilizadas pelo  \textit{L1 correlator} para tomar a decisão, os eventos devem ser extraídos dos componentes eletrônicos do rastreador, organizados e feito a reconstrução das trilhas no \textit{Track Finder} em aproximadamente 5 ?s após a colisão. Em torno de 1 µs é necessário para geração, empacotamento e transmissão dos eventos do \textit{FE module} para o DTC. Portanto, a latência de processamento para reconstruir os rastros a partir dos dados chegando ao DTC é fixado em 4?s \cite[p.~5]{Aggleton2017}.
+O \textit{L1 correlator} necessita de 3.5$\mu$s para correlacionar os caminhos com dados primitivos do calorímetro e o sistema Muon e tomar a decisão se o evento é de interesse do estudo. A propagação da decisão do \textit{L1 correlator} para os buffers do \textit{FE module} leva mais 1$\mu$s, enquanto outros 3$\mu$s são necessários como margem de segurança. Isso significa que para as caminhos sejam utilizadas pelo  \textit{L1 correlator} para tomar a decisão, os eventos devem ser extraídos dos componentes eletrônicos do rastreador, organizados e feito a reconstrução das trilhas no \textit{Track Finder} em aproximadamente 5$\mu$s após a colisão. Em torno de 1$\mu$s é necessário para geração, empacotamento e transmissão dos eventos do \textit{FE module} para o DTC. Portanto, a latência de processamento para reconstruir os rastros a partir dos dados chegando ao DTC é fixado em 4$\mu$s \cite[p.~5]{Aggleton2017}.
 
-Portanto, com o L1TT é possível selecionar os eventos físicos de interesse e reduzir a taxa de dados do detector. A redução é de 40MHz para um número menor do que 750kHz, sendo esta a máxima taxa que o sistema suporta. O transporte dos dados entre \textit{FE module} e o DTC, feito pelo \textit{LpGBT ASIC} e um FGPA com o protocolo LpGBT implementado, com uma latência tolerada de 1?s \cite[p.~4]{Aggleton2017}. 
+Portanto, com o L1TT é possível selecionar os eventos físicos de interesse e reduzir a taxa de dados do detector. A redução é de 40MHz para um número menor do que 750kHz, sendo esta a máxima taxa que o sistema suporta. O transporte dos dados entre \textit{FE module} e o DTC, feito pelo \textit{LpGBT ASIC} e um FGPA com o protocolo LpGBT implementado, com uma latência tolerada de 1$\mu$s \cite[p.~4]{Aggleton2017}. 
 
 No sistema L1TT há 3 sinais lógicos: \textit{Timing and Trigger Control} (TTC), \textit{Data Acquisition} (DAQ) e \textit{Slow Control} (SC). Estes sinais não necessitam possuir caminhos físicos diferentes, sendo possível transmiti-los em canal óptico através do LpGBT. Na figura \ref{schLpgbt} é ilustrado sistema usando o protocolo LpGBT em que pode-se observar a transmissão dos sinais lógicos. As cores dos sinais lógicos da Figura \ref{schLpgbt} representam as mesmas cores dos sinais lógicos da Figura \ref{sysDTC}.
 
 %\begin{figure}[htbp]
 \begin{figure}[H]
-	\tiny \caption{\small Arquitetura do Sistema de comunicação Serial LpGBT.  \label{schLpgbt}}
+	\tiny \caption{\small Esquema do Sistema de comunicação Serial LpGBT.  \label{schLpgbt}}
 	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
 	\vspace{-0.3 cm}
 	\begin{center}
@@ -89,7 +89,7 @@ No sistema L1TT há 3 sinais lógicos: \textit{Timing and Trigger Control} (TTC), 
 			\epsfxsize=4cm
 			\centerline{\includegraphics[width=16.0 cm]{./capitulo_1/lpgbtSchematic.eps}}
 		\end{psfrags}
-		{\small Fonte: Adaptado de \citeonline[p.~3]{lpgbt}}
+		{\small Fonte: \citeonline[p.~3]{lpgbt}}
 	\end{center}
 \end{figure}
 
@@ -98,6 +98,38 @@ O sistema FPGA com a implementação do LpGBT, o qual está fora do detector, já es
 
 \section{Descrição do Sistema LpGBT ASIC}
 
+O lpGBT ASIC faz parte do chipset lpGBT composto pelos seguintes chips: um amplificador de impedância trans para o
+receptor óptico (GBTIA/lpGBTIA-em desenvolvimento), um driver de diodo a laser quádruplo e o próprio lpGBT propriamente dito, um link ASIC que implementa todas as funções necessárias do transceptor de dados e tempo, além de um conjunto de funções necessárias para o controle do experimento.
+
+Como descrito na Figura \ref{schLpgbt}, cada \textit{FE module} será atendido por um LpGBT ASIC, ao qual por um par de fibras ópticas, faz interface diretamente com o sistema DTC. Esses links ópticos poderão transferir dados do detector a 5.12 ou 10.24 Gb/s, fornecendo uma largura de banda eficaz entre 3.84 e 8.96 Gb/s, representando correção de erros e sobrecarga de protocolo. A comunicação entre os \textit{FE modules} e cada chip LpGBT suporta até 7 links de entrada-saída a 1.28 Gb/s e 8 Links de controle a 160Mb/s \cite{orfanelli}.
+
+Aproximadamente 75\% dessa largura de banda será dedicada à leitura de dados dos eventos no detector a cada 25 ns. Os aproximadamente 25\% restantes da largura de banda da leitura do módulo serão dedicados à transmissão dos dados completos do evento, incluindo todas as faixas/pixels de acerto, acionados por um sinal de aceitação do \textit{L1 Correlator} \cite{Aggleton2017}. A arquitetura geral do lpGBT ASIC e suas principais conexões externas são exibidas na Figura . Em seu genérico configuração, o lpGBT se conecta a um driver de laser ASIC e a um amplificador de trans-impedância ASIC. Na figura é descrito a arquiterura do sistema LpGBT.
+
+%\begin{figure}[htbp]
+\begin{figure}[H]
+	\tiny \caption{\small Arquitetura do LpGBT ASIC.  \label{arquLpgbt}}
+	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
+	\vspace{-0.3 cm}
+	\begin{center}
+		\begin{psfrags}
+			\epsfxsize=4cm
+			\centerline{\includegraphics[width=16.0 cm]{./capitulo_1/archLpGBT.eps}}
+		\end{psfrags}
+		{\small Fonte: \citeonline[p.~5]{lpgbt}}
+	\end{center}
+\end{figure}
+
+Pela Figura \ref{arquLpgbt}, na parte do \textit{downlink} há vários componentes essenciais para o sistema. Primeiramente, há o circuito de recuperação de dados, \textit{clock} e \textit{loop} de fase bloqueada (CDR/PLL) recebe dados seriais de alta velocidade (2.56 Gb/s). A partir dele, recupera e gera um relógio de alta velocidade apropriado para amostrar corretamente a entrada fluxo de dados. Os dados seriais são desserializados pelo \textit{Deserializer}(DeSER), ou seja, convertidos para paralelo e, em seguida, decodificado pelo \textit{decoder} (DEC), com as correções de erro apropriadas, e finalmente realiza-se o processo de desembaralhar o dado pelo \textit{Descrambler} (DSCR).
+
+Na parte do \textit{uplink}, os dados a serem transmitidos são embaralhados pelo \textit{scrambler} (SCR), e então codificado com um código de correção de erro denominado \textit{forward Error Corretion} (FEC) antes de ser serializado pelo \textit{serializer} (SER) e enviado ao driver do laser. A configuração do driver do laser pode ser realizada através de uma conexão I2C do lpGBT. 
+
+O \textit{Clk Manager} se encarrega de gerar e gerenciar os diferentes relógios de alta e baixa frequência necessários nas diferentes partes do ASIC. Um deslocador de fase programável está disponível para gerar 4 relógios de usuário externo com frequência programável (40 MHz a 1,28 GHz) e fase (rotação total de 360 graus em incrementos de fase de 50 ps). No modo Transceptor, um relógio externo deve, ou, pode ser usado para operação durante a inicialização como referência relógio para o SER ou como uma ajuda de travamento para o circuito CDR.
+
+A lógica geral de controle e monitoramento cuida do controle das diferentes partes do chip de acordo com a operação modo selecionado e as informações de configuração do ASIC. As informações de configuração inicial são obtidas do chip on Fusíveis eletrônicos que podem ser modificados através do próprio link óptico ou de uma interface escrava I2C. 
+
+As conexões com os módulos \textit{FE module} e o LpGBT ASIC são feitas através de conjuntos de links elétricos de saída/entrada (eLinks). Dependendo da taxa de dados e da mídia de transmissão usada, os eLinks permitem conexões que podem se estender até alguns metros. Os eLinks são direcionados por uma série de ePorts no LpGBT e estão associados às portas eLink nos módulos \textit{FE module}. O número de eLinks ativos e sua taxa de dados são programáveis.
+
+Os ePorts de recebimento (ePortRx) são associados ao \textit{uplink} desserializam os dados recebidos dos módulos do \textit{FE module} ou ASICs para que possam ser embaralhados, codificados e montados no \textit{uplink} antes de serem transmitidos ao DTC. Cada ePortRx é associado a um \textit{Phase-Aligner} (PA) usado para garantir que os dados seriais recebidos dos \textit{FE module} são amostrados adequadamente no meio do diagrama de olho. Por outro lado, os ePorts do transmissor (ePortTx) são associado ao \textit{downlink} e o SER, recebidos do DTC, e transmitem dados aos dispositivos \textit{FE module} usando o eLinks. Por fim, os ePorts também têm eClocks associados. Esses relógios são programáveis em frequência, mas possuem fase fixa.
 
 \section{TRABALHO DESENVOLVIDO}
 

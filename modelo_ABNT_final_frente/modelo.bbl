@@ -5,6 +5,13 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{1.45.2.1 }
 
+\bibitem[Abinaya e Prakasam 2014]{Abinaya2014}
+\abntrefinfo{Abinaya e Prakasam}{ABINAYA; PRAKASAM}{2014}
+{ABINAYA, N.~S.; PRAKASAM, P. Performance analysis of maximum length lfsr and
+  bbs method for cryptographic application. In:  \emph{2014 International
+  Conference on Electronics and Communication Systems (ICECS)}. [S.l.: s.n.],
+  2014. p.~1--5.}
+
 \bibitem[Aggleton et al. 2017]{Aggleton2017}
 \abntrefinfo{Aggleton et al.}{AGGLETON et al.}{2017}
 {AGGLETON, R.; ARDILA-PEREZ, L.; BALL, F.; BALZER, M.; BOUDOUL, G.; BROOKE, J.;
@@ -19,17 +26,6 @@
   P12019--P12019, dec 2017.
 Dispon{\'\i}vel em:
   $<$https://doi.org/10.1088%2F1748-0221%2F12%2F12%2Fp12019$>$.}
-
-\bibitem[Antonello e Maciel 2004]{bandlimit}
-\abntrefinfo{Antonello e Maciel}{ANTONELLO; MACIEL}{2004}
-{ANTONELLO, F.; MACIEL, M. \emph{Bandlimit}.
-[S.l.], 2004. Dispon{\'\i}vel em: $<$http://underlinux.com.br$>$. Acesso em: 10
-  Mar. 2012.}
-
-\bibitem[Bokhari 1995]{bokhari}
-\abntrefinfo{Bokhari}{BOKHARI}{1995}
-{BOKHARI, S.~H. The linux operation system.
-\emph{IEEE Computer Society}, New York, v.~28, n.~8, p. 74 -- 79, Ago. 1995.}
 
 \bibitem[BRÜNING 2019]{Lucio2019}
 \abntrefinfo{BRÜNING}{BRÜNING}{2019}
@@ -47,11 +43,19 @@ Dispon{\'\i}vel em:
   $<$http://www.desy.de/~garutti/LECTURES/ParticleDetectorSS12/JournalClub/lhc-CMS.pdf$>$.
   Acesso em: 20 set. 2019.}
 
-\bibitem[Droms 1997]{droms}
-\abntrefinfo{Droms}{DROMS}{1997}
-{DROMS, R. \emph{Dynamic Host Configuration Protocol}.
-[S.l.], 1997. Dispon{\'\i}vel em:
-  $<$http://ds.internice.net/ds/dspglintdoc.html$>$. Acesso em: 10 Mar. 2012.}
+\bibitem[Dhingra 2019]{Sachin2018}
+\abntrefinfo{Dhingra}{DHINGRA}{2019}
+{DHINGRA, S. \emph{Comparison of LFSR and CA for BIST}. Auburn: Dept. of
+  Electrical and Computer Engineering, 2019.
+47~p.
+Dispon{\'\i}vel em:
+  $<$http://www.eng.auburn.edu/~agrawvd/COURSE/E7250\_05/REPORTS\_TERM/Dhingra\_LFSR.pdf$>$.
+  Acesso em: 19 set. 2019.}}
+
+\bibitem[Farrell e Moreira 2006]{Farrel2006}
+\abntrefinfo{Farrell e Moreira}{FARRELL; MOREIRA}{2006}
+{FARRELL, J.~C.; MOREIRA, P.~G. \emph{Essentials of Error-Control Conding}.
+  Upper Saddle River: John Wiley \& Sons, 2006.}
 
 \bibitem[FERREIRA 2009]{Ferreira2009}
 \abntrefinfo{FERREIRA}{FERREIRA}{2009}
@@ -60,22 +64,25 @@ Dispon{\'\i}vel em:
 118~p. Disserta??o (Mestrado em Engenharia Elétrica) --- UNIVERSIDADE FEDERAL
   do Rio de Janeiro, Rio de Janeiro, 2009.}
 
+\bibitem[Floyd 2009]{Floyd2002}
+\abntrefinfo{Floyd}{FLOYD}{2009}
+{FLOYD, T.~L. \emph{Digital Fundamentals}. New Delhi: Pearson, 2009. 497~p.}
+
 \bibitem[Garver 1970]{garver_sept70}
-\abntrefinfo{Garver}{GARVER}{1970a}
+\abntrefinfo{Garver}{GARVER}{1970}
 {GARVER, L.~L. Transmission linear programming.
 \emph{IEEE Transactions on Power Apparatus and Systems}, Rio de Janeiro,
   PAS-29, n.~9, p. 168--197, Dec. 1970.}
-
-\bibitem[Garver 1970]{llgarver_sept70}
-\abntrefinfo{Garver}{GARVER}{1970b}
-{GARVER, L.~L. Transmission network estimation using linear programming.
-\emph{IEEE Transactions on Power Apparatus and Systems}, São Paulo, PAS-89,
-  n.~7, p. 1688--1697, Sep. 1970.}
 
 \bibitem[Ghatak e Thyagarajan 1998]{ghatak1998}
 \abntrefinfo{Ghatak e Thyagarajan}{GHATAK; THYAGARAJAN}{1998}
 {GHATAK, A.; THYAGARAJAN, K. \emph{An Introduction to Fiber Optics}. [S.l.]:
   Cambridge University Press, 1998.}
+
+\bibitem[Kerl 2004]{John2004}
+\abntrefinfo{Kerl}{KERL}{2004}
+{KERL, J. \emph{Computation in finite fields}. [s.n.], 2004. Dispon{\'\i}vel
+  em: $<$http://johnkerl.org/doc/ffcomp.pdf$>$. Acesso em: 20 setembro 2018.}
 
 \bibitem[Machado e Maia 2007]{machado}
 \abntrefinfo{Machado e Maia}{MACHADO; MAIA}{2007}
@@ -89,24 +96,38 @@ Jul 2016.
 General Photo.
 Dispon{\'\i}vel em: $<$https://cds.cern.ch/record/2197559$>$.}
 
+\bibitem[Moreno 2010]{Robson2010}
+\abntrefinfo{Moreno}{MORENO}{2010}
+{MORENO, R.~L.
+\emph{Implementação em FPGA de uma Arquitetura Reed-Solomon para Uso em
+  Comunicações Ópticas}.
+68~p. Disserta??o (Mestrado em Automação e Sistemas Elétricos Industriais) ---
+  UNIVERSIDADE FEDERAL DE ITAJUBÁ, UNIFEI, Itajubá - MG, 2010.}
+
+\bibitem[Orfanelli 2019]{orfanelli}
+\abntrefinfo{Orfanelli}{ORFANELLI}{2019}
+{ORFANELLI, S. Pixel detector for cms upgrade. In:  \emph{Proceedings of
+  Science, The 27th International Workshop on Vertex Detectors (VERTEX2018)}.
+  [S.l.: s.n.], 2019. v.~348, n.~021.}
+
 \bibitem[RANDALL 2013]{Randal2013}
 \abntrefinfo{RANDALL}{RANDALL}{2013}
 {RANDALL, L. \emph{BATENDO À PORTA DO CÉU: O BÓSON DE HIGGS E COMO A FÍSICA
   MODERNA ILUMINA O UNIVERSO}. São Paulo: Companhia das Letras, 2013. 576~p.}
+
+\bibitem[Silva 2011]{Daniel2011}
+\abntrefinfo{Silva}{SILVA}{2011}
+{SILVA, D. C.~C. e.
+\emph{Estudo da Codificação de Rede e Análise do seu Desempenho com Fonte de
+  Tráfego HTTP}.
+98~p. Disserta??o (Mestrado em Telecomunicações) --- Instituto Nacional de
+  Telecomunicações, INATEL, Santa Rita do Sapucaí - MG, 2011.}
 
 \bibitem[Sklar 1988]{Sklar1988}
 \abntrefinfo{Sklar}{SKLAR}{1988}
 {SKLAR, B. \emph{Digital Communications: Fundamentals and Applications}. Upper
   Saddle River, NJ, USA: Prentice-Hall, Inc., 1988.
 ISBN 0-13-211939-0.}
-
-\bibitem[Song et al. 2006]{servidores}
-\abntrefinfo{Song et al.}{SONG et al.}{2006}
-{SONG, X.; STINSON, M.; LEE, R.; ALBEE, P. An approach to analyzing the windows
-  and linux security models. In:  \emph{COMPUTER AND INFORMATION SCIENCE, 2006
-  AND 2006 1st IEEE/ACIS INTERNATIONAL WORKSHOP ON COMPONENT-BASED SOFTWARE
-  ENGINEERING, SOFTWARE ARCHITECTURE AND REUSE. ICIS-COMSAR 2006. 5th IEEE/ACIS
-  INTERNATIONAL CONFERENCE}. [S.l.: s.n.], 2006. p. 56 --62.}
 
 \bibitem[SPRACE 2019]{Sprace2019}
 \abntrefinfo{SPRACE}{SPRACE}{2019}
@@ -124,7 +145,7 @@ Dispon{\'\i}vel em: $<$http://sprace.org.br$>$. Acesso em: 15 set. 2018.}
 \abntrefinfo{TOMEI}{TOMEI}{2012}
 {TOMEI, T. F.~P.
 \emph{Busca por dimensões extras no detector CMS do Large Hadron Collider}.
-Tese (Tese(doutorado)) --- Universidade Estadual Paulista, Instituto de Física
+Tese (doutorado) --- Universidade Estadual Paulista, Instituto de Física
   Teórica, São Paulo, 2012. Disponível em:
   <http://hdl.handle.net/11449/102537>.}
 
@@ -133,6 +154,6 @@ Tese (Tese(doutorado)) --- Universidade Estadual Paulista, Instituto de Física
 {WIKIPÉDIA. \emph{GRANDE COLISOR DE HÁDRONS}. 2019.
 Dispon{\'\i}vel em:
   $<$https://pt.wikipedia.org/wiki/Grande\_Colisor\_de\_Hádrons$>$. Acesso em: 15
-  set. 2019.}}
+  set. 2019.}
 
 \end{thebibliography}

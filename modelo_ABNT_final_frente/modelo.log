@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex 2019.10.26)  4 NOV 2019 15:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex 2019.10.26)  4 NOV 2019 23:04
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -689,7 +689,7 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
 (./siglas/listadesiglas.tex [9
 
 ]
-Overfull \hbox (12.58388pt too wide) in paragraph at lines 10--102
+Overfull \hbox (17.05971pt too wide) in paragraph at lines 10--127
 [] 
  []
 
@@ -718,52 +718,68 @@ File: ./capitulo_1/L1TT.eps Graphic file (type eps)
 
 <./capitulo_1/L1TT.eps> [19]
 File: ./capitulo_1/lpgbtSchematic.eps Graphic file (type eps)
- <./capitulo_1/lpgbtSchematic.eps> [20])
-(./capitulo_2/capitulo_2.tex [21]
+ <./capitulo_1/lpgbtSchematic.eps> [20]
+File: ./capitulo_1/archLpGBT.eps Graphic file (type eps)
+
+<./capitulo_1/archLpGBT.eps> [21] [22]) (./capitulo_2/capitulo_2.tex [23]
+[24]
 Cap\'{\i }tulo 2.
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 21.
-LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <24.88> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 21.
-File: ./capitulo_2/tux-linux.eps Graphic file (type eps)
-<./capitulo_2/tux-linux.eps> [22
+[25
 
-] [23]) (./capitulo_3/capitulo_3.tex [24]
+] [26] [27]) (./capitulo_3/capitulo_3.tex [28] [29]
 Cap\'{\i }tulo 3.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 70.
-(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-) [25
+File: ./capitulo_3/sfr.eps Graphic file (type eps)
+<./capitulo_3/sfr.eps>
+File: ./capitulo_3/models_lfsr.eps Graphic file (type eps)
+ <./capitulo_3/models_lfsr.eps> [30
 
-])
-(./capitulo_4/capitulo_4.tex
-Overfull \vbox (4.11192pt too high) has occurred while \output is active []
+] [31]
+File: ./capitulo_3/maximal_length_lfsr.eps Graphic file (type eps)
 
-
-[26]
+<./capitulo_3/maximal_length_lfsr.eps> [32]
+File: ./capitulo_3/fibonaccilfsr.eps Graphic file (type eps)
+ <./capitulo_3/fibonaccilfsr.eps>
+[33]
+File: ./capitulo_3/fibonaccilfsr_simple.eps Graphic file (type eps)
+ <./capitulo_3/fibonaccilfsr_simple.eps>
+File: ./capitulo_3/galoislfsr.eps Graphic file (type eps)
+ <./capitulo_3/galoislfsr.eps>
+[34]
+File: ./capitulo_3/galoislfsr_simple.eps Graphic file (type eps)
+ <./capitulo_3/galoislfsr_simple.eps>
+Missing character: There is no ú in font zptmcm7t!
+Missing character: There is no á in font zptmcm7t!
+ [35]) (./capitulo_4/capitulo_4.tex
+[36]
 Cap\'{\i }tulo 4.
-[27
+[37
 
 ]) (./capitulo_5/capitulo_5.tex
 Cap\'{\i }tulo 5.
-[28
+[38
 
 ]) (./capitulo_6/capitulo_6.tex
 Cap\'{\i }tulo 6.
-[29
+[39
 
 ]) (./modelo.bbl
-Underfull \hbox (badness 1248) in paragraph at lines 44--49
+Underfull \hbox (badness 1248) in paragraph at lines 40--45
 \T1/ptm/m/it/12 grade of the Com-pact Muon So-le-noid\T1/ptm/m/n/12 . 2019. Dis
 -po-ní-vel em: 
  []
 
-[30
 
-]) (./apa/apa.tex [31]
+Overfull \hbox (38.09644pt too wide) in paragraph at lines 48--54
+\OML/ztmcm/m/it/12 <$\T1/ptm/m/n/12 http://www.eng.auburn.edu/ agrawvd/COURSE/E
+7250_05/REPORTS_TERM/Dhingra_LFSR.pdf$\OML/ztmcm/m/it/12 >$\T1/ptm/m/n/12 . 
+ []
+
+[40
+
+]) (./apa/apa.tex [41]
 Apendice A.
 File: ./apa/linus_torvalds.eps Graphic file (type eps)
-<./apa/linus_torvalds.eps>) (./apb/apb.tex [32
+<./apa/linus_torvalds.eps>) (./apb/apb.tex [42
 
 ]
 Apendice B.
@@ -775,31 +791,31 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 Underfull \vbox (badness 10000) detected at line 100
  []
 
-[33
+[43
 
 ]
 Overfull \vbox (4.11192pt too high) has occurred while \output is active []
 
 
-[34])
+[44])
 Overfull \vbox (4.11192pt too high) has occurred while \output is active []
 
 
-[35] (./modelo.ind)
+[45] (./modelo.ind)
 +-------------------------------------------------------------------+
 | Comentario, sugestao ou critica sobre o abnTeX? Entre em contato: |
 |                  http://abntex.codigolivre.org.br                 |
 +-------------------------------------------------------------------+
-[36
+[46
 
 ] (./modelo.aux) ) 
 Here is how much of TeX's memory you used:
- 6773 strings out of 492983
- 95716 string characters out of 6134921
- 220799 words of memory out of 5000000
- 10029 multiletter control sequences out of 15000+600000
- 58968 words of font info for 114 fonts, out of 8000000 for 9000
+ 6789 strings out of 492983
+ 95960 string characters out of 6134921
+ 220980 words of memory out of 5000000
+ 10042 multiletter control sequences out of 15000+600000
+ 55287 words of font info for 111 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  36i,12n,41p,1090b,490s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on modelo.dvi (38 pages, 85652 bytes).
+Output written on modelo.dvi (48 pages, 118756 bytes).

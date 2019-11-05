@@ -24,6 +24,8 @@ I was expecting a `,' or a `}'---line 149 of file ./bibliografia/bibliografia1.b
  :  title         = {Technical proposal}
  :                                      ",
 I'm skipping whatever remains of this entry
+Warning--entry type for "Sachin2018" isn't style-file defined
+--line 256 of file ./bibliografia/bibliografia1.bib
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
@@ -34,45 +36,45 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 | Em caso de d?vidas ou problemas com este estilo procure |
 | http://abntex.codigolivre.org.br                        |
 +---------------------------------------------------------+
-You've used 22 entries,
+You've used 25 entries,
             6480 wiz_defined-function locations,
-            1292 strings with 12682 characters,
-and the built_in function-call counts, 16211 in all, are:
-= -- 1286
-> -- 546
-< -- 17
-+ -- 269
-- -- 163
-* -- 1150
-:= -- 2202
-add.period$ -- 82
-call.type$ -- 23
-change.case$ -- 196
-chr.to.int$ -- 38
-cite$ -- 19
-duplicate$ -- 762
-empty$ -- 1276
-format.name$ -- 851
-if$ -- 3873
-int.to.chr$ -- 3
+            1322 strings with 13330 characters,
+and the built_in function-call counts, 17733 in all, are:
+= -- 1401
+> -- 573
+< -- 13
++ -- 273
+- -- 174
+* -- 1234
+:= -- 2434
+add.period$ -- 97
+call.type$ -- 26
+change.case$ -- 208
+chr.to.int$ -- 39
+cite$ -- 22
+duplicate$ -- 850
+empty$ -- 1468
+format.name$ -- 892
+if$ -- 4242
+int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 386
-newline$ -- 104
-num.names$ -- 95
-pop$ -- 416
+missing$ -- 446
+newline$ -- 118
+num.names$ -- 110
+pop$ -- 492
 preamble$ -- 1
-purify$ -- 73
+purify$ -- 81
 quote$ -- 0
-skip$ -- 996
+skip$ -- 1068
 stack$ -- 1
-substring$ -- 535
-swap$ -- 393
-text.length$ -- 11
+substring$ -- 530
+swap$ -- 418
+text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 6
+type$ -- 13
 warning$ -- 0
-while$ -- 122
+while$ -- 138
 width$ -- 0
-write$ -- 315
+write$ -- 360
 (There was 1 error message)

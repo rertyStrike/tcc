@@ -1,99 +1,170 @@
 %\setlength{\headsep}{1.5cm} % Distância entre a margem superior do quadro do texto e o cabeçalho.
-\chapter{SERVIDORES LINUX}
-\label{chapter:servidores_linux}
+\chapter{LINEAR FEEDBACK SHIFT REGISTERS}
+\label{chapter:lfsr}
 \vspace{-2cm}
 
 Neste capítulo serão tratados alguns tipos de servidores que poe ser configurado no linux através de módulos pré-instalados e configurados.
 
 %\section{TIPOS DE SERVIDORES CONSIDERADOS NECESSÁRIO PARA O CORRETO USO DO LINUX COM COMANDOS FANTÁSTICOS}
-\sectionmark{\protect\parbox{.9\textwidth}{TIPOS DE SERVIDORES CONSIDERADOS NECESSÁRIO PARA O CORRETO USO DO LINUX COM COMANDOS FANTÁSTICOS}}
-\label{sec:tipos_serv}
+%\sectionmark{\protect\parbox{.9\textwidth}{TIPOS DE SERVIDORES CONSIDERADOS NECESSÁRIO PARA O CORRETO USO DO LINUX COM COMANDOS FANTÁSTICOS}}
+%\label{sec:tipos_serv}
 %\sectionmark{\protect\parbox{.9\textwidth}{Tipos de Servidores Considerados Necessário Para o Correto Uso do Linux com Comandos Fantásticos}} % Serve para quebrar a linha do cabeçalho qaundo o título da seção for muito grande. O ideal é ter títulos de seções não muito grandes que não possa caber em uma linha.
 %\sectionmark{\protect\parbox{.3\textwidth}{Tipos de Servidores}} % coloca no cabeçalho apenas um resumo do título da seção. Veja que este fato não interfere no título da seção e no que irá aparecer no SUMÁRIO. .3 acima significa que este resumo irá utilizar apenas 30\% da linha do cabeçalho. 
 
-Como foi dito ... 
+Um \textit{Linear Feedback Shift Register} (LFSR) são descritos com base na álgebra de campos finitos, possuindo 2 formas: por meio de polinômios e a outra por meio de matrizes. Para analisar o comportamento básico do sistema pode-se utilizar primeiramente uma abordagem bit a bit, o qual refere-se ao comportamento sistema explicitando os seus componentes e funcionalidade. 
 
-\subsection{Anexando Documentos}
+Um registrador de deslocamento (\textit{shift register}) é um circuito digital que pode tanto armazenar dados, bem como movê-los. O armazenamento dos dados é feito por meio de \textit{flip-flops}, como por exemplo o do tipo D. Quando um sinal de \textit{clock} é enviado ao circuito, os \textit{flip-flops} armazenam o valor de entrada a cada estágio. Determinada saída de uma célula está conectada na entrada da próxima, desta forma os bits são propagados de um lado para o outro até encontrar a saída do sistema na última célula \cite{Floyd2002}. Um  shift register é ilustrado na \ref{sfr}.
 
-Foram anexados os seguintes documentos.
+%\begin{figure}[htbp]
+\begin{figure}[H]
+	\tiny \caption{\small Esquema de um registrador de deslocamento (\textit{shift register}). \label{sfr}}
+	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
+	\vspace{-0.3 cm}
+	\begin{center}
+		\begin{psfrags}
+			\epsfxsize=4cm
+			\centerline{\includegraphics[width=16.0 cm]{./capitulo_3/sfr.eps}}
+		\end{psfrags}
+		{\small Fonte: Elaborado pelo Autor}
+	\end{center}
+\end{figure}
 
-\subsubsection{Documento Formulário}
+Ao inserir uma realimentação no sistema \textit{shift register}, altera-se a sua entrada e consequentemente os seus estados. A introdução da realimentação gera um sistema LFSR, porém este procedimento deve ser feito de acordo com algumas regras quando deseja-se obter uma determinada propriedade na saída.
 
-Atualmente com a evolução da tecnologia, ...
+Esta realimentação é implementada adicionando portas XOR, juntamente com \textit{flip-flops} como ilustrado na \ref{model_lfsr}. Cada porta XOR inserida no sistema é denominado de \textit{tap}, definindo um padrão nos dados de saída além de gerar um polinômio característico do LFSR.
 
-A tabela abaixo é uma tabela de exemplo de ...
+%\begin{figure}[htbp]
+\begin{figure}[H]
+	\tiny \caption{\small Tipos de sistemas \textit{Linear Feedback Shift Registers}. \label{model_lfsr}}
+	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
+	\vspace{-0.3 cm}
+	\begin{center}
+		\begin{psfrags}
+			\epsfxsize=4cm
+			\centerline{\includegraphics[width=16.0 cm]{./capitulo_3/models_lfsr.eps}}
+		\end{psfrags}
+		{\small Fonte: Elaborado pelo Autor}
+	\end{center}
+\end{figure}
 
-\begin{table}[htbp]
-\begin{minipage}[b]{0.63\linewidth}
-\begin{spacing}{-0.5}
-\caption{\label{tab:Resultado-Linear}Resultado para o sistema IEEE de 24 barras considerando alocações de elementos sugeridos pelo operador do sistema}
-\end{spacing}
-\end{minipage}
-\begin{centering}
-\begin{tabular}{c|c|c|c}
-\cline{2-4}
-\multicolumn{1}{c|}{} &   Estágio 1   &   Estágio 2   & Estágio 3    \tabularnewline
-\hline
-\multirow{3}{*}{}     &  $n_{6-10}=1$ & $n_{20-23}=1$ & $n_{1-5}=1$\tabularnewline
-%\cline{2-4}
-Número de linhas      &   $n_{7-8}=2$ &               & $n_{3-24}=1$\tabularnewline
-%\cline{2-4}
-      $n_{ij}$        & $n_{10-12}=1$ &               &             \tabularnewline
-%\cline{2-4}
-\multirow{3}{*}{}     & $n_{11-13}=1$ &               &             \tabularnewline
-\hline
-%\hline
-\multicolumn{4}{c}{Função Objetivo $v$ = 220.2860}\tabularnewline
-\hline
-\multicolumn{4}{l}{\small{Fonte: Dados da pesquisa do autor.}}\tabularnewline
-\end{tabular}
-%\\
-%{\small{Fonte: o próprio autor}}
-\par\end{centering}
-\end{table}
+A cada porta XOR inserida no sistema, indica uma expressão matemática ou um polinômio. Cada LFSR possui um padrão na geração dos bits de saída, ou seja, os dados na saída não são puramente aleatórios possuindo um ciclo de repetição. Este padrão é determinado de acordo com o número de estágios e as ligações na realimentação, ou seja, cada esquema (polinômio) implementado possui um padrão no dado da saída. Portanto, a cada ciclo o dado começa a ser repetido e o comprimento deste ciclo é dado por $2^{n} - 1$, em que $n$ é o número de \textit{shift registers} usados no sistema. Porém, para se obter o máximo comprimento no circuito deve-se usar os polinômios primitivos, ou seja, inserir determinados \textit{taps} em  estágios específicos para produzirem o máximo comprimento. 
 
-O documento formulário...\cite{servidores}.
+A teoria de campos finitos é utilizada para definir quando um polinômio é ou não primitivo. No capítulo \ref{cap:galois} é descrito como obter um polinômio primitivo, ou seja, um polinômio irredutível. Normalmente, estes polinômios são utilizados para construir circuitos geradores de números aleatórios, pelo fato de ocuparem um espaço menor quando comparado com os circuitos desenvolvidos com contadores.
 
-Agora segundo Carlinhos \citeonline{servidores} estamos todos no mesmo barco.
+Na tabela da \ref{maxlfsr} é esboçado alguns polinômios primitivos para 4, 8, 16, e 32 estágios. Observa-se pela tabela que há vários polinômios, ou \textit{taps}, para o mesmo número de \textit{flip flops} porém só há um polinômio primitivo que produz o máximo ciclo no sistema. Estes polinômios são os mesmos para as configurações Fibonacci e Galois. 
 
-\noindent Se você tiver comentários, sugestões ou críticas referentes à
-classe ou aos estilos bibTeX, por favor entre em contato com o grupo
-abnTeX no Código Livre, através da nossa página
+\begin{figure}[H]
+	\tiny \caption{\small Tabela de polinômios com máximo comprimento para circuitos LFSR (\textit{shift register}). \label{maxlfsr}}
+	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
+	\vspace{-0.3 cm}
+	\begin{center}
+		\begin{psfrags}
+			\epsfxsize=4cm
+			\centerline{\includegraphics[width=16.0 cm]{./capitulo_3/maximal_length_lfsr.eps}}
+		\end{psfrags}
+		{\small Fonte: Adaptado de \citeonline{Abinaya2014}}
+	\end{center}
+\end{figure}
+
+Deve-se notar que há algumas regras para a escolha do polinômio primitivo que será implementado pelo circuito LFSR. Estas regras são descritas em \cite{Abinaya2014} e possuem as seguintes características:
+
+\begin{itemize}
+	\item O número $1$ descrito nos polinômios da tabela da \ref{maxlfsr} não correspondem à um \textit{tap} e sim à entrada para o primeiro estágio do sistema.
+	\item Os exponentes dos termos do polinômio correspondem aos estágios, e a sua contagem normalmente é feita da esquerda para a direita. Porém, nem todo sistema pode ser montado desta forma. 
+	\item Um LFSR só terá comprimento máximo se o número de \textit{taps} for par. Somente 2 ou 4 \textit{taps} pode ser suficiente para gerar longas sequências.
+	\item O número do conjunto de \textit{taps}, tomados ao todo, deve ser relativamente primo. Em outras palavras, o polinômio tomado deve ser primitivo.
+	\item Depois que um polinômio primitivo for encontrado, outro segue automaticamente. Se os exponentes em um sistema LFSR com $ n $ estágios são da forma [n, A, B, C, 0], onde o 0 corresponde ao termo $1$, então a sequência 'espelho' correspondente é [n, n-C, n-B, n-A, 0]. Assim, com uma sequência igual a [32, 7,3, 2 e 0] pode-se produzir a sua contraparte igual a [32, 30, 29, 25, 0]. Ambos dão uma sequência de comprimento máximo.
+\end{itemize}
 
 
-Dentre o que foi implementado por esta classe, destacamos
+\section{Fibonacci Linear Feedback Shift Registers}
 
-\def\descrtype{descriptionit}
-\begin{description}
+Um sistema LFSR Fibonacci é uma das formas de criar um LFSR a partir de um \textit{shift register}. A realimentação de sistemas Fibonacci LFSR é caracterizada como externa, uma vez que no caminho da mesma encontra-se portas XOR's. Um esquema da realimentação em circuitos fibonacci é ilustrado na \ref{fibonacci}
 
-\item[Folha de rosto e capa] Um mecanismo semelhante ao
-  \texttt{\bs maketitle} para sua folha de rosto e capa.
+\begin{figure}[H]
+	\tiny \caption{\small Esquema de um registrador de deslocamento (\textit{shift register}). \label{fibonacci}}
+	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
+	\vspace{-0.3 cm}
+	\begin{center}
+		\begin{psfrags}
+			\epsfxsize=4cm
+			\centerline{\includegraphics[width=16.0 cm]{./capitulo_3/fibonaccilfsr.eps}}
+		\end{psfrags}
+		{\small Fonte: Elaborado pelo Autor}
+	\end{center}
+\end{figure}
 
-\item[Resumo e abstract] Use os ambientes
-  \texttt{resumo} e 
-  \texttt{abstract} para a
-  correta formatação destas partes do texto. 
-  
-\item[Anexos e apêndices] Use os comandos \texttt{\bs anexo} ou
-  \texttt{\bs apendice}, e depois comandos \texttt{\bs chapter} para gerar
-  os títulos de anexos e apêndices.
-  Veja seção 6 para como personalizar
-  títulos destas partes. 
-  
-\item[Espaçamento entrelinhas] Este item é automaticamente
-  tratado pela classe, descrito em cosmopolita.
-  
-\item[Numeração das páginas] Como descrito em
-  mandrack, a partir da folha de rosto, todas as
-  páginas são contadas mas não numeradas, e a numeração aparece somente na
-  parte textual. Isso é feito pela classe. Outros estilos de numeração
-  serão discutidos na seção 5.
-  
-\item[Cabeçalhos de página] De acordo com a norma, a numeração da página
-  aparece no canto superior direito de todas as páginas a partir da parte
-  textual armagedon. Veja
-  seção 45 para detalhes.
-\end{description}
+Desta forma, pode-se simplificar a representação de um fibonacci LFSR uma vez que é conhecido a existência de seus estágios e ligações XOR. Uma representação simplificada é ilustrada na \ref{Simplefibonacci}. Cada estágio é representado pelo símbolo $ S_{j}[k]$ e a ligação entre o estágio e a realimentação, feito por meio de portas XOR's, é representado por $b_{j}$ o qual pode ser $0$ ou $1$. O $j$ especifica o estágio e o $k$ o período que está sendo referido.
+
+\begin{figure}[H]
+	\tiny \caption{\small Esquema de um sistema (\textit{Fibonacci Linear Feedback Shift Register}). \label{Simplefibonacci}}
+	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
+	\vspace{-0.3 cm}
+	\begin{center}
+		\begin{psfrags}
+			\epsfxsize=4cm
+			\centerline{\includegraphics[width=16.0 cm]{./capitulo_3/fibonaccilfsr_simple.eps}}
+		\end{psfrags}
+		{\small Fonte: Elaborado pelo Autor}
+	\end{center}
+\end{figure}
+
+A entrada do sistema representado na \ref{Simplefibonacci} pode ser definido pela expressão matemática:
+
+$$ u[k] = \bigoplus_{j = 0}^{N - 1} b_{j}S_{j}[k] $$
+
+O símbolo $ \bigoplus $ significa uma operação XOR com todas as entradas no mesmo tempo. Desta forma, na \ref{Simplefibonacci} as variáveis $ b_{j} $ são definidas como: $ b_{2} = b_{4} = 1 $ e $ b_{0} = b_{3} = b_{0} = b_{1} = 0 $. Portanto, a equação da entrada é definida como $ u[k] = S_{4}[k] \bigoplus S_{2}[k] = u[k-5] \bigoplus u[k-3] $ e a saída é simplesmente a entrada atrasada o número de estágios no LFSR, ou seja, neste caso a saída é atrasada 5 períodos obtendo a equação $y[k] = u[k-5] = y[k-5] \bigoplus y[k-3] $. 
+
+\section{Galois Linear Feedback Shift Registers}
+
+O outro tipo de sistema que pode ser construído realimentando um \textit{shift register} é o Galois LFSR. A realimentação destes sistemas é caracterizada como interna, uma vez que as portas XOR's estão no caminho entre os \textit{flips flops} ao invés de estarem na realimentação. Um esquema de circuitos Galois LFSR é ilustrado na \ref{galois_lfsr}
+
+\begin{figure}[H]
+	\tiny \caption{\small Esquema de um sistema (\textit{Galois Linear Feedback Shift Register}). \label{galois_lfsr}}
+	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
+	\vspace{-0.3 cm}
+	\begin{center}
+		\begin{psfrags}
+			\epsfxsize=4cm
+			\centerline{\includegraphics[width=16.0 cm]{./capitulo_3/galoislfsr.eps}}
+		\end{psfrags}
+		{\small Fonte: Elaborado pelo Autor}
+	\end{center}
+\end{figure}
+
+Desta forma, pode-se simplificar a representação de um Galois LFSR uma vez que é conhecido a existência de seus estágios e ligações XOR. Uma representação simplificada é ilustrada na \ref{Simplegalois}. Cada estágio é representado pelo símbolo $ S_{j}[k]$ e a ligação entre o estágio e a realimentação, feito por meio de portas XOR's, é representado por $a_{j}$ o qual pode ser $0$ ou $1$. O $j$ especifica o estágio e o $k$ em qual período está sendo referido.
+
+\begin{figure}[H]
+	\tiny \caption{\small Esquema simplificado de um sistema (\textit{Galois Linear Feedback Shift Register}). \label{Simplegalois}}
+	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
+	\vspace{-0.3 cm}
+	\begin{center}
+		\begin{psfrags}
+			\epsfxsize=4cm
+			\centerline{\includegraphics[width=16.0 cm]{./capitulo_3/galoislfsr_simple.eps}}
+		\end{psfrags}
+		{\small Fonte: Elaborado pelo Autor}
+	\end{center}
+\end{figure}
+
+Na representação de Galois de um LFSR, a entrada $u$ é setada para $0$ mas somente os estágios que possuem uma porta XOR ligada na saída podem alterar os bits transmitidos. Portanto, a saída $y[k]$ do LFSR  representado na \ref{Simplegalois} pode ser definida como:
+
+$$ S_{j}[k] = S_{j-1}[k-1] \bigoplus a_{j}y[k-1] \quad para \quad j \quad > \quad 0 $$
+$$ S_{0}[k] = a_{0}y[k-1] $$
+$$ y[k] = S_{N-1}[k] \quad N: \quad número \quad de \quad estágios$$ 
+
+Desta forma, na \ref{Simplegalois} as variáveis $ a_{j} $ são definidas como: $ a_{0} = a_{2} = 1 $ e $ a_{1} = b_{3} = b_{4} = 0 $. Portanto, a equação dos estágios e da saída são definidas da forma:
+
+$$ S_{0}[k] = y[k-1]  $$
+$$ S_{1}[k] = S_{0}[k-1] = y[k-2]  $$
+$$ S_{2}[k] = S_{1}[k-1] \bigoplus y[k-1] = y[k-3] \bigoplus y[k-1] $$
+$$ S_{3}[k] = S_{2}[k-1]  =  y[k-4] \bigoplus y[k-2] $$
+$$ S_{4}[k] = S_{3}[k-1]  =  y[k-5] \bigoplus y[k-3] $$
+$$ y[k] = S_{4}[k] = y[k-5] \bigoplus y[k-3] $$
+
+Na configuração de Galois os estágios que não possuem \textit{taps} conectados, são deslocados uma posição para o próximo estágio. Os \textit{taps}, por outro lado, realizam uma operação XOR com o bit de saída do estágio antes de serem armazenados na próximo \textit{flip-flop}.O efeito disto é que quando o bit de saída é zero, todos os bits no registrador mudam para a direita inalterados, e o bit de entrada se torna zero. Quando o bit de saída é um, os bits nas posições da derivação são invertidos (se forem 0, eles se tornarão 1, e se forem 1, eles se tornarão 0). Desta forma, o registrador inteiro será deslocado para a direita e o bit de entrada torna-se 1.
+
+Um Fibonacci LFSR, na presença de muitos taps, opera em velocidades mais baixas quando comparado com os sistemas Galois LFSR. Isto ocorre pelo fato das diversas portas XOR no caminho da realimentação ocasionarem um \textit{delay} maior do que somente uma porta entre cada estágio descrito nos sistemas Galois LFSR. Porém, sistemas Fibonacci LFSR podem operar em velocidades altas como os Galois, se  existir no máximo uma porta XOR no caminho da realimentação \cite{Sachin2018}.
 
 
 

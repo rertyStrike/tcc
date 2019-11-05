@@ -1,68 +1,90 @@
-\chapter{SURGIMENTO E EVOLUÇÃO DO LINUX É UMA REVOLUÇÃO TECNOLÓGICA CAPAZ DE CONDUZIR MILHARES DE SERES NA TERRA COM CONSIÇÕES DE VIVER MELHOR.}
+\chapter{CAMPOS FINITOS (FINITE FIELDS).}
 \chaptermark{\protect\parbox{.5\textwidth}{SURGIMENTO E EVOLUÇÃO DO LINUX}}
-\label{cap:linux}
+\label{cap:galois}
 \vspace{-2cm}
 
-Neste capítulo será abordado o surgimento e a evolução do sistema operacional Linux.
+Uma noção básica de um campo finito pode ser explicitada como um conjunto que possui um número finito de elementos. Neste, define-se 2 operações, normalmente adição e multiplicação, possuindo as seguintes propriedades para qualquer campo $F$:
 
-\section{HISTÓRICO DO LINUX}
-\label{sec:linux}
+\begin{itemize}
+	\item Para qualquer elemento $a$,$b$ dentro de um conjunto $F$, as operações de adição e multiplicação são operações binárias em $F$.
+	\item Para qualquer elemento dentro do conjunto $F$ as propriedades associativas e distributivas devem serem mantidas. 
+	\item Para qualquer $a$,$b$ em $F$, as seguintes relações são mantidas: $a+b = b+a$ e $a.b = b.a$.
+	\item No conjunto $F$ o elemento identidade aditivo ($a + 0 = a$) e o multiplicativo ($a.1=a$) deve existir.
+	\item Para qualquer a,b e c em $F$ a igualdade $a.(b+c)=(a.b)+(a.c)$ deve ser mantida.
+\end{itemize}
 
-Atualmente, ... 
+Por fim pode-se definir campo com sendo um conjunto de elementos os quais é possível realizar as operações de adição, multiplicação, subtração e divisão, no qual o resultado sempre é um elemento do próprio campo. A adição e a multiplicação satisfazem as propriedades comutativa, associativa e distributiva \cite{Daniel2011}.
 
-Segundo \citeonline{machado}, o sistema operacional (SO), possui inúmeras funções, as quais podem ser resumidas em duas.
+Um exemplo de campo finito é o campo de Galois, descrito na próxima seção.
 
-\subsection{Ações}
+\section{Propriedades do Campo de Galois}
 
-\begin{itemize}
-\item \textbf{Facilidade de acesso aos recursos:} consiste em ser totalmente transparente ao usuário a maneira como funciona um computador \index{computador}, ou seja, para um usuário não importa como um arquivo que está em um disquete será lido, mas sim que o mesmo será lido, resumindo, um usuário não precisa saber como será realizado essa ação e suas inúmeras etapas;
-\end{itemize}
+Os campos Galois $GF(n)$ referem-se à um conjunto de $n$ elementos, fechado com relação às operações de adição e multiplicação. Pode-se enunciar que nos campos finitos todo elemento possui o seu inverso aditivo e multiplicativo, com exceção para o elemento nulo ($0$).
 
-\subsubsection{No Atual Momento}
-%\addcontentsline{toc}{subsubsection}{No atual momento}         % \theexnum}
+Um campo de Galois possui $ n = p^{q}$ elementos, porém não existe um campo de Galois para um número qualquer de elementos. Os campos de Galois são formados por um número primo de elementos ou por sua extensão, onde a extensão é uma potência do número primo, onde $p$ representa um número primo e $q$ é um número inteiro positivo. Os elementos são definidos por $n$, em que $GF(n) = {0,1, ....., n-1}$ sendo $n$ a sua ordem. 
 
-A Figura \ref{S.O.}, aparece na pagina \pageref{S.O.}, enquanto que
-a Figura \ref{torvalds} aparece na pagina \pageref{torvalds} 
+Um campo descrito por $GF(2)$ possui o seguinte formato: $GF(2) = {0,1} $. Desta forma, um campo de ordem $2$ possui somente dois elementos que são ${0,1}$, sendo denominado de campo binário. Portanto, um campo de Galois de ordem $q$ é um conjunto de $q$ elementos com duas operações binárias módulo-p.
 
+Para um campo da forma $GF(2)$, pela fórmula $n = p^{q}$, os coeficientes são definidos como: $p = 2$ e $q = 1$. As operações binárias de adição e multiplicação executadas dentro deste campo são em módulo - $2$ .
 
-%\begin{figure}[htbp]
-\begin{figure}[H]
-\tiny \caption{\small Ilustração do sistema operacional como interface entre o usuário e os recursos do sistema. \label{S.O.}}
-% o que está dentro do colchetes é o que aparecerá na lista de figuras.
-\vspace{-0.3 cm}
-\begin{center}
-\begin{psfrags}
-\epsfxsize=4cm
-\centerline{\includegraphics[width=4.0 cm]{./capitulo_2/tux-linux.eps}}
-\end{psfrags}
-{\small Fonte: Adaptado de \citeonline{llgarver_sept70}}
-\end{center}
-\end{figure}
+É definido como elemento primitivo, ou gerador, o elemento de ordem $(n - 1)$. As potências consecutivas do elemento primitivo gera todos os outros elementos do campo \cite{John2004}. 
 
-\newpage % para passar o exemplo de citação para a próxima página.
+\section{Polinômios Primitivos}\label{primitive:cap}
 
-Um exemplo prático -- extraído do texto original da norma NBR 10520 exatamente
-como estão lá -- como é digitado e seu respectivo resultado:
-\begin{citacao}
-A teleconferência permite ao indivíduo participar de um encontro
-nacional ou regional sem a necessidade de deixar seu local de
-origem. Tipos comuns de teleconferênia incluem o uso da televisão,
-telefone e computador. Através de áudio conferência, utilizando
-a companhia local de telefone, um sinal de áudio pode ser emitido
-em um salão de qualquer dimensão \cite[p.~23]{bandlimit}.
-\end{citacao}
+Uma condição para um polinômio $ f(x) $ de ordem $m$ ser primitivo é ele ser irredutível. A irredutibilidade ocorre quando um polinômio $ f(x) $ não for divisível por nenhum outro polinômio de grau inferior a ele e maior que 0. Um polinômio de grau 2 é irredutível se, somente se, ele não for divisível por polinômios de grau 1. 
 
-\newpage % para criar um novo modo de citação em uma nova página.
+Por exemplo o polinômio $ X^{2} + X + 1 $ é irredutível, porque ele não é divisível por $ X + 1 $, nem por $X$. Um polinômio irredutível (que não pode ser fatorado) $f(X)$ de ordem $m$ é primitivo se,somente se, o menor número inteiro positivo $n$, para o qual $f(X)$ é um divisor de $X^{n} + 1$, seja igual a: n = 2m ? 1 \cite{Farrel2006}.
 
-Um exemplo prático -- extraído do texto original da norma NBR 10520 exatamente
-como estão lá -- como é digitado e seu respectivo resultado:
-\begin{citacao}
-Segundo \citeonline[p.~23]{droms}, a teleconferência permite ao indivíduo participar de um encontro
-nacional ou regional sem a necessidade de deixar seu local de
-origem. Tipos comuns de teleconferênia incluem o uso da televisão,
-telefone e computador. Através de áudio conferência, utilizando
-a companhia local de telefone, um sinal de áudio pode ser emitido
-em um salão de qualquer dimensão.
-\end{citacao}
+\section{Construção dos Campos de Galois}
 
-Observe como fica o cabeçalho de um trabalho preparado para ser impresso frente e verso. \cite{bokhari}
+Os campos de Galois são construídos de acordo com um polinômio primitivo escolhido. Qualquer polinômio de grau m, define o campo finito GF($2^{m}$). Desta forma, $2^{m} = 24 = 16$ elementos no campo. Tomando o polinômio primitivo $p(x) = X^{4} + X + 1$.
+
+As $m$ raízes de um polinômio $p(x)$ de grau $m$, fornecem os seus elementos. As raízes do polinômio serão representadas por $\alpha$, então faz-se $p(\alpha) = 0$ para encontrar as respectivas raízes. Sendo assim pode-se escrever para o polinômio $p(x) = X4 + X + 1$:.
+
+$$p(\alpha) = 0$$
+$$\alpha^{4} + \alpha + 1 = 0$$
+$$\alpha^{4} = - \alpha - 1 $$
+
+Para um campo $GF(q)$ as operações de soma e subtração são realizadas da mesma forma, simplifica-se para: $\alpha^{4} = \alpha + 1$. Os elementos do campo $GF(2^{m})$ podem ser expressos em potência de $\alpha$, polinômios de degrau $(m - 1)$ ou também como vetor binário. A raiz $\alpha^{5}$ é expresso na forma polinomial abaixo:
+
+$$\alpha^{5} = \alpha.\alpha^{4} = \alpha(\alpha + 1)$$
+$$\alpha^{5} = \alpha + \alpha^{2}$$
+
+Repetindo esse processo podemos encontrar todos os $m$ elementos do $GF(2^{4})$ \cite{John2004}. 
+
+\section{Operações nos Campos de Galois}
+
+Em um campo finito as operações entre quaisquer elementos resultam em outro elemento dentro do mesmo campo. Em um campo pode ser realizadas as operações de adição, subtração, multiplicação e divisão. As operações de adição e multiplicação satisfazem as propriedades comutativa, associativa e distributiva. O elemento identidade para adição é o $0$ e para multiplicação é o $1$.
+
+Essas operações podem ser realizadas por portas lógicas, tabelas, flip-flops e registradores de deslocamento (\textit{Shift Registers}) \cite{John2004}.
+
+\subsection{Adição e Subtração}
+
+Para um campo $GF(m)$ a soma de dois elementos $i$ e $j$ é dado pelo resto da divisão $\dfrac{(i + j)}{m}$. Essa operação é chamada de adição módulo $m$. 
+
+A adição no módulo 2 é definida pelo campo $GF(2) = {0,1}$ e a sua operação é demonstrada abaixo:
+
+$$0 \bigoplus 0 = 0$$
+$$1 \bigoplus 1 = 0$$
+$$0 \bigoplus 1 = 1$$
+$$1 \bigoplus 0 = 1$$
+
+Assim para um campo com mais elementos $2^{m}$ a soma de quaisquer elementos tem que resultar em um outro elemento pertencente ao mesmo campo, pois o campo de Galois é um conjunto fechado. Para adição de um elemento representado na notação vetorial, é feita como uma adição elemento por elemento módulo 2. Observa-se que esta operação possui os mesmos resultados que uma porta lógica XOR, executada bit a bit nos vetores a serem adicionados:
+
+$$\alpha_{i} \bigoplus \alpha_{j} = (a_{i0} \bigoplus a_{j0}) + (a_{i1} \bigoplus a_{j1})X + (a_{i2} \bigoplus a_{j2})X^{2} + ... + (a_{i,m - 1} \bigoplus a_{j,m - 1})X^{m - 1}$$
+
+A subtração de elementos no campo de Galois é definida como sendo a mesma porta XOR, uma vez que na subtração de módulo - 2 $ - \alpha = \alpha$ então $\alpha^{n}  - \alpha^{j} = \alpha^{n} + \alpha^{j}$ \cite{Robson2010}.
+
+\subsection{Multiplicação e Divisão}
+A multiplicação entre dois elementos, $i$ e $j$, de um campo de ordem primária, m é dado por $\dfrac{(ij)}{m}$. Para o campo binário $GF(2)$ tem-se:
+
+$$0 \bigoplus 0 = 0$$
+$$1 \bigoplus 1 = 1$$
+$$0 \bigoplus 1 = 0$$
+$$1 \bigoplus 0 = 0$$
+
+A operação de multiplicação entre dois elementos pertencentes a $GF(2^{8})$ pode ser comparada às portas lógicas AND. A divisão de um elemento por outro é realizada multiplicando o elemento pelo inverso do outro que o divide. Portanto, pode-se representar a operação descrita com a equação abaixo: 
+
+$$X = \dfrac{\alpha^{i}}{\alpha^{j}}= \alpha^{i} \times \alpha^{- j} $$
+
+O inverso é obtido utilizando uma tabela que contém todos os elementos pertencentes ao campo e o seu respectivo inverso \cite{Robson2010}. 
