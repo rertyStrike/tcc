@@ -13,12 +13,28 @@
 \contentsline {chapter}{\numberline {3}LINEAR FEEDBACK SHIFT REGISTERS}{30}
 \contentsline {section}{\numberline {3.1}Fibonacci Linear Feedback Shift Registers}{33}
 \contentsline {section}{\numberline {3.2}Galois Linear Feedback Shift Registers}{34}
-\contentsline {chapter}{\numberline {4}NOVO CAPÍTULO...}{37}
-\contentsline {chapter}{\numberline {5}RESULTADOS E DISCUSSÕES}{38}
-\contentsline {chapter}{\numberline {6}CONCLUSÕES}{39}
-\contentsline {chapter}{\hspace {1.3cm}REFERÊNCIAS~~~~~~~~~~~~}{40}
-\contentsline {chapter}{\hspace {1.3cm}APÊNDICE{} A{} -{} LINUX}{42}
-\contentsline {section}{\hspace {1.3cm}APÊNDICE A.1 - HISTÓRICO DO LINUX}{42}
-\contentsline {chapter}{\hspace {1.3cm}APÊNDICE{} B{} -{} AINDA FALANDO DO LINUX}{43}
-\contentsline {section}{\hspace {1.3cm}APÊNDICE B.1 - MELHORIAS PARA O LINUX EM UM AMBIENTE COORPORATIVOS DE DUAS GRNDES FRNTES INTERPRETATIVAS}{43}
-\contentsline {chapter}{\hspace {1.3cm}ÍNDICE REMISSIVO~~~~~~~~~~~~\vspace {-0.3cm}}{46}
+\contentsline {chapter}{\numberline {4}SCRAMBLERS}{37}
+\contentsline {section}{\numberline {4.1}\textit {Scramblers} Aditivos (Synchronous)}{37}
+\contentsline {section}{\numberline {4.2}\textit {Scramblers} Multiplicativos (Self-Synchronizing)}{38}
+\contentsline {chapter}{\numberline {5}Descrição do Link Serial de Alta Velocidade}{41}
+\contentsline {section}{\numberline {5.1}Serializador}{42}
+\contentsline {section}{\numberline {5.2}Driver Amplificador}{42}
+\contentsline {section}{\numberline {5.3}Phase-Locked Loop (PLL)}{42}
+\contentsline {section}{\numberline {5.4}Equalizador}{44}
+\contentsline {section}{\numberline {5.5}Clock and Data Recovery (CDR)}{44}
+\contentsline {section}{\numberline {5.6}Desserializador}{45}
+\contentsline {section}{\numberline {5.7}Esquemas de Codificação}{46}
+\contentsline {chapter}{\numberline {6}SCRAMBLERS}{47}
+\contentsline {section}{\numberline {6.1}\textit {Scramblers} Aditivos (Synchronous)}{47}
+\contentsline {section}{\numberline {6.2}\textit {Scramblers} Multiplicativos (Self-Synchronizing)}{48}
+\contentsline {chapter}{\numberline {7}SCRAMBLERS}{51}
+\contentsline {section}{\numberline {7.1}\textit {Scramblers} Aditivos (Synchronous)}{51}
+\contentsline {section}{\numberline {7.2}\textit {Scramblers} Multiplicativos (Self-Synchronizing)}{52}
+\contentsline {chapter}{\numberline {8}RESULTADOS E DISCUSSÕES}{55}
+\contentsline {chapter}{\numberline {9}CONCLUSÕES}{56}
+\contentsline {chapter}{\hspace {1.3cm}REFERÊNCIAS~~~~~~~~~~~~}{57}
+\contentsline {chapter}{\hspace {1.3cm}APÊNDICE{} A{} -{} LINUX}{60}
+\contentsline {section}{\hspace {1.3cm}APÊNDICE A.1 - HISTÓRICO DO LINUX}{60}
+\contentsline {chapter}{\hspace {1.3cm}APÊNDICE{} B{} -{} AINDA FALANDO DO LINUX}{61}
+\contentsline {section}{\hspace {1.3cm}APÊNDICE B.1 - MELHORIAS PARA O LINUX EM UM AMBIENTE COORPORATIVOS DE DUAS GRNDES FRNTES INTERPRETATIVAS}{61}
+\contentsline {chapter}{\hspace {1.3cm}ÍNDICE REMISSIVO~~~~~~~~~~~~\vspace {-0.3cm}}{64}

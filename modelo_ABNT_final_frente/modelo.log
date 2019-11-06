@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex 2019.10.26)  4 NOV 2019 23:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex 2019.10.26)  6 NOV 2019 00:01
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -525,7 +525,26 @@ Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 
 
 Writing index file modelo.idx
-(./modelo.aux)
+(./modelo.aux
+
+LaTeX Warning: Label `additive_scrambler' multiply defined.
+
+
+LaTeX Warning: Label `scrambler_multi' multiply defined.
+
+
+LaTeX Warning: Label `multiplicative_scrambler' multiply defined.
+
+
+LaTeX Warning: Label `additive_scrambler' multiply defined.
+
+
+LaTeX Warning: Label `scrambler_multi' multiply defined.
+
+
+LaTeX Warning: Label `multiplicative_scrambler' multiply defined.
+
+)
 \openout1 = `modelo.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 264.
@@ -681,30 +700,33 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
 
  [8
 
-] (./modelo.lot)
+] [9] (./modelo.lot)
 \tf@lot=\write6
 \openout6 = `modelo.lot'.
 
 
-(./siglas/listadesiglas.tex [9
+(./siglas/listadesiglas.tex [10
 
 ]
-Overfull \hbox (17.05971pt too wide) in paragraph at lines 10--127
+Overfull \hbox (17.05971pt too wide) in paragraph at lines 10--144
 [] 
  []
 
-) (./simbolos/simbolos.tex [10
+) (./simbolos/simbolos.tex [11
 
-] [11
+]
+Overfull \vbox (40.56647pt too high) has occurred while \output is active []
 
-] [12]) [13] (./modelo.toc [14
+
+[12] [13
+
+] [14]) [15] (./modelo.toc [16
 
 ])
 \tf@toc=\write7
 \openout7 = `modelo.toc'.
 
- [15]
-(./capitulo_1/capitulo_1.tex
+ [17] (./capitulo_1/capitulo_1.tex
 Cap\'{\i }tulo 1.
 [16
 
@@ -754,32 +776,71 @@ Missing character: There is no á in font zptmcm7t!
 Cap\'{\i }tulo 4.
 [37
 
-]) (./capitulo_5/capitulo_5.tex
-Cap\'{\i }tulo 5.
-[38
+]
+File: ./capitulo_4/Scrambler_randomizer_additive.eps Graphic file (type eps)
+ <./capitulo_4/Scrambler_randomizer_additive.eps>
+File: ./capitulo_4/Scrambler_randomizer_multiplicative.eps Graphic file (type e
+ps)
 
-]) (./capitulo_6/capitulo_6.tex
+<./capitulo_4/Scrambler_randomizer_multiplicative.eps> [38] [39])
+(./capitulo_5/capitulo_5.tex [40]
+Cap\'{\i }tulo 5.
+File: ./capitulo_5/linkSerdes.eps Graphic file (type eps)
+<./capitulo_5/linkSerdes.eps> [41
+
+]
+File: ./capitulo_5/pllBasic.eps Graphic file (type eps)
+ <./capitulo_5/pllBasic.eps> [42] [43]
+File: ./capitulo_5/basCDR.eps Graphic file (type eps)
+
+<./capitulo_5/basCDR.eps> [44] [45]) (./capitulo_6/capitulo_6.tex [46]
 Cap\'{\i }tulo 6.
-[39
+[47
+
+]
+File: ./capitulo_4/Scrambler_randomizer_additive.eps Graphic file (type eps)
+ <./capitulo_4/Scrambler_randomizer_additive.eps>
+File: ./capitulo_4/Scrambler_randomizer_multiplicative.eps Graphic file (type e
+ps)
+
+<./capitulo_4/Scrambler_randomizer_multiplicative.eps> [48] [49])
+(./capitulo_7/capitulo_7.tex [50]
+Cap\'{\i }tulo 7.
+[51
+
+]
+File: ./capitulo_4/Scrambler_randomizer_additive.eps Graphic file (type eps)
+ <./capitulo_4/Scrambler_randomizer_additive.eps>
+File: ./capitulo_4/Scrambler_randomizer_multiplicative.eps Graphic file (type e
+ps)
+
+<./capitulo_4/Scrambler_randomizer_multiplicative.eps> [52] [53])
+(./capitulo_8/capitulo_8.tex [54]
+Cap\'{\i }tulo 8.
+[55
+
+]) (./capitulo_9/capitulo_9.tex
+Cap\'{\i }tulo 9.
+[56
 
 ]) (./modelo.bbl
-Underfull \hbox (badness 1248) in paragraph at lines 40--45
+Underfull \hbox (badness 1248) in paragraph at lines 49--54
 \T1/ptm/m/it/12 grade of the Com-pact Muon So-le-noid\T1/ptm/m/n/12 . 2019. Dis
 -po-ní-vel em: 
  []
 
 
-Overfull \hbox (38.09644pt too wide) in paragraph at lines 48--54
+Overfull \hbox (38.09644pt too wide) in paragraph at lines 57--63
 \OML/ztmcm/m/it/12 <$\T1/ptm/m/n/12 http://www.eng.auburn.edu/ agrawvd/COURSE/E
 7250_05/REPORTS_TERM/Dhingra_LFSR.pdf$\OML/ztmcm/m/it/12 >$\T1/ptm/m/n/12 . 
  []
 
-[40
+[57
 
-]) (./apa/apa.tex [41]
+] [58]) (./apa/apa.tex [59]
 Apendice A.
 File: ./apa/linus_torvalds.eps Graphic file (type eps)
-<./apa/linus_torvalds.eps>) (./apb/apb.tex [42
+<./apa/linus_torvalds.eps>) (./apb/apb.tex [60
 
 ]
 Apendice B.
@@ -791,31 +852,35 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 Underfull \vbox (badness 10000) detected at line 100
  []
 
-[43
+[61
 
 ]
 Overfull \vbox (4.11192pt too high) has occurred while \output is active []
 
 
-[44])
+[62])
 Overfull \vbox (4.11192pt too high) has occurred while \output is active []
 
 
-[45] (./modelo.ind)
+[63] (./modelo.ind)
 +-------------------------------------------------------------------+
 | Comentario, sugestao ou critica sobre o abnTeX? Entre em contato: |
 |                  http://abntex.codigolivre.org.br                 |
 +-------------------------------------------------------------------+
-[46
+[64
 
-] (./modelo.aux) ) 
+] (./modelo.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 6789 strings out of 492983
- 95960 string characters out of 6134921
- 220980 words of memory out of 5000000
- 10042 multiletter control sequences out of 15000+600000
+ 6850 strings out of 492983
+ 97184 string characters out of 6134921
+ 221286 words of memory out of 5000000
+ 10086 multiletter control sequences out of 15000+600000
  55287 words of font info for 111 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  36i,12n,41p,1090b,490s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on modelo.dvi (48 pages, 118756 bytes).
+Output written on modelo.dvi (68 pages, 169880 bytes).

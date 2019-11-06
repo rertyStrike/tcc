@@ -1,8 +1,96 @@
-\chapter{RESULTADOS E DISCUSSÕES}
-\label{cap:cap5}
+\chapter{Descrição do Link Serial de Alta Velocidade}
+\label{cap:serdes}
 \vspace{-2cm}
 
-Neste capítulo será apresentado os resultados...
+O modelo generalizado de um Link Serial de Alta Velocidade é ilustrado na figura \ref{serdeslink}, consiste em um serializador e transmissor (TX) acionado por um \textit{clock} proveniente de um PLL, um canal, um receptor (RX) e um desserializador acompanhado de uma unidade CDR (Clock-Data Recovery). O serializador aceita o fluxo de dados paralelo de entrada e o converte em um fluxo de dados serial, enviando-os ao transmissor \cite[p.~5]{ratan}.
+
+Pela Figura \ref{serdeslink}, o receptor compreende basicamente um amostrador cujo objetivo é coletar amostras do fluxo de bits dos dados recebidos do canal e recuperando tanto os dados transmitidos quanto o \textit{clock}. Quando o receptor recupera os bits seriais transmitidos, eles são enviados ao bloco desserializador, cuja tarefa é converter os dados seriais recebidos de volta à sua forma paralela original para futuras interfaces \cite[p.~6]{ratan}.
+
+%\begin{figure}[htbp]
+\begin{figure}[H]
+	\tiny \caption{\small Diagrama de bloco Típico de links de alta velocidade. \label{serdeslink}}
+	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
+	\vspace{-0.3 cm}
+	\begin{center}
+		\begin{psfrags}
+			\epsfxsize=4cm
+			\centerline{\includegraphics[width=16.0 cm]{./capitulo_5/linkSerdes.eps}}
+		\end{psfrags}
+		{\small Fonte: \citeonline[p.~11]{assaad}}
+	\end{center}
+\end{figure}
+
+O canal transporta o sinal de dados do transmissor para o receptor e pode ser elétrico, óptico ou uma combinação de ambos. Para comunicações com canal de longa distância, ele é uma fonte dominante de ruído, instabilidade de fase e \textit{jitter}. No entanto, para comunicações de curta distância é considerado uma fonte desprezível de ruído e instabilidade \cite{assaad}. Portanto, deve-se entender o funcionamento de cada bloco representado na Figura \ref{serdeslink}, para compreender a sua função para contornar os problemas das comunicações de alta velocidade.
+
+\section{Serializador}
+
+O circuito serializador converte os dados do barramento paralelo de entrada em um formato de fluxo de bits serial. É um bloco totalmente digital e antecede o circuito do driver do canal TX. Dentro do driver TX exige-se a adição de um amplificador de carga de saída de 50$\Omega$, ou, em certos casos, a adição de um circuito sofisticado capaz de fornecer sinal compatível a um óptico. Na maioria dos sistemas de comunicação, os dados são codificados primeiro. O processo de codificação pode incluir compactação, criptografia, verificação de erros e enquadramento. Basicamente, um serializador é essencialmente um circuito Multiplexador cujo \textit{clock} de acionamento para o processo de serialização é o sinal gerado pelo TX PLL. Serializadores também podem serem implementados usando \textit{shift registers} \cite{assaad}.
+
+\section{Driver Amplificador}
+
+Os amplificadores de driver são encontrados nas extremidades TX e RX. O DA (Driver Amplifier) é usado para amplificar o fluxo de bits serial de entrada antes de ser enviado ao receptor através do canal. Outra tarefa importante cumprida pelo DA é que ele fornece terminações de impedância que terminam a entrada ou saída do canal com impedância de 50$\Omega$.
+
+\section{Phase-Locked Loop (PLL)}
+
+Um PLL é um sistema de feedback negativo cujo único objetivo é usar um \textit{clock} de referência e gerar um \textit{clock} local no chip em uma frequência desejada, estando o \textit{clock} de saída em fase ao \textit{clock} de entrada. Os PLLs são usados em todos os sistemas modernos de alta velocidade. Os cristais piezoelétricos são 
+usados exclusivamente com \textit{clocks} de referência para quase todos os sistemas de interface no chip, pois possuem a mais alta pureza espectral e podem emitir sinais de \textit{clock} verdadeiramente periódicos e sem \textit{jitter}, tipicamente até 200 MHz \cite{assaad}. 
+
+Devido à demanda insaciável por sinalização robusta e de alta velocidade, um mero oscilador de cristal não é suficiente para atender aos requisitos necessários sendo necessário um PLL. Portanto, este sistema produz sinais de \textit{clock} com ruído de tempo mínimo, isto é, com o menor \textit{jitter} possível (no domínio do tempo) e ruído de fase (no domínio da frequência). No nível de bloco, um PLL típico possui 3 componentes básicos: \textit{phase-dectector}, \textit{loop filter} e  um \textit{voltage-controlled oscillator} (VCO) \cite[p.~603]{Sklar1998}. Na Figura \ref{pllBlock} é ilustrado um esquema de um PLL básico.
+
+%\begin{figure}[htbp]
+\begin{figure}[H]
+	\tiny \caption{\small Esquemático de um PLL básico. \label{pllBlock}}
+	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
+	\vspace{-0.3 cm}
+	\begin{center}
+		\begin{psfrags}
+			\epsfxsize=4cm
+			\centerline{\includegraphics[width=16.0 cm]{./capitulo_5/pllBasic.eps}}
+		\end{psfrags}
+		{\small Fonte: \citeonline[p.~604]{Sklar1998}}
+	\end{center}
+\end{figure}
+
+Pela Figura \ref{pllBlock}, o \textit{phase-dectector} é um dispositivo que produz uma medida da diferença de fase entre um sinal de entrada e a referência. Como o sinal de entrada e a referência mudam entre si, o erro de fase torna-se um sinal variável no tempo no \textit{loop filter}. O \textit{loop filter} comanda a resposta do PLL às variações no sinal de erro. Um \textit{loop filter} bem projetado deve ser capaz de rastrear alterações na fase do sinal de entrada, mas não responder impulsivamente ao ruído do receptor. O VCO é o dispositivo que produz a réplica da transportadora \cite[p.~604]{Sklar1998}. 
+
+O VCO é um oscilador sinusoidal cuja frequência é controlada por um nível de tensão na entrada do dispositivo. Sua frequência de saída é uma função linear de sua tensão de entrada sobre alguma faixa da tensão de entrada e saída. Uma tensão de entrada positiva faz com que a frequência de saída do VCO seja maior que seu valor não controlado (w0), enquanto uma tensão negativa fará com que seja menor. O bloqueio de fase é obtido alimentando um versão filtrada da diferença de fase (ou seja, o erro de fase) entre a entrada sinal r(t) e a saída do VCO, x(t), de volta à entrada do VCO, y(t). Na Figura \ref{pllBlock}, o \textit{phase-dectector} é mostrado como multiplicador, o \textit{loop filter} é descrito por sua função de resposta ao impulso f(t), com Transformada de Fourier F(w), e o VCO já está indicado \cite[p.~604]{Sklar1998}.
 
 
-\newpage  % (retirar este comando depois de escrever o capítulo)
+No caso de receptores digitais modernos, o detector de erros pode ser matematicamente geralmente muito mais complicado do que o multiplicador simples mostrado na Figura \ref{pllBlock}. Por exemplo, o detector de erros pode ser um conjunto de correlacionadores de filtros correspondentes, cada  correspondente a um deslocamento de fase ligeiramente diferente, alimentando uma função de ponderação ou decisão. A saída da função de ponderação seria a estimativa do \textit{phase-error}. Esta função pode ser matematicamente muito complexa, mas seria facilmente aproximada usando tecnologia digital moderna. O VCO pode não parecer sinuoidal, mas pode ser implementado como uma  memória somente de leitura cujos ponteiros são controlados por uma combinação de um \textit{clock} e a saída do estimador de erros. Não obstante, os princípios básicos das diferentes topologias ainda são ilustrados no modelo simples da Figura \ref{pllBlock} \cite[p.~604]{Sklar1998}. 
+
+\section{Equalizador}
+
+A equalização é um método de combate aos efeitos da Interferência Inter-Simbólica (ISI) causada pela limitação da banda do canal. Os equalizadores são implementados tipicamente como filtros adaptativos lineares ou não lineares ou usando técnicas de processamento de sinais. A equalização é realizada antes de se transmitir o dado no canal, realizando basicamente a passagem do sinal TX através de um filtro cuja função de transferência é o inverso da função de transferência de canal. Por outro lado, a equalização no RX é usada para desfazer a distorção ocorrida no sinal recebido devido à perda e dispersão do canal. A maioria dos esquemas de equalização de RX são adaptáveis e implementados usando técnicas de processamento digital de sinal para cancelar a perda do canal dos bits de dados recebidos \cite[p.~150]{Sklar1998}.
+
+\section{Clock and Data Recovery (CDR)}
+
+Um CDR, como o nome sugere, é responsável por extrair as informações do \textit{clock} do transmissor do sinal recebido. Nos sistemas de comunicações de alta velocidade modernos, o mecanismo de recuperação de \textit{clock} é essencial na extremidade do receptor. Isto deve-se, pelo fato de as informações do \textit{clock} TX geralmente serem incorporadas ao fluxo de bits recebidos na entrada do receptor. No fundo, um CDR é essencialmente um circuito PLL modificado, no qual o \textit{phase-detector} agora precisa coletar o fluxo de dados recebido e extrair dele os dados e as informações de fase \cite{li}. Na Figura \ref{desCDR} é ilustrado um esquema básico de um CDR.
+
+%\begin{figure}[htbp]
+\begin{figure}[H]
+	\tiny \caption{\small Esquemático de um CDR/PLL básico. \label{desCDR}}
+	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
+	\vspace{-0.3 cm}
+	\begin{center}
+		\begin{psfrags}
+			\epsfxsize=4cm
+			\centerline{\includegraphics[width=16.0 cm]{./capitulo_5/basCDR.eps}}
+		\end{psfrags}
+		{\small Fonte: \citeonline{ratan}}
+	\end{center}
+\end{figure}
+
+
+O \textit{phase-dectector} do CDR detecta as transições no fluxo de dados recebido e o VCO gera um \textit{clock} periódico que aciona o circuito de decisão dentro do \textit{phase-dectector} para repor os dados recebidos distorcidos e depois recupera o \textit{clock} do dado recebido. A implementação mais comum do CDR, como ilustrado na Figura \ref{desCDR}, inclui um \textit{loop} PLL regular para rastrear a frequência exata do \textit{clock} do TX. Há também a presença de um \textit{loop} de \textit{phase-tracking} com um \textit{phase-detector} especial para produzir os dados retomados com um VCO comum na saída, ruído de fase idêntico ao sinal de entrada e \textit{jitter} baixo a partir do \textit{clock} do TX do dado de entrada \cite{ratan}. 
+
+
+\section{Desserializador}
+
+O circuito desserializador, converte os dados do fluxo de bits serial de entrada novamente em sua forma de barramento paralelo original. É também um bloco completamente digital e sucede ao circuito do driver RX. Basicamente, o desserializador é apenas um circuito desmultiplexador que é acionado pelo \textit{clock} recuperado no CDR.
+
+\section{Esquemas de Codificação}
+
+Os pulsos de \textit{non-return-to-zero} (NRZ) são comumente usados ??como função básica para a transmissão discreta de dados. A resposta do canal ao pulso NRZ é definida como a resposta do pulso, sendo tradicionalmente usada para analisar e modelar os efeitos de um canal na transmissão de dados e no design de equalizadores no caso de canais com grande atenuação na frequência de interesse. Além da sinalização NRZ, os projetistas também podem implementar técnicas avançadas de modulação para uma sinalização mais rápida e robusta. Dentre essas técnicas, pode-se citar o PAM multinível, como o PAM-4, ao qual possui eficiências espectrais muito mais altas e pode transmitir 2 bits por símbolo. Isso permite a transmissão de uma quantidade equivalente de dados na metade da largura de banda do canal. 
+
+Nos links seriais modernos, juntamente com os esquemas de sinalização, uma certa quantidade de codificação também está presente no fluxo de dados. Os esquemas de codificação mais usados são 8B/10B e 16B/20B sendo codificações poderosas por melhorar o BER. A única desvantagem da codificação é que ela adiciona ainda mais complexidade ao projeto do transceptor, pois o circuito do codificador/decodificador precisa ser projetado e mais bits precisam ser enviados através do mesmo canal de largura de banda limitada.
+

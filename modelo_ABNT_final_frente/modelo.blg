@@ -26,6 +26,8 @@ I was expecting a `,' or a `}'---line 149 of file ./bibliografia/bibliografia1.b
 I'm skipping whatever remains of this entry
 Warning--entry type for "Sachin2018" isn't style-file defined
 --line 256 of file ./bibliografia/bibliografia1.bib
+Warning--entry type for "Ghassan2018" isn't style-file defined
+--line 270 of file ./bibliografia/bibliografia1.bib
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
@@ -36,45 +38,45 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 | Em caso de d?vidas ou problemas com este estilo procure |
 | http://abntex.codigolivre.org.br                        |
 +---------------------------------------------------------+
-You've used 25 entries,
+You've used 30 entries,
             6480 wiz_defined-function locations,
-            1322 strings with 13330 characters,
-and the built_in function-call counts, 17733 in all, are:
-= -- 1401
-> -- 573
+            1351 strings with 14194 characters,
+and the built_in function-call counts, 20677 in all, are:
+= -- 1623
+> -- 648
 < -- 13
-+ -- 273
-- -- 174
-* -- 1234
-:= -- 2434
-add.period$ -- 97
-call.type$ -- 26
-change.case$ -- 208
-chr.to.int$ -- 39
-cite$ -- 22
-duplicate$ -- 850
-empty$ -- 1468
-format.name$ -- 892
-if$ -- 4242
-int.to.chr$ -- 2
++ -- 299
+- -- 199
+* -- 1433
+:= -- 2874
+add.period$ -- 119
+call.type$ -- 31
+change.case$ -- 239
+chr.to.int$ -- 43
+cite$ -- 27
+duplicate$ -- 1005
+empty$ -- 1733
+format.name$ -- 1007
+if$ -- 4929
+int.to.chr$ -- 3
 int.to.str$ -- 1
-missing$ -- 446
-newline$ -- 118
-num.names$ -- 110
-pop$ -- 492
+missing$ -- 530
+newline$ -- 147
+num.names$ -- 135
+pop$ -- 568
 preamble$ -- 1
-purify$ -- 81
+purify$ -- 96
 quote$ -- 0
-skip$ -- 1068
+skip$ -- 1221
 stack$ -- 1
-substring$ -- 530
-swap$ -- 418
+substring$ -- 622
+swap$ -- 490
 text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 13
+type$ -- 21
 warning$ -- 0
-while$ -- 138
+while$ -- 168
 width$ -- 0
-write$ -- 360
+write$ -- 443
 (There was 1 error message)

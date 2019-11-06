@@ -1,0 +1,90 @@
+\chapter{SCRAMBLERS}
+\label{cap:7}
+\vspace{-2cm}
+
+
+Em sistemas de comunicação, um \textit{scrambler} é um dispositivo que consegue embaralhar ou modificar uma mensagem no lado do emissor para tornar a mensagem ininteligível ou com determinadas propriedades para o receptor que não possui a capacidade de interpretar aquela mensagem. O embaralhamento é realizado pela adição ou reordenamento de componentes ao sinal original a fim de dificultar a extração do mesmo. Alguns \textit{scramblers} modernos são, na verdade, dispositivos de criptografia, permanecendo o nome devido às semelhanças no uso, em oposição à operação interna \cite{Ghassan2018}.
+
+
+Nas comunicações digitais, em muitos casos, um \textit{scrambler} é usado para manipular um fluxo de dados antes de transmitir. As manipulações são invertidas por um \textit{descrambler} no lado de recepção. Estas manipulações tem o objetivo de embaralhar o dado a ser transmitido, porém pode não haver criptografia neste processo. A intenção nesse caso não é tornar a mensagem ininteligível, mas dar aos dados transmitidos propriedades de engenharia úteis \cite{Ghassan2018}. Estas propriedades são úteis para a codificação 64b/66b.
+
+
+Estas propriedades podem serem resumidas em dua principais \cite{Ghassan2018}:
+
+
+\begin{itemize}
+
+	\item O embaralhamento em sistemas de comunicação digital facilita a atuação dos circuitos de recuperação de \textit{clock}, controle de ganho e outros circuitos adaptativos do receptor pela eliminação de sequências consistindo apenas de $0's$ ou $1's$.
+
+	\item Um circuito \textit{scrambler} torna o espectro de potência do sinal mais disperso para atender ao requisitos de densidade espectral de potência. Este requisito trata da potência concentrada em uma faixa de frequência estreita, uma vez que esta característica pode interferir canais devido à modulação cruzada e à intermodulação causada 	pela não linearidade do receptor.
+
+\end{itemize}
+
+
+Os \textit{scramblers} usualmente são definidos com base em LFSR por conta de suas boas características estatísticas, bem como pela facilidade de implementação em hardware. Os \textit{scramblers} podem serem separados em dois tipos: \textit{Scramblers} Aditivos (Synchronous) e Multiplicativos (Self-Synchronizing).
+
+
+\section{\textit{Scramblers} Aditivos (Synchronous)}
+
+
+\textit{Scramblers} Aditivos transformam o fluxo de dados de entrada, aplicando uma sequência binária pseudoaleatória (PRBS) por adição módulo-2. Em alguns casos, um PRBS pré-calculado é armazenado em uma memória ROM, sendo usado quando necessário. Entretanto, frequentemente é gerado por um LFSR devidamente implementado no sistema. Um esquema de um \textit{scrambler} aditivo é ilustrado na Figura \ref{additive_scrambler}.
+
+
+%\begin{figure}[htbp]
+\begin{figure}[H]
+	\tiny \caption{\small Esquema de um \textit{Scramblers} Aditivo. \label{additive_scrambler}}
+	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
+	\vspace{-0.3 cm}
+	\begin{center}
+		\begin{psfrags}
+			\epsfxsize=4cm
+			\centerline{\includegraphics[width=16.0 cm]{./capitulo_4/Scrambler_randomizer_additive.eps}}
+		\end{psfrags}
+		{\small Fonte: Elaborado pelo Autor.}
+	\end{center}
+\end{figure}
+
+Uma palavra de sincronização é usada para assegurar uma operação síncrona do LFSR. Esta palavra é um padrão inserido no fluxo de dados em intervalos de tempos iguais, como por exemplo logo após o tempo para processar o dado introduzido no circuito. Um receptor procura algumas palavras de sincronização em dados adjacentes e, portanto, determina o local em que seu LFSR deve ser recarregado com um estado inicial predefinido \cite{Ghassan2018}.
+
+
+O \textit{descrambler} aditivo é apenas o mesmo dispositivo que o \textit{scrambler} aditivo. O \textit{scrambler} /  \textit{descrambler} aditivo são definidos pelo polinômio de seu LFSR e seu estado inicial.
+
+
+\section{\textit{Scramblers} Multiplicativos (Self-Synchronizing)} \label{scrambler_multi}
+
+
+Os \textit{scramblers} multiplicativos são chamados assim por executarem uma multiplicação do sinal de entrada pela função de transferência do \textit{scrambler} no espaço Z. Eles são sistemas lineares invariantes no tempo. Ao contrário dos \textit{scramblers} aditivos, os \textit{scramblers} multiplicativos não precisam da palavra sincronização, por isso eles também são chamados de auto-sincronizadores.  Um exemplo da topologia dos \textit{scramblers} multiplicativos está representado na \ref{multiplicative_scrambler}. Na letra (a) é representado um \textit{scrambler} e na letra (b) um \textit{descrambler} \cite{Ghassan2018}.
+
+
+
+%\begin{figure}[htbp]
+\begin{figure}[H]
+	\tiny \caption{\small Esquema de um \textit{Scramblers} Multiplicativo. \label{multiplicative_scrambler}}
+	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
+	\vspace{-0.3 cm}
+	\begin{center}
+		\begin{psfrags}
+			\epsfxsize=4cm
+			\centerline{\includegraphics[width=16.0 cm]{./capitulo_4/Scrambler_randomizer_multiplicative.eps}}
+		\end{psfrags}
+		{\small Fonte: Elaborado pelo Autor.}
+	\end{center}
+\end{figure}
+
+\textit{Scrambler} multiplicativo é definido similarmente por um polinômio, que também é uma função de transferência do \textit{descrambler}. A saída codificada, $S(x)$, é gerada no transmissor dividindo os dados $M(x)$ por um polinômio gerador $G(x)$:
+
+
+$$S(x) = \dfrac{M(x)}{G(x)}$$
+
+
+A operação de divisão é realizada bit a bit e cada etapa da divisão resulta em um novo bit embaralhado. O receptor reordena o sinal embaralhado multiplicando pelo mesmo polinômio gerador:
+
+
+$$M(x) = S(x)*G(x)$$
+
+
+A implementação da divisão e multiplicação polinomial é feita usando \textit{Linear feedback shift registers}, além de toda a teoria de campos finitos e suas operações em módulo 2. 
+
+
+Os embaralhadores multiplicativos levam à multiplicação de erros durante a descodificação. Um erro de bit único na entrada do descodificador resultará em $w$ erros na sua saída. Este aumento no número de erros depende do número de \textit{taps} existente no sistema. Caso existir duas \textit{taps}, um único bit de erro inserido no sistema resultará em 3 bits errôneos na saída do \textit{descrambler} \cite{Ghassan2018}. 
+

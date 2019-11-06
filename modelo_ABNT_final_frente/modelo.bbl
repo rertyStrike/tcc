@@ -27,6 +27,15 @@
 Dispon{\'\i}vel em:
   $<$https://doi.org/10.1088%2F1748-0221%2F12%2F12%2Fp12019$>$.}
 
+\bibitem[Assaad 2009]{assaad}
+\abntrefinfo{Assaad}{ASSAAD}{2009}
+{ASSAAD, M.
+\emph{Design and Modelling of Clock and Data Recovery Integrated Circuit in 130
+  nm CMOS Technology for 10 Gb/s Serial Data Communications}.
+Tese (PhD) --- University of Glasgow, College of Science and Engineering,
+  School of Engineering, Glasgow, 2009. Disponível em:
+  <http://theses.gla.ac.uk/id/eprint/707>.}
+
 \bibitem[BRÜNING 2019]{Lucio2019}
 \abntrefinfo{BRÜNING}{BRÜNING}{2019}
 {BRÜNING, L.~R. \emph{HIGH LUMINOSITY LARGE HADRON COLLIDER A DESCRIPTION FOR
@@ -50,7 +59,7 @@ Dispon{\'\i}vel em:
 47~p.
 Dispon{\'\i}vel em:
   $<$http://www.eng.auburn.edu/~agrawvd/COURSE/E7250\_05/REPORTS\_TERM/Dhingra\_LFSR.pdf$>$.
-  Acesso em: 19 set. 2019.}}
+  Acesso em: 19 set. 2019.}
 
 \bibitem[Farrell e Moreira 2006]{Farrel2006}
 \abntrefinfo{Farrell e Moreira}{FARRELL; MOREIRA}{2006}
@@ -79,10 +88,26 @@ Dispon{\'\i}vel em:
 {GHATAK, A.; THYAGARAJAN, K. \emph{An Introduction to Fiber Optics}. [S.l.]:
   Cambridge University Press, 1998.}
 
+\bibitem[Hassan 2019]{Ghassan2018}
+\abntrefinfo{Hassan}{HASSAN}{2019}
+{HASSAN, G.~M. \emph{Scramble Image Based on LFBSR (Linear Feedback Shift
+  Registers)}. Baghdad: Dept. of Electrical and Computer Engineering, 2019.
+14~p.
+Dispon{\'\i}vel em: $<$https://www.iasj.net/iasj?func=fulltext\&aId=58271$>$.
+  Acesso em: 20 set. 2019.}
+
 \bibitem[Kerl 2004]{John2004}
 \abntrefinfo{Kerl}{KERL}{2004}
 {KERL, J. \emph{Computation in finite fields}. [s.n.], 2004. Dispon{\'\i}vel
   em: $<$http://johnkerl.org/doc/ffcomp.pdf$>$. Acesso em: 20 setembro 2018.}
+
+\bibitem[Li 2015]{li}
+\abntrefinfo{Li}{LI}{2015}
+{LI, Z.
+\emph{DESIGN OF SERIALIZER AND DESERIALIZER OPERATING IN 65 nm CMOS TECHNOLOGY
+  FOR HIGH-SPEED SERIAL LINK (HSSL)APPLICATIONS}.
+31~p. Disserta??o (Senior Thesis in Electrical Engineer) --- University of
+  Illinois, rbana-Champaign, Ilinois, EUA, 2015.}
 
 \bibitem[Machado e Maia 2007]{machado}
 \abntrefinfo{Machado e Maia}{MACHADO; MAIA}{2007}
@@ -115,6 +140,14 @@ Dispon{\'\i}vel em: $<$https://cds.cern.ch/record/2197559$>$.}
 {RANDALL, L. \emph{BATENDO À PORTA DO CÉU: O BÓSON DE HIGGS E COMO A FÍSICA
   MODERNA ILUMINA O UNIVERSO}. São Paulo: Companhia das Letras, 2013. 576~p.}
 
+\bibitem[Ratan 2014]{ratan}
+\abntrefinfo{Ratan}{RATAN}{2014}
+{RATAN, R.
+\emph{DESIGN OF A PHASE LOCKED LOOP BASED CLOCKING CIRCUITFOR HIGH SPEED SERIAL
+  LINK APPLICATIONS}.
+124~p. Disserta??o (Master of Science in Electrical and Computer Engineering)
+  --- University of Illinois, rbana-Champaign, Ilinois, EUA, 2014.}
+
 \bibitem[Silva 2011]{Daniel2011}
 \abntrefinfo{Silva}{SILVA}{2011}
 {SILVA, D. C.~C. e.
@@ -124,7 +157,13 @@ Dispon{\'\i}vel em: $<$https://cds.cern.ch/record/2197559$>$.}
   Telecomunicações, INATEL, Santa Rita do Sapucaí - MG, 2011.}
 
 \bibitem[Sklar 1988]{Sklar1988}
-\abntrefinfo{Sklar}{SKLAR}{1988}
+\abntrefinfo{Sklar}{SKLAR}{1988a}
+{SKLAR, B. \emph{Digital Communications: Fundamentals and Applications}. Upper
+  Saddle River, NJ, USA: Prentice-Hall, Inc., 1988.
+ISBN 0-13-211939-0.}
+
+\bibitem[Sklar 1988]{Sklar1998}
+\abntrefinfo{Sklar}{SKLAR}{1988b}
 {SKLAR, B. \emph{Digital Communications: Fundamentals and Applications}. Upper
   Saddle River, NJ, USA: Prentice-Hall, Inc., 1988.
 ISBN 0-13-211939-0.}
@@ -154,6 +193,6 @@ Tese (doutorado) --- Universidade Estadual Paulista, Instituto de Física
 {WIKIPÉDIA. \emph{GRANDE COLISOR DE HÁDRONS}. 2019.
 Dispon{\'\i}vel em:
   $<$https://pt.wikipedia.org/wiki/Grande\_Colisor\_de\_Hádrons$>$. Acesso em: 15
-  set. 2019.}
+  set. 2019.}}
 
 \end{thebibliography}
