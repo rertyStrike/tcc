@@ -3,88 +3,212 @@
 \label{cap:galois}
 \vspace{-2cm}
 
-Uma noção básica de um campo finito pode ser explicitada como um conjunto que possui um número finito de elementos. Neste, define-se 2 operações, normalmente adição e multiplicação, possuindo as seguintes propriedades para qualquer campo $F$:
+Uma noção básica de um campo finito pode ser explicitada como um conjunto que possui um número finito de elementos, definindo-se adição e multiplicação como operações básicas existentes dentro deste conjunto. Desta forma, este conjunto possui as seguintes propriedades para qualquer conjunto $F$:
 
-\begin{itemize}
-	\item Para qualquer elemento $a$,$b$ dentro de um conjunto $F$, as operações de adição e multiplicação são operações binárias em $F$.
-	\item Para qualquer elemento dentro do conjunto $F$ as propriedades associativas e distributivas devem serem mantidas. 
-	\item Para qualquer $a$,$b$ em $F$, as seguintes relações são mantidas: $a+b = b+a$ e $a.b = b.a$.
-	\item No conjunto $F$ o elemento identidade aditivo ($a + 0 = a$) e o multiplicativo ($a.1=a$) deve existir.
-	\item Para qualquer a,b e c em $F$ a igualdade $a.(b+c)=(a.b)+(a.c)$ deve ser mantida.
-\end{itemize}
 
-Por fim pode-se definir campo com sendo um conjunto de elementos os quais é possível realizar as operações de adição, multiplicação, subtração e divisão, no qual o resultado sempre é um elemento do próprio campo. A adição e a multiplicação satisfazem as propriedades comutativa, associativa e distributiva \cite{Daniel2011}.
+\begin{itemize}
 
-Um exemplo de campo finito é o campo de Galois, descrito na próxima seção.
+	\item Para qualquer elemento $a$,$b$ dentro de um conjunto $F$, as operações de adição e multiplicação são operações binárias no conjunto $F$.
 
-\section{Propriedades do Campo de Galois}
+	\item Para qualquer elemento dentro do conjunto $F$ as propriedades associativas e distributivas devem serem mantidas. 
 
-Os campos Galois $GF(n)$ referem-se à um conjunto de $n$ elementos, fechado com relação às operações de adição e multiplicação. Pode-se enunciar que nos campos finitos todo elemento possui o seu inverso aditivo e multiplicativo, com exceção para o elemento nulo ($0$).
+	\item Para qualquer $a$,$b$ em $F$, as seguintes relações são mantidas: $a+b = b+a$ e $a.b = b.a$.
 
-Um campo de Galois possui $ n = p^{q}$ elementos, porém não existe um campo de Galois para um número qualquer de elementos. Os campos de Galois são formados por um número primo de elementos ou por sua extensão, onde a extensão é uma potência do número primo, onde $p$ representa um número primo e $q$ é um número inteiro positivo. Os elementos são definidos por $n$, em que $GF(n) = {0,1, ....., n-1}$ sendo $n$ a sua ordem. 
+	\item No conjunto $F$ o elemento identidade aditivo ($a + 0 = a$) e o multiplicativo ($a.1=a$) deve existir.
 
-Um campo descrito por $GF(2)$ possui o seguinte formato: $GF(2) = {0,1} $. Desta forma, um campo de ordem $2$ possui somente dois elementos que são ${0,1}$, sendo denominado de campo binário. Portanto, um campo de Galois de ordem $q$ é um conjunto de $q$ elementos com duas operações binárias módulo-p.
+	\item Para qualquer a,b e c em $F$ a igualdade $a.(b+c)=(a.b)+(a.c)$ deve ser mantida.
 
-Para um campo da forma $GF(2)$, pela fórmula $n = p^{q}$, os coeficientes são definidos como: $p = 2$ e $q = 1$. As operações binárias de adição e multiplicação executadas dentro deste campo são em módulo - $2$ .
+\end{itemize}
 
-É definido como elemento primitivo, ou gerador, o elemento de ordem $(n - 1)$. As potências consecutivas do elemento primitivo gera todos os outros elementos do campo \cite{John2004}. 
+Por fim pode-se definir campo com sendo um conjunto de elementos os quais é possível realizar as operações de adição, multiplicação, subtração e divisão. O resultado das operações sempre é um elemento do próprio campo. A adição e a multiplicação devem satisfazer as propriedades comutativa, associativa e distributiva \cite{Daniel2011}.
 
-\section{Polinômios Primitivos}\label{primitive:cap}
+Um exemplo de campo finito é o campo de Galois, descrito na próxima seção.
 
-Uma condição para um polinômio $ f(x) $ de ordem $m$ ser primitivo é ele ser irredutível. A irredutibilidade ocorre quando um polinômio $ f(x) $ não for divisível por nenhum outro polinômio de grau inferior a ele e maior que 0. Um polinômio de grau 2 é irredutível se, somente se, ele não for divisível por polinômios de grau 1. 
+\section{Propriedades do Campo de Galois}
+Os campos Galois $GF(n)$ referem-se à um conjunto de $n$ elementos finitos, fechado com relação às operações de adição e multiplicação. Pode-se enunciar que nos campos finitos todo elemento possui o seu inverso aditivo e multiplicativo, com exceção para o elemento nulo ($0$).
 
-Por exemplo o polinômio $ X^{2} + X + 1 $ é irredutível, porque ele não é divisível por $ X + 1 $, nem por $X$. Um polinômio irredutível (que não pode ser fatorado) $f(X)$ de ordem $m$ é primitivo se,somente se, o menor número inteiro positivo $n$, para o qual $f(X)$ é um divisor de $X^{n} + 1$, seja igual a: n = 2m ? 1 \cite{Farrel2006}.
+Um campo de Galois possui $ n = p^{q}$ elementos, porém não existe um campo de Galois para um número qualquer de elementos. Os campos de Galois são formados por um número primo de elementos ou por sua extensão, onde a extensão é uma potência do número primo, onde $p$ representa um número primo e $q$ é um número inteiro positivo. Os elementos são definidos por $n$, em que $GF(n) = {0,1, ....., n-1}$ sendo $n$ a sua ordem. 
 
-\section{Construção dos Campos de Galois}
+Um campo descrito por $GF(2)$ possui o seguinte formato: $GF(2) = {0,1} $. Desta forma, um campo de ordem $2$ possui somente dois elementos que são ${0,1}$, sendo denominado de campo binário. Portanto, um campo de Galois de ordem $q$ é um conjunto de $q$ elementos com duas operações binárias módulo-p.
 
-Os campos de Galois são construídos de acordo com um polinômio primitivo escolhido. Qualquer polinômio de grau m, define o campo finito GF($2^{m}$). Desta forma, $2^{m} = 24 = 16$ elementos no campo. Tomando o polinômio primitivo $p(x) = X^{4} + X + 1$.
+Para um campo da forma $GF(2)$, pela fórmula $n = p^{q}$, os coeficientes são definidos como: $p = 2$ e $q = 1$. As operações binárias de adição e multiplicação executadas dentro deste campo são em módulo - $2$ .
 
-As $m$ raízes de um polinômio $p(x)$ de grau $m$, fornecem os seus elementos. As raízes do polinômio serão representadas por $\alpha$, então faz-se $p(\alpha) = 0$ para encontrar as respectivas raízes. Sendo assim pode-se escrever para o polinômio $p(x) = X4 + X + 1$:.
+É definido como elemento primitivo, ou gerador, o elemento de ordem $(n - 1)$. As potências consecutivas do elemento primitivo gera todos os outros elementos do campo \cite{John2004}. 
 
-$$p(\alpha) = 0$$
-$$\alpha^{4} + \alpha + 1 = 0$$
-$$\alpha^{4} = - \alpha - 1 $$
 
-Para um campo $GF(q)$ as operações de soma e subtração são realizadas da mesma forma, simplifica-se para: $\alpha^{4} = \alpha + 1$. Os elementos do campo $GF(2^{m})$ podem ser expressos em potência de $\alpha$, polinômios de degrau $(m - 1)$ ou também como vetor binário. A raiz $\alpha^{5}$ é expresso na forma polinomial abaixo:
+\section{Polinômios Primitivos}\label{primitive:cap}
 
-$$\alpha^{5} = \alpha.\alpha^{4} = \alpha(\alpha + 1)$$
-$$\alpha^{5} = \alpha + \alpha^{2}$$
+Um polinômio $ f(x) $ de ordem $m$ é primitivo, e somente se, ele for irredutível. A irredutibilidade ocorre quando um polinômio $ f(x) $ não for divisível por nenhum outro polinômio de grau inferior a ele e maior que 0. Um polinômio de grau 2 é irredutível se, somente se, ele não for divisível por polinômios de grau 1. 
 
-Repetindo esse processo podemos encontrar todos os $m$ elementos do $GF(2^{4})$ \cite{John2004}. 
+Por exemplo o polinômio $ X^{2} + X + 1 $ é irredutível, porque ele não é divisível por $ X + 1 $, nem por $X$. Um polinômio irredutível (que não pode ser fatorado) $f(X)$ de ordem $m$ é primitivo se,somente se, o menor número inteiro positivo $n$, para o qual $f(X)$ é um divisor de $X^{n} + 1$, seja igual a: $n = 2m - 1$ \cite{Farrel2006}.
 
-\section{Operações nos Campos de Galois}
+\section{Construção dos Campos de Galois Estendidos}
+Como definido, para qualquer número primo $p$ existe um campo finito $GF(p)$ contendo $p$ elementos. É possível estender o campo finito $GF(p)$ para um campo de $p^{m}$ elementos, descrito como $GF(p^{m})$ em que $m$ é um inteiro não negativo e positivo. Portanto, $GF(p^{m})$ contém como se fosse um subconjunto de elementos de $GF(p)$. 
 
-Em um campo finito as operações entre quaisquer elementos resultam em outro elemento dentro do mesmo campo. Em um campo pode ser realizadas as operações de adição, subtração, multiplicação e divisão. As operações de adição e multiplicação satisfazem as propriedades comutativa, associativa e distributiva. O elemento identidade para adição é o $0$ e para multiplicação é o $1$.
+Pode-se exemplificar a expansão do campo finito $GF(p)$, tendo em mente o exemplo do campo finito $GF(2)$. Este campo é um subconjunto do campo estendido $GF(2^{m})$, da mesma forma que um campo numérico real é um subconjunto do campo numérico complexo. Além dos números 0 e 1, há elementos adicionais no campo estendido os quais são representados pelo símbolo $\alpha$. Cada elemento não negativo de $GF(2^{m})$ pode ser representado por múltiplos de $\alpha$ \cite[p.~446]{Sklar1998}. Portanto os elementos do campo finito estendido são definidos por: 
 
-Essas operações podem ser realizadas por portas lógicas, tabelas, flip-flops e registradores de deslocamento (\textit{Shift Registers}) \cite{John2004}.
+\begin{equation}
+GF(2^{m}) = {0, \alpha^{0}, \alpha^{1}, \alpha^{2}, ... , , \alpha^{2^{m}-2}}
+\end{equation}
 
-\subsection{Adição e Subtração}
+As $m$ raízes de um polinômio $p(x)$ de grau $m$, fornecem os seus elementos. As raízes do polinômio serão representadas por $\alpha$, então faz-se $p(\alpha) = 0$ para encontrar as respectivas raízes \cite[p.~448]{Sklar1998}. Sendo assim pode-se escrever para o polinômio $p(x) = X^{3} + X + 1$:
 
-Para um campo $GF(m)$ a soma de dois elementos $i$ e $j$ é dado pelo resto da divisão $\dfrac{(i + j)}{m}$. Essa operação é chamada de adição módulo $m$. 
+\begin{equation}
+p(\alpha) = 0
+\end{equation}
+\begin{equation}
+\alpha^{3} + \alpha + 1 = 0
+\end{equation}
+\begin{equation}
+\alpha^{3} = - \alpha - 1
+\label{eqAlfa}
+\end{equation}
 
-A adição no módulo 2 é definida pelo campo $GF(2) = {0,1}$ e a sua operação é demonstrada abaixo:
+Em um campo finito $GF(q)$, as operações de soma e subtração são realizadas da mesma forma simplificando-se a equação \ref{eqAlfa} para: $\alpha^{3} = \alpha + 1$. Os elementos do campo $GF(2^{m})$ podem ser expressos em potências de $\alpha$, polinômios de degrau $(m - 1)$ ou também como vetor binário. A raiz $\alpha^{3}$ e os sucessivos elementos do campo $GF(2^{3})$ são expressos na forma polinomial abaixo:
 
-$$0 \bigoplus 0 = 0$$
-$$1 \bigoplus 1 = 0$$
-$$0 \bigoplus 1 = 1$$
-$$1 \bigoplus 0 = 1$$
+\begin{equation}
+\alpha^{3} = 1 + \alpha
+\end{equation}
+\begin{equation}
+\alpha^{4} = \alpha.\alpha^{3} = \alpha(\alpha + 1) = \alpha + \alpha^{2}
+\end{equation}
+\begin{equation}
+\alpha^{5} = \alpha.\alpha^{4} = \alpha(\alpha + \alpha^{2}) = \alpha^{2} + \alpha^{3} = 1 + \alpha + \alpha^{2}
+\end{equation}
+\begin{equation}
+\alpha^{6} = \alpha.\alpha^{5} = \alpha(1 + \alpha + \alpha^{2}) = \alpha + \alpha^{2} + \alpha^{3} = 1 + \alpha^{2}
+\end{equation}
+\begin{equation}
+\alpha^{7} = \alpha.\alpha^{6} = \alpha(1 \alpha^{2}) = \alpha + \alpha^{3} = \alpha + 1 + \alpha = 1 = \alpha^{0}
+\end{equation}
 
-Assim para um campo com mais elementos $2^{m}$ a soma de quaisquer elementos tem que resultar em um outro elemento pertencente ao mesmo campo, pois o campo de Galois é um conjunto fechado. Para adição de um elemento representado na notação vetorial, é feita como uma adição elemento por elemento módulo 2. Observa-se que esta operação possui os mesmos resultados que uma porta lógica XOR, executada bit a bit nos vetores a serem adicionados:
+Como $\alpha^{7} =  \alpha^{0}$, portanto os oito elementos finitos do campo $GF(2^{3})$ são:
 
-$$\alpha_{i} \bigoplus \alpha_{j} = (a_{i0} \bigoplus a_{j0}) + (a_{i1} \bigoplus a_{j1})X + (a_{i2} \bigoplus a_{j2})X^{2} + ... + (a_{i,m - 1} \bigoplus a_{j,m - 1})X^{m - 1}$$
+\begin{equation}
+{0, \alpha^{0}, \alpha^{1}, \alpha^{2}, \alpha^{3}, \alpha^{4}, \alpha^{5}, \alpha^{6}}
+\end{equation}
 
-A subtração de elementos no campo de Galois é definida como sendo a mesma porta XOR, uma vez que na subtração de módulo - 2 $ - \alpha = \alpha$ então $\alpha^{n}  - \alpha^{j} = \alpha^{n} + \alpha^{j}$ \cite{Robson2010}.
+Portanto, na Tabela \ref{campEstendido} é ilustrado o mapeamento dos elementos finitos em termos dos elementos básicos para o campo finito estendido $GF(8)$.
 
-\subsection{Multiplicação e Divisão}
-A multiplicação entre dois elementos, $i$ e $j$, de um campo de ordem primária, m é dado por $\dfrac{(ij)}{m}$. Para o campo binário $GF(2)$ tem-se:
+\begin{table}[htbp]
+	\begin{minipage}[b]{0.61\linewidth}
+		\begin{spacing}{-0.5} %Espaço entre o título e a tabela
+			\caption{Mapeamentos dos Elementos Finitos em elementos básicos do Campo Finito $GF(2^{3})$ com $p(x) = 1 + X + X^{3}$}
+			\label{campEstendido}
+		\end{spacing}
+	\end{minipage}
+	\begin{centering}
+		\begin{tabular}{c|c|c|c|c}
+			\cline{2-5}
+			\multicolumn{1}{c|}{} & {} &   $X^{0}$   &   $X^{1}$   &  $X^{2}$    \tabularnewline
+			\hline
+			\multirow{9}{*}{} &  0  &  0 & 0 & 0\tabularnewline
+			%\cline{2-4}
+			{} &  $\alpha^{0}$  & 1 & 0 & 0\tabularnewline
+			%\cline{2-4}
+			{} & $\alpha^{1}$ & 0 & 1 & 0 \tabularnewline
+			%\cline{2-4}
+			{} & $\alpha^{2}$ & 0 & 0 & 1 \tabularnewline
+			%\cline{2-4}
+			{Elementos dos Campos} & $\alpha^{3}$ & 1 & 1 & 0 \tabularnewline
+			%\cline{2-4}
+			{} & $\alpha^{4}$ & 0 & 1 & 1 \tabularnewline
+			%\cline{2-4}
+			{} & $\alpha^{5}$ & 1 & 1 & 1 \tabularnewline
+			%\cline{2-4}
+			{} & $\alpha^{6}$ & 1 & 0 & 1 \tabularnewline
+			%\cline{2-4}
+			{} & $\alpha^{7}$ & 1 & 0 & 0 \tabularnewline
+			%\cline{2-4}
+			\hline
+			\multicolumn{5}{l}{\small{Fonte: Elaborado pelo Autor.}}\tabularnewline
+		\end{tabular}
+		%\\
+		%{\small{Fonte: o próprio autor}}
+		\par\end{centering}
+\end{table}
 
-$$0 \bigoplus 0 = 0$$
-$$1 \bigoplus 1 = 1$$
-$$0 \bigoplus 1 = 0$$
-$$1 \bigoplus 0 = 0$$
 
-A operação de multiplicação entre dois elementos pertencentes a $GF(2^{8})$ pode ser comparada às portas lógicas AND. A divisão de um elemento por outro é realizada multiplicando o elemento pelo inverso do outro que o divide. Portanto, pode-se representar a operação descrita com a equação abaixo: 
+\section{Operações nos Campos de Galois}
 
-$$X = \dfrac{\alpha^{i}}{\alpha^{j}}= \alpha^{i} \times \alpha^{- j} $$
+Em um campo finito as operações entre quaisquer elementos resultam em outro elemento dentro do mesmo campo. Em um campo pode ser realizadas as operações de adição, subtração, multiplicação e divisão. As operações de adição e multiplicação satisfazem as propriedades comutativa, associativa e distributiva. O elemento identidade para adição é o $0$ e para multiplicação é o $1$.
 
-O inverso é obtido utilizando uma tabela que contém todos os elementos pertencentes ao campo e o seu respectivo inverso \cite{Robson2010}. 
+Essas operações podem ser realizadas por portas lógicas, tabelas, flip-flops e registradores de deslocamento (\textit{Shift Registers}) \cite{John2004}.
+
+
+\subsection{Adição e Subtração}
+
+
+Para um campo $GF(m)$ a soma de dois elementos $i$ e $j$ é dado pelo resto da divisão $\dfrac{(i + j)}{m}$. Essa operação é chamada de adição módulo $m$. 
+
+A adição no módulo 2 é definida pelo campo $GF(2) = {0,1}$ e a sua operação é demonstrada abaixo:
+
+\begin{equation}
+0 \bigoplus 0 = 0
+\end{equation}
+\begin{equation}
+1 \bigoplus 1 = 0
+\end{equation}
+\begin{equation}
+0 \bigoplus 1 = 1
+\end{equation}
+\begin{equation}
+1 \bigoplus 0 = 1
+\end{equation}
+
+
+Assim para campos estendidos, com elementos $2^{m}$, a soma de quaisquer elementos tem que resultar em um outro elemento pertencente ao mesmo campo. Este resultado acontece pelo fato do campo de Galois ser um conjunto fechado. Denota-se cada elemento não nulo de $GF(2^{m})$ como um polinômio $a_{i}(X)$, onde pelo menos um dos coeficientes m de $a_{i}(X)$ é não nulo. Para $i = 0,1,2,...,2^{m}-2$, tem-se:
+
+\begin{equation}
+\alpha^{i} = a_{i}(X) =  a_{i,0} + a_{i,1}X + a_{i,2}X^{2} + ... + a_{i,m-1}X^{m-1}
+\end{equation}
+  
+
+Para adição de um elemento representado na notação estendida, é feita como uma adição elemento por elemento em módulo-2. Observa-se que esta operação possui os mesmos resultados que uma porta lógica XOR, executada bit a bit nos vetores a serem adicionados. Um benefício de usar a notação de elementos dos campos estendidos ${\alpha^{i}}$ no lugar dos elementos binários é a facilidade da representação matemática do processo de codificação e decodificação não binária \cite[p.~446]{Sklar1998}. Portanto a expressão resultante da adição de dois elementos do campo finito é da forma:
+
+\begin{equation}
+\alpha_{i} \bigoplus \alpha_{j} = (a_{i0} \bigoplus a_{j0}) + (a_{i1} \bigoplus a_{j1})X + (a_{i2} \bigoplus a_{j2})X^{2} + ... + (a_{i,m - 1} \bigoplus a_{j,m - 1})X^{m - 1}
+\end{equation}
+
+A subtração de elementos no campo de Galois é definida como sendo a mesma porta XOR, uma vez que na subtração de módulo-2 $ - \alpha = \alpha$ então $\alpha^{n}  - \alpha^{j} = \alpha^{n} + \alpha^{j}$ \cite{Robson2010}.
+
+
+\subsection{Multiplicação e Divisão}
+
+A multiplicação entre dois elementos, $i$ e $j$, de um campo de ordem primária, m é dado por $\dfrac{(ij)}{m}$. Para o campo binário $GF(2)$ tem-se:
+
+
+\begin{equation}
+0 \bigoplus 0 = 0
+\end{equation}
+\begin{equation}
+1 \bigoplus 1 = 1
+\end{equation}
+\begin{equation}
+0 \bigoplus 1 = 0
+\end{equation}
+\begin{equation}
+1 \bigoplus 0 = 0
+\end{equation}
+
+
+A operação de multiplicação entre dois elementos pertencentes a $GF(2^{8})$ pode ser comparada às portas lógicas AND. A divisão de um elemento por outro é realizada multiplicando o elemento pelo inverso do outro que o divide. Portanto, pode-se representar a operação descrita com a equação abaixo: 
+
+\begin{equation}
+X = \dfrac{\alpha^{i}}{\alpha^{j}}= \alpha^{i} \times \alpha^{-j}
+\end{equation}
+
+O inverso é obtido utilizando uma tabela que contém todos os elementos pertencentes ao campo e o seu respectivo inverso \cite{Robson2010}. Pela condição de fechamento implica que:
+
+\begin{equation}
+\alpha^{2^{m}-1} = \alpha^{0} = 1
+\end{equation}
+
+Portanto, a multiplicação de dois elementos resulta num elemento cujo expoente é obtido dividindo-se a soma dos expoentes dos elementos por $2m - 1$ e tomando o resto, ou seja, na forma exponencial:
+
+\begin{equation}
+\alpha^{i} \times \alpha^{j} = \alpha^{(i+j) mod (2^{m}-1)}
+\label{eqProd}
+\end{equation}
+
+Se os fatores forem expressos na forma polinomial, é necessário então convertê-los na forma exponencial e então efetuar o produto conforme a Equação \ref{eqProd}.

@@ -6,35 +6,48 @@
 \contentsline {chapter}{\numberline {2}CAMPOS FINITOS (FINITE FIELDS).}{25}
 \contentsline {section}{\numberline {2.1}Propriedades do Campo de Galois}{25}
 \contentsline {section}{\numberline {2.2}Polinômios Primitivos}{26}
-\contentsline {section}{\numberline {2.3}Construção dos Campos de Galois}{26}
+\contentsline {section}{\numberline {2.3}Construção dos Campos de Galois Estendidos}{26}
 \contentsline {section}{\numberline {2.4}Operações nos Campos de Galois}{27}
-\contentsline {subsection}{\numberline {2.4.1}Adição e Subtração}{27}
-\contentsline {subsection}{\numberline {2.4.2}Multiplicação e Divisão}{28}
-\contentsline {chapter}{\numberline {3}LINEAR FEEDBACK SHIFT REGISTERS}{30}
-\contentsline {section}{\numberline {3.1}Fibonacci Linear Feedback Shift Registers}{33}
-\contentsline {section}{\numberline {3.2}Galois Linear Feedback Shift Registers}{34}
-\contentsline {chapter}{\numberline {4}SCRAMBLERS}{37}
-\contentsline {section}{\numberline {4.1}\textit {Scramblers} Aditivos (Synchronous)}{37}
-\contentsline {section}{\numberline {4.2}\textit {Scramblers} Multiplicativos (Self-Synchronizing)}{38}
-\contentsline {chapter}{\numberline {5}Descrição do Link Serial de Alta Velocidade}{41}
-\contentsline {section}{\numberline {5.1}Serializador}{42}
-\contentsline {section}{\numberline {5.2}Driver Amplificador}{42}
-\contentsline {section}{\numberline {5.3}Phase-Locked Loop (PLL)}{42}
-\contentsline {section}{\numberline {5.4}Equalizador}{44}
-\contentsline {section}{\numberline {5.5}Clock and Data Recovery (CDR)}{44}
-\contentsline {section}{\numberline {5.6}Desserializador}{45}
-\contentsline {section}{\numberline {5.7}Esquemas de Codificação}{46}
-\contentsline {chapter}{\numberline {6}SCRAMBLERS}{47}
-\contentsline {section}{\numberline {6.1}\textit {Scramblers} Aditivos (Synchronous)}{47}
-\contentsline {section}{\numberline {6.2}\textit {Scramblers} Multiplicativos (Self-Synchronizing)}{48}
-\contentsline {chapter}{\numberline {7}SCRAMBLERS}{51}
-\contentsline {section}{\numberline {7.1}\textit {Scramblers} Aditivos (Synchronous)}{51}
-\contentsline {section}{\numberline {7.2}\textit {Scramblers} Multiplicativos (Self-Synchronizing)}{52}
-\contentsline {chapter}{\numberline {8}RESULTADOS E DISCUSSÕES}{55}
-\contentsline {chapter}{\numberline {9}CONCLUSÕES}{56}
-\contentsline {chapter}{\hspace {1.3cm}REFERÊNCIAS~~~~~~~~~~~~}{57}
-\contentsline {chapter}{\hspace {1.3cm}APÊNDICE{} A{} -{} LINUX}{60}
-\contentsline {section}{\hspace {1.3cm}APÊNDICE A.1 - HISTÓRICO DO LINUX}{60}
-\contentsline {chapter}{\hspace {1.3cm}APÊNDICE{} B{} -{} AINDA FALANDO DO LINUX}{61}
-\contentsline {section}{\hspace {1.3cm}APÊNDICE B.1 - MELHORIAS PARA O LINUX EM UM AMBIENTE COORPORATIVOS DE DUAS GRNDES FRNTES INTERPRETATIVAS}{61}
-\contentsline {chapter}{\hspace {1.3cm}ÍNDICE REMISSIVO~~~~~~~~~~~~\vspace {-0.3cm}}{64}
+\contentsline {subsection}{\numberline {2.4.1}Adição e Subtração}{28}
+\contentsline {subsection}{\numberline {2.4.2}Multiplicação e Divisão}{29}
+\contentsline {chapter}{\numberline {3}LINEAR FEEDBACK SHIFT REGISTERS}{31}
+\contentsline {section}{\numberline {3.1}Fibonacci Linear Feedback Shift Registers}{34}
+\contentsline {section}{\numberline {3.2}Galois Linear Feedback Shift Registers}{35}
+\contentsline {chapter}{\numberline {4}SCRAMBLERS}{38}
+\contentsline {section}{\numberline {4.1}\textit {Scramblers} Aditivos (Synchronous)}{38}
+\contentsline {section}{\numberline {4.2}\textit {Scramblers} Multiplicativos (Self-Synchronizing)}{39}
+\contentsline {chapter}{\numberline {5}Descrição do Link Serial de Alta Velocidade}{42}
+\contentsline {section}{\numberline {5.1}Serializador}{43}
+\contentsline {section}{\numberline {5.2}Driver Amplificador}{43}
+\contentsline {section}{\numberline {5.3}Phase-Locked Loop (PLL)}{43}
+\contentsline {section}{\numberline {5.4}Equalizador}{45}
+\contentsline {section}{\numberline {5.5}Clock and Data Recovery (CDR)}{45}
+\contentsline {section}{\numberline {5.6}Desserializador}{46}
+\contentsline {section}{\numberline {5.7}Esquemas de Codificação}{47}
+\contentsline {chapter}{\numberline {6}FORWARD ERROR CORRECTION (FEC)}{48}
+\contentsline {section}{\numberline {6.1}Tipos de FECs}{48}
+\contentsline {subsection}{\numberline {6.1.1}Block Codes}{49}
+\contentsline {subsubsection}{\numberline {6.1.1.1}Cyclic Codes}{49}
+\contentsline {subsubsection}{\numberline {6.1.1.2}Hamming Codes}{50}
+\contentsline {subsubsection}{\numberline {6.1.1.3}Bose-Chaudhuri Hocquen-hem (BCH) Codes}{50}
+\contentsline {subsection}{\numberline {6.1.2}Convolutional Codes}{51}
+\contentsline {section}{\numberline {6.2}Propriedades dos códigos FEC}{51}
+\contentsline {section}{\numberline {6.3}Código Reed-Solomon }{52}
+\contentsline {subsection}{\numberline {6.3.1}Performance de códigos R-S contra Burst Noise}{53}
+\contentsline {subsection}{\numberline {6.3.2}Codificador Reed-Solomon}{53}
+\contentsline {subsection}{\numberline {6.3.3}Decodificador Reed-Solomon}{54}
+\contentsline {subsubsection}{\numberline {6.3.3.1}Computação da Síndrome}{55}
+\contentsline {subsubsection}{\numberline {6.3.3.2}Algoritmo Berlekamp-Massey}{57}
+\contentsline {subsubsection}{\numberline {6.3.3.3}Algoritmo Chien Search}{59}
+\contentsline {subsubsection}{\numberline {6.3.3.4}Algoritmo de Forney}{60}
+\contentsline {chapter}{\numberline {7}Entrelaçador (\textit {Interleaving})}{61}
+\contentsline {section}{\numberline {7.1}Entrelaçador de Bloco (\textit {Block Interleaving})}{61}
+\contentsline {section}{\numberline {7.2}Entrelaçador Convolucional (\textit {Convolutional Encoder})}{63}
+\contentsline {chapter}{\numberline {8}RESULTADOS E DISCUSSÕES}{66}
+\contentsline {chapter}{\numberline {9}CONCLUSÕES}{67}
+\contentsline {chapter}{\hspace {1.3cm}REFERÊNCIAS~~~~~~~~~~~~}{68}
+\contentsline {chapter}{\hspace {1.3cm}APÊNDICE{} A{} -{} LINUX}{71}
+\contentsline {section}{\hspace {1.3cm}APÊNDICE A.1 - HISTÓRICO DO LINUX}{71}
+\contentsline {chapter}{\hspace {1.3cm}APÊNDICE{} B{} -{} AINDA FALANDO DO LINUX}{72}
+\contentsline {section}{\hspace {1.3cm}APÊNDICE B.1 - MELHORIAS PARA O LINUX EM UM AMBIENTE COORPORATIVOS DE DUAS GRNDES FRNTES INTERPRETATIVAS}{72}
+\contentsline {chapter}{\hspace {1.3cm}ÍNDICE REMISSIVO~~~~~~~~~~~~\vspace {-0.3cm}}{75}

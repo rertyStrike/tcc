@@ -1,90 +1,76 @@
-\chapter{SCRAMBLERS}
+\chapter{Entrelaçador (\textit{Interleaving})}
 \label{cap:7}
 \vspace{-2cm}
 
+Canais de transmissão que possuem \textit{multipath fading}, \textit{switching noise} e outros tipos de \textit{burst noise} são exemplos de canais com memória. Assumindo que um canal possui memória, não pode-se caracterizar as falhas ocorrendo randomicamente isoladas bit a bit. Apesar de algumas técnicas de codificação para canais com memória terem sido propostas, essas técnicas são difíceis de proporcionar modelos precisos para a variação estatística no tempo desses tipos de canais. Portanto, técnicas de diversidade no tempo ou entrelaçamento resolvem o problema para modelar o canal, uma vez que só necessita-se conhecer o tempo ou o \textit{span} do canal com memória \cite[p.~461]{Sklar1998}.
 
-Em sistemas de comunicação, um \textit{scrambler} é um dispositivo que consegue embaralhar ou modificar uma mensagem no lado do emissor para tornar a mensagem ininteligível ou com determinadas propriedades para o receptor que não possui a capacidade de interpretar aquela mensagem. O embaralhamento é realizado pela adição ou reordenamento de componentes ao sinal original a fim de dificultar a extração do mesmo. Alguns \textit{scramblers} modernos são, na verdade, dispositivos de criptografia, permanecendo o nome devido às semelhanças no uso, em oposição à operação interna \cite{Ghassan2018}.
+Entrelaçar a mensagem codificada e desentrelaçar depois da recepção causa do espalhamento dos \textit{burst erros} no tempo. Desta forma, o decodificador é capaz de trabalhar na recuperação desses erros caso serem randômicos no tempo. A ideia por trás do entrelaçador é separar os dados no tempo, transformando um canal com memória em um canal sem memória. Desta forma, os códigos corretores de erros são úteis em canais com \textit{burst noise} uma vez que podem trabalhar com dados com erros até a sua capacidade de correção \cite[p.~461]{Sklar1998}.
 
+O entrelaçador espalha os símbolos por muitos comprimentos de bloco (para códigos de bloco) ou por muitos períodos de registradores (para códigos convolucionais). O espalhamento requerido é determinado pela duração do \textit{burst erro}. Os detalhes da redistribuição dos bits devem serem conhecidos pelo receptor para realizar o desembaralhamento. São comumente conhecidos e usados dois tipos de entrelaçadores: entrelaçadores de bloco e convolucionais \cite[p.~461]{Sklar1998}. Estes dois tipos são explicados nas duas seções decorrentes.
 
-Nas comunicações digitais, em muitos casos, um \textit{scrambler} é usado para manipular um fluxo de dados antes de transmitir. As manipulações são invertidas por um \textit{descrambler} no lado de recepção. Estas manipulações tem o objetivo de embaralhar o dado a ser transmitido, porém pode não haver criptografia neste processo. A intenção nesse caso não é tornar a mensagem ininteligível, mas dar aos dados transmitidos propriedades de engenharia úteis \cite{Ghassan2018}. Estas propriedades são úteis para a codificação 64b/66b.
+\section{Entrelaçador de Bloco (\textit{Block Interleaving})}
 
+Um intercalador de bloco aceita os símbolos codificados em blocos do codificador, embaralha os símbolos e, em seguida, alimenta os símbolos reorganizados no modulador. A permutação usual do bloco é realizada preenchendo as colunas de uma matriz M-linha por N-coluna (M x N) com a sequência codificada. Depois que a matriz é completamente preenchida, os símbolos são então introduzidos no modulador linha por linha e transmitidos pelo canal \cite[p.~463]{Sklar1998}. 
 
-Estas propriedades podem serem resumidas em dua principais \cite{Ghassan2018}:
-
+No lado do receptor, o desentrelaçador executa a operação inversa. Ele recebe os símbolos entrelaçados, desentrelaçando-os e os introduzindo no decodificador. Os símbolos são inseridos na matriz do desentrelaçador por linhas e removidos por colunas. A Figura \ref{blockInterleaving} ilustra um exemplo de um intercalador com M = 4 linhas e N = 6 colunas. As entradas na matriz ilustram a ordem em que os 24 símbolos de código são colocados no intercalador. A sequência de saída para o transmissor consiste em símbolos de código removidos da matriz por linhas, conforme mostrado na figura. As características mais importantes desse intercalador de bloco são \cite[p.~463]{Sklar1998}:
+ 
+%\begin{figure}[htbp]
+\begin{figure}[H]
+	\tiny \caption{\small Exemplo de Entrelaçamento de Bloco. \label{blockInterleaving}}(a) MxN entrelaçamento de bloco. (b) Cinco símbolos de \textit{burst error}. (c) Nove símbolos de \textit{burst error}. (d) Erro único periódico espaçado sequencialmente N= 6 símbolos separados.
+	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
+	\vspace{-0.3 cm}
+	\begin{center}
+		\begin{psfrags}
+			\epsfxsize=4cm
+			\centerline{\includegraphics[width=8.0 cm]{./capitulo_7/blockInterleaving.eps}}
+		\end{psfrags}
+		{\small Fonte: \citeonline[p.~464]{Sklar1998}}
+	\end{center}
+\end{figure}
 
 \begin{itemize}
-
-	\item O embaralhamento em sistemas de comunicação digital facilita a atuação dos circuitos de recuperação de \textit{clock}, controle de ganho e outros circuitos adaptativos do receptor pela eliminação de sequências consistindo apenas de $0's$ ou $1's$.
-
-	\item Um circuito \textit{scrambler} torna o espectro de potência do sinal mais disperso para atender ao requisitos de densidade espectral de potência. Este requisito trata da potência concentrada em uma faixa de frequência estreita, uma vez que esta característica pode interferir canais devido à modulação cruzada e à intermodulação causada 	pela não linearidade do receptor.
-
+	\item Qualquer \textit{burst error} com de N erros de símbolo de canal contíguo resulta em erros isolados na saída do desentrelaçador que são separados um do outro por pelo menos M símbolos.
+	\item Qualquer \textit{burst error} $ bN $, em que $ b > 1 $, resulta em \textit{bursts errors} de saída do desentrelaçador de não mais do que $ [b] $ símbolos de erros. Cada rajada de saída é separada das outras rajadas por símbolos $ M - [b] $. A notação $ [x] $ significa o menor número inteiro não inferior a $ x $, e $ [x] $ significa o maior número inteiro não maior que x.
+	\item O atraso de ponta a ponta do entrelaçador/desentrelaçador é de aproximadamente $ 2MN $. Para ser preciso, apenas as células de memória $ M(N-1) + 1 $ precisam ser preenchidas antes que a transmissão possa começar (assim que o primeiro símbolo da última coluna da matriz $ M x N $ for preenchido). Um número correspondente precisa ser preenchido no receptor antes do início da decodificação. Assim, o atraso mínimo de ponta a ponta é de $ (2MN-2M + 2) $ tempos de símbolo, sem incluir nenhum atraso de propagação de canal.
+	\item O requisito de memória são símbolos $ MN $ para cada local (entrelaçador e desentrelaçador). No entanto, como a matriz $ M x N $ precisa ser preenchida (principalmente) antes que possa ser lida, geralmente é implementada uma memória de símbolos $ 2MN $ em cada local para permitir o esvaziamento de uma matriz $ M x N $ enquanto a outra está sendo preenchida, e vice-versa.
 \end{itemize}
 
+Normalmente, para uso com um código de correção de erro único, os parâmetros do intercalador são selecionados de modo que o número de colunas N ultrapasse o comprimento do \textit{burst error}. A escolha do número de linhas M depende do esquema de codificação usado. Para códigos de bloco, M deve ser maior que o comprimento do bloco de código. Para códigos convolucionais, $ M $ deve ser maior que o comprimento da restrição. Assim, uma rajada de comprimento $ N $ pode causar no máximo um erro único em qualquer palavra de código de bloco: da mesma forma, com códigos convolucionais, haverá no máximo um erro único em qualquer comprimento de restrição de decodificação. Para códigos de correção de erros $ t $, a escolha de $ N $ precisa apenas ultrapassar o comprimento esperado do \textit{burst errors} dividido por $ t $ \cite[p.~464]{Sklar1998}.
 
-Os \textit{scramblers} usualmente são definidos com base em LFSR por conta de suas boas características estatísticas, bem como pela facilidade de implementação em hardware. Os \textit{scramblers} podem serem separados em dois tipos: \textit{Scramblers} Aditivos (Synchronous) e Multiplicativos (Self-Synchronizing).
+\section{Entrelaçador Convolucional (\textit{Convolutional Encoder})}
 
-
-\section{\textit{Scramblers} Aditivos (Synchronous)}
-
-
-\textit{Scramblers} Aditivos transformam o fluxo de dados de entrada, aplicando uma sequência binária pseudoaleatória (PRBS) por adição módulo-2. Em alguns casos, um PRBS pré-calculado é armazenado em uma memória ROM, sendo usado quando necessário. Entretanto, frequentemente é gerado por um LFSR devidamente implementado no sistema. Um esquema de um \textit{scrambler} aditivo é ilustrado na Figura \ref{additive_scrambler}.
-
+Uma estrutura de um entrelaçador é ilustrada na Figura \ref{srInterleaverConv}. Os símbolos de código são deslocados sequencialmente no banco de $ N $ registros. Cada registro sucessivo fornece $ J $ símbolos mais armazenamento do que o anterior. O registro zero não fornece armazenamento (o símbolo é transmitido imediatamente). Com cada novo símbolo de código, o comutador muda para um novo registro, e o novo símbolo de código é deslocado enquanto o símbolo de código mais antigo desse registro é deslocado para o modulador/transmissor. Após o registro $ (N - 1) $, o comutador retorna ao registro zero e inicia novamente. O desentrelaçador executa a operação inversa, e os comutadores de entrada e saída para serem entrelaçados e desentrelaçados devem ser sincronizados \cite[p.~466]{Sklar1998}.
 
 %\begin{figure}[htbp]
 \begin{figure}[H]
-	\tiny \caption{\small Esquema de um \textit{Scramblers} Aditivo. \label{additive_scrambler}}
+	\tiny \caption{\small Implementação de um Entrelaçador Convolucional com \textit{Shift Register} \label{srInterleaverConv}}
 	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
 	\vspace{-0.3 cm}
 	\begin{center}
 		\begin{psfrags}
 			\epsfxsize=4cm
-			\centerline{\includegraphics[width=16.0 cm]{./capitulo_4/Scrambler_randomizer_additive.eps}}
+			\centerline{\includegraphics[width=16.0 cm]{./capitulo_7/srInterleaverConv.eps}}
 		\end{psfrags}
-		{\small Fonte: Elaborado pelo Autor.}
+		{\small Fonte: \citeonline[p.~466]{Sklar1998}}
 	\end{center}
 \end{figure}
 
-Uma palavra de sincronização é usada para assegurar uma operação síncrona do LFSR. Esta palavra é um padrão inserido no fluxo de dados em intervalos de tempos iguais, como por exemplo logo após o tempo para processar o dado introduzido no circuito. Um receptor procura algumas palavras de sincronização em dados adjacentes e, portanto, determina o local em que seu LFSR deve ser recarregado com um estado inicial predefinido \cite{Ghassan2018}.
+A Figura \ref{compInterleaverConv} ilustra um exemplo de um entrelaçador convolucional simples de quatro registros $ (J = 1) $ sendo carregado por uma sequência de símbolos. O desentrelaçador sincronizado é mostrado inserindo simultaneamente os símbolos desentrelaçados no decodificador. A Figura \ref{compInterleaverConv}(a) mostra os símbolos 1 a 4 sendo carregados. Os $ x's $  representam estados desconhecidos \cite[p.~468]{Sklar1998}. 
 
+A Figura \ref{compInterleaverConv}(b) mostra os quatro primeiros símbolos deslocados nos registros e os símbolos 5 a 8 na entrada do entrelaçador. A Figura \ref{compInterleaverConv}(c) mostra os símbolos 9 a 12 entrando no entrelaçador. O desentrelaçador agora está preenchido com símbolos de mensagem. Entretanto, nada útil ainda está sendo fornecido ao decodificador. Finalmente, a Figura \ref{compInterleaverConv}(d) mostra símbolos 13 a 16 sendo inseridos no entrelaçador e na saída do desentrelaçador. Os símbolos 1 a 4 estão sendo passados para o decodificador \cite[p.~468]{Sklar1998}. 
 
-O \textit{descrambler} aditivo é apenas o mesmo dispositivo que o \textit{scrambler} aditivo. O \textit{scrambler} /  \textit{descrambler} aditivo são definidos pelo polinômio de seu LFSR e seu estado inicial.
-
-
-\section{\textit{Scramblers} Multiplicativos (Self-Synchronizing)} \label{scrambler_multi}
-
-
-Os \textit{scramblers} multiplicativos são chamados assim por executarem uma multiplicação do sinal de entrada pela função de transferência do \textit{scrambler} no espaço Z. Eles são sistemas lineares invariantes no tempo. Ao contrário dos \textit{scramblers} aditivos, os \textit{scramblers} multiplicativos não precisam da palavra sincronização, por isso eles também são chamados de auto-sincronizadores.  Um exemplo da topologia dos \textit{scramblers} multiplicativos está representado na \ref{multiplicative_scrambler}. Na letra (a) é representado um \textit{scrambler} e na letra (b) um \textit{descrambler} \cite{Ghassan2018}.
-
-
+O processo continua dessa maneira até toda a sequência de palavras de código, em sua forma pré-intercalada original. O desempenho de um entrelaçador convolucional é muito semelhante ao de um entrelaçador de blocos. A vantagem importante da entrelação convolucional sobre blocos é que, com a entrelação convolucional, o atraso de ponta a ponta são símbolos $ M(N-1) $, onde $ M = NJ $, e a memória necessária é $ \frac{M(N-I)}{2}  $ nas duas extremidades do canal. Portanto, há uma redução de metade no atraso e na memória sobre os requisitos de intercalação de blocos \cite[p.~468]{Sklar1998}.
 
 %\begin{figure}[htbp]
 \begin{figure}[H]
-	\tiny \caption{\small Esquema de um \textit{Scramblers} Multiplicativo. \label{multiplicative_scrambler}}
+	\tiny \caption{\small Computação de um Entrelaçador Convolucional \label{compInterleaverConv}}
 	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
 	\vspace{-0.3 cm}
 	\begin{center}
 		\begin{psfrags}
 			\epsfxsize=4cm
-			\centerline{\includegraphics[width=16.0 cm]{./capitulo_4/Scrambler_randomizer_multiplicative.eps}}
+			\centerline{\includegraphics[width=16.0 cm]{./capitulo_7/compInterleaverConv.eps}}
 		\end{psfrags}
-		{\small Fonte: Elaborado pelo Autor.}
+		{\small Fonte: \citeonline[p.~467]{Sklar1998}}
 	\end{center}
 \end{figure}
-
-\textit{Scrambler} multiplicativo é definido similarmente por um polinômio, que também é uma função de transferência do \textit{descrambler}. A saída codificada, $S(x)$, é gerada no transmissor dividindo os dados $M(x)$ por um polinômio gerador $G(x)$:
-
-
-$$S(x) = \dfrac{M(x)}{G(x)}$$
-
-
-A operação de divisão é realizada bit a bit e cada etapa da divisão resulta em um novo bit embaralhado. O receptor reordena o sinal embaralhado multiplicando pelo mesmo polinômio gerador:
-
-
-$$M(x) = S(x)*G(x)$$
-
-
-A implementação da divisão e multiplicação polinomial é feita usando \textit{Linear feedback shift registers}, além de toda a teoria de campos finitos e suas operações em módulo 2. 
-
-
-Os embaralhadores multiplicativos levam à multiplicação de erros durante a descodificação. Um erro de bit único na entrada do descodificador resultará em $w$ erros na sua saída. Este aumento no número de erros depende do número de \textit{taps} existente no sistema. Caso existir duas \textit{taps}, um único bit de erro inserido no sistema resultará em 3 bits errôneos na saída do \textit{descrambler} \cite{Ghassan2018}. 
-

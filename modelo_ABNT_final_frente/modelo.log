@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex 2019.10.26)  6 NOV 2019 00:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex 2019.10.26)  11 NOV 2019 22:51
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -525,26 +525,7 @@ Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 
 
 Writing index file modelo.idx
-(./modelo.aux
-
-LaTeX Warning: Label `additive_scrambler' multiply defined.
-
-
-LaTeX Warning: Label `scrambler_multi' multiply defined.
-
-
-LaTeX Warning: Label `multiplicative_scrambler' multiply defined.
-
-
-LaTeX Warning: Label `additive_scrambler' multiply defined.
-
-
-LaTeX Warning: Label `scrambler_multi' multiply defined.
-
-
-LaTeX Warning: Label `multiplicative_scrambler' multiply defined.
-
-)
+(./modelo.aux)
 \openout1 = `modelo.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 264.
@@ -694,13 +675,13 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
 (./abstract/abstract.tex [7
 
 
-]) (./modelo.lof)
+]) (./modelo.lof [8
+
+])
 \tf@lof=\write5
 \openout5 = `modelo.lof'.
 
- [8
-
-] [9] (./modelo.lot)
+ [9] (./modelo.lot)
 \tf@lot=\write6
 \openout6 = `modelo.lot'.
 
@@ -708,25 +689,25 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
 (./siglas/listadesiglas.tex [10
 
 ]
-Overfull \hbox (17.05971pt too wide) in paragraph at lines 10--144
+Overfull \hbox (17.05971pt too wide) in paragraph at lines 10--153
 [] 
  []
 
 ) (./simbolos/simbolos.tex [11
 
 ]
-Overfull \vbox (40.56647pt too high) has occurred while \output is active []
+Overfull \vbox (130.5387pt too high) has occurred while \output is active []
 
 
 [12] [13
 
 ] [14]) [15] (./modelo.toc [16
 
-])
+] [17])
 \tf@toc=\write7
 \openout7 = `modelo.toc'.
 
- [17] (./capitulo_1/capitulo_1.tex
+ [18] (./capitulo_1/capitulo_1.tex
 Cap\'{\i }tulo 1.
 [16
 
@@ -735,10 +716,20 @@ Cap\'{\i }tulo 1.
 File: ./capitulo_1/lhc.eps Graphic file (type eps)
  <./capitulo_1/lhc.eps>
 File: ./capitulo_1/chambMuon.eps Graphic file (type eps)
- <./capitulo_1/chambMuon.eps> [17] [18]
-File: ./capitulo_1/L1TT.eps Graphic file (type eps)
+ <./capitulo_1/chambMuon.eps>
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 44.
 
-<./capitulo_1/L1TT.eps> [19]
+
+LaTeX Warning: Citation `tomei' on page 17 undefined on input line 44.
+
+[17]
+
+LaTeX Warning: Citation `tomei' on page 18 undefined on input line 52.
+
+[18]
+File: ./capitulo_1/L1TT.eps Graphic file (type eps)
+ <./capitulo_1/L1TT.eps> [19]
 File: ./capitulo_1/lpgbtSchematic.eps Graphic file (type eps)
  <./capitulo_1/lpgbtSchematic.eps> [20]
 File: ./capitulo_1/archLpGBT.eps Graphic file (type eps)
@@ -748,33 +739,33 @@ File: ./capitulo_1/archLpGBT.eps Graphic file (type eps)
 Cap\'{\i }tulo 2.
 [25
 
-] [26] [27]) (./capitulo_3/capitulo_3.tex [28] [29]
+] [26] [27] [28] [29]) (./capitulo_3/capitulo_3.tex [30]
 Cap\'{\i }tulo 3.
 File: ./capitulo_3/sfr.eps Graphic file (type eps)
 <./capitulo_3/sfr.eps>
 File: ./capitulo_3/models_lfsr.eps Graphic file (type eps)
- <./capitulo_3/models_lfsr.eps> [30
+ <./capitulo_3/models_lfsr.eps> [31
 
-] [31]
+] [32]
 File: ./capitulo_3/maximal_length_lfsr.eps Graphic file (type eps)
 
-<./capitulo_3/maximal_length_lfsr.eps> [32]
+<./capitulo_3/maximal_length_lfsr.eps> [33]
 File: ./capitulo_3/fibonaccilfsr.eps Graphic file (type eps)
  <./capitulo_3/fibonaccilfsr.eps>
-[33]
+[34]
 File: ./capitulo_3/fibonaccilfsr_simple.eps Graphic file (type eps)
  <./capitulo_3/fibonaccilfsr_simple.eps>
 File: ./capitulo_3/galoislfsr.eps Graphic file (type eps)
  <./capitulo_3/galoislfsr.eps>
-[34]
+[35]
 File: ./capitulo_3/galoislfsr_simple.eps Graphic file (type eps)
  <./capitulo_3/galoislfsr_simple.eps>
 Missing character: There is no ú in font zptmcm7t!
 Missing character: There is no á in font zptmcm7t!
- [35]) (./capitulo_4/capitulo_4.tex
-[36]
+ [36]) (./capitulo_4/capitulo_4.tex
+[37]
 Cap\'{\i }tulo 4.
-[37
+[38
 
 ]
 File: ./capitulo_4/Scrambler_randomizer_additive.eps Graphic file (type eps)
@@ -782,65 +773,118 @@ File: ./capitulo_4/Scrambler_randomizer_additive.eps Graphic file (type eps)
 File: ./capitulo_4/Scrambler_randomizer_multiplicative.eps Graphic file (type e
 ps)
 
-<./capitulo_4/Scrambler_randomizer_multiplicative.eps> [38] [39])
-(./capitulo_5/capitulo_5.tex [40]
+<./capitulo_4/Scrambler_randomizer_multiplicative.eps> [39] [40])
+(./capitulo_5/capitulo_5.tex [41]
 Cap\'{\i }tulo 5.
 File: ./capitulo_5/linkSerdes.eps Graphic file (type eps)
-<./capitulo_5/linkSerdes.eps> [41
+<./capitulo_5/linkSerdes.eps> [42
 
 ]
 File: ./capitulo_5/pllBasic.eps Graphic file (type eps)
- <./capitulo_5/pllBasic.eps> [42] [43]
+ <./capitulo_5/pllBasic.eps> [43] [44]
 File: ./capitulo_5/basCDR.eps Graphic file (type eps)
 
-<./capitulo_5/basCDR.eps> [44] [45]) (./capitulo_6/capitulo_6.tex [46]
+<./capitulo_5/basCDR.eps> [45] [46]) (./capitulo_6/capitulo_6.tex [47]
 Cap\'{\i }tulo 6.
-[47
+
+Overfull \hbox (20.72807pt too wide) in paragraph at lines 5--6
+[][]\T1/ptm/m/n/12 Em sis-te-mas de trans-mis-são em alta ve-lo-ci-dade mui-tos
+ ti-pos de er-ros po-dem ocor-rer, originando-
+ []
+
+File: ./capitulo_6/fecTypes.eps Graphic file (type eps)
+<./capitulo_6/fecTypes.eps> [48
 
 ]
-File: ./capitulo_4/Scrambler_randomizer_additive.eps Graphic file (type eps)
- <./capitulo_4/Scrambler_randomizer_additive.eps>
-File: ./capitulo_4/Scrambler_randomizer_multiplicative.eps Graphic file (type e
-ps)
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 35.
+LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <24.88> not available
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 35.
 
-<./capitulo_4/Scrambler_randomizer_multiplicative.eps> [48] [49])
-(./capitulo_7/capitulo_7.tex [50]
+Overfull \hbox (2.47292pt too wide) in paragraph at lines 37--38
+\T1/ptm/m/n/12 ras al-gé-bri-cas con-ve-ni-en-tes para de-tec-ção e cor-re-ção 
+de er-ros efi-ci-en-tes. Se $\OML/ztmcm/m/it/12 C \OT1/ztmcm/m/n/12 = [\OML/ztm
+cm/m/it/12 c[]c[]:::c[]c[]\OT1/ztmcm/m/n/12 ]$
+ []
+
+[49] [50]
+File: ./capitulo_6/trellisViterbi.eps Graphic file (type eps)
+ <./capitulo_6/trellisViterbi.eps> [51]
+Missing character: There is no ê in font zptmcm7t!
+ [52]
+File: ./capitulo_6/burstNoise.eps Graphic file (type eps)
+
+<./capitulo_6/burstNoise.eps> [53] [54]
+File: ./capitulo_6/decFEC.eps Graphic file (type eps)
+ <./capitulo_6/decFEC.eps> [55]
+Missing character: There is no · in font zptmcm7t!
+Missing character: There is no · in font zptmcm7t!
+Missing character: There is no · in font zptmcm7t!
+ [56]
+Overfull \hbox (2.60844pt too wide) in paragraph at lines 256--257
+[][]\T1/ptm/m/n/12 Ambos os mé-to-dos pos-suem uma com-ple-xi-dade si-mi-lar. E
+n-tre-tanto, o al-go-ritmo Berlekamp-
+ []
+
+[57] [58] [59]
+
+LaTeX Warning: Command \^ invalid in math mode on input line 375.
+
+Missing character: There is no ê in font zptmcm7t!
+
+LaTeX Warning: Command \^ invalid in math mode on input line 378.
+
+
+LaTeX Warning: Command \^ invalid in math mode on input line 378.
+
+
+LaTeX Warning: Command \^ invalid in math mode on input line 378.
+
+Missing character: There is no Û in font zptmcm7t!
+Missing character: There is no ê in font zptmcm7t!
+Missing character: There is no ê in font zptmcm7t!
+) (./capitulo_7/capitulo_7.tex [60]
 Cap\'{\i }tulo 7.
-[51
+[61
 
 ]
-File: ./capitulo_4/Scrambler_randomizer_additive.eps Graphic file (type eps)
- <./capitulo_4/Scrambler_randomizer_additive.eps>
-File: ./capitulo_4/Scrambler_randomizer_multiplicative.eps Graphic file (type e
-ps)
+File: ./capitulo_7/blockInterleaving.eps Graphic file (type eps)
+ <./capitulo_7/blockInterleaving.eps> [62] [63]
+File: ./capitulo_7/srInterleaverConv.eps Graphic file (type eps)
 
-<./capitulo_4/Scrambler_randomizer_multiplicative.eps> [52] [53])
-(./capitulo_8/capitulo_8.tex [54]
+<./capitulo_7/srInterleaverConv.eps>
+File: ./capitulo_7/compInterleaverConv.eps Graphic file (type eps)
+ <./capitulo_7/compInterleaverConv.eps>)
+(./capitulo_8/capitulo_8.tex [64]
+Overfull \vbox (32.45932pt too high) has occurred while \output is active []
+
+
+[65]
 Cap\'{\i }tulo 8.
-[55
+[66
 
 ]) (./capitulo_9/capitulo_9.tex
 Cap\'{\i }tulo 9.
-[56
+[67
 
 ]) (./modelo.bbl
-Underfull \hbox (badness 1248) in paragraph at lines 49--54
+Underfull \hbox (badness 1248) in paragraph at lines 57--62
 \T1/ptm/m/it/12 grade of the Com-pact Muon So-le-noid\T1/ptm/m/n/12 . 2019. Dis
 -po-ní-vel em: 
  []
 
 
-Overfull \hbox (38.09644pt too wide) in paragraph at lines 57--63
+Overfull \hbox (38.09644pt too wide) in paragraph at lines 65--71
 \OML/ztmcm/m/it/12 <$\T1/ptm/m/n/12 http://www.eng.auburn.edu/ agrawvd/COURSE/E
 7250_05/REPORTS_TERM/Dhingra_LFSR.pdf$\OML/ztmcm/m/it/12 >$\T1/ptm/m/n/12 . 
  []
 
-[57
+[68
 
-] [58]) (./apa/apa.tex [59]
+] [69]) (./apa/apa.tex [70]
 Apendice A.
 File: ./apa/linus_torvalds.eps Graphic file (type eps)
-<./apa/linus_torvalds.eps>) (./apb/apb.tex [60
+<./apa/linus_torvalds.eps>) (./apb/apb.tex [71
 
 ]
 Apendice B.
@@ -852,35 +896,35 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 Underfull \vbox (badness 10000) detected at line 100
  []
 
-[61
+[72
 
 ]
 Overfull \vbox (4.11192pt too high) has occurred while \output is active []
 
 
-[62])
+[73])
 Overfull \vbox (4.11192pt too high) has occurred while \output is active []
 
 
-[63] (./modelo.ind)
+[74] (./modelo.ind)
 +-------------------------------------------------------------------+
 | Comentario, sugestao ou critica sobre o abnTeX? Entre em contato: |
 |                  http://abntex.codigolivre.org.br                 |
 +-------------------------------------------------------------------+
-[64
+[75
 
 ] (./modelo.aux)
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 6850 strings out of 492983
- 97184 string characters out of 6134921
- 221286 words of memory out of 5000000
- 10086 multiletter control sequences out of 15000+600000
- 55287 words of font info for 111 fonts, out of 8000000 for 9000
+ 6924 strings out of 492983
+ 98568 string characters out of 6134921
+ 221633 words of memory out of 5000000
+ 10153 multiletter control sequences out of 15000+600000
+ 62063 words of font info for 115 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 36i,12n,41p,1090b,490s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,22n,41p,1090b,490s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on modelo.dvi (68 pages, 169880 bytes).
+Output written on modelo.dvi (80 pages, 221516 bytes).

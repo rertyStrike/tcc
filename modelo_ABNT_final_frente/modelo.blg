@@ -12,22 +12,23 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: abnt-options.bib
 Database file #2: ./bibliografia/bibliografia1.bib
-Warning--entry type for "Sprace2019" isn't style-file defined
---line 20 of file ./bibliografia/bibliografia1.bib
-Warning--entry type for "Wikipedia2019" isn't style-file defined
---line 33 of file ./bibliografia/bibliografia1.bib
-Warning--entry type for "Lucio2019" isn't style-file defined
---line 71 of file ./bibliografia/bibliografia1.bib
 Warning--entry type for "Cms2019" isn't style-file defined
---line 97 of file ./bibliografia/bibliografia1.bib
-I was expecting a `,' or a `}'---line 149 of file ./bibliografia/bibliografia1.bib
+--line 73 of file ./bibliografia/bibliografia1.bib
+I was expecting a `,' or a `}'---line 96 of file ./bibliografia/bibliografia1.bib
  :  title         = {Technical proposal}
  :                                      ",
 I'm skipping whatever remains of this entry
-Warning--entry type for "Sachin2018" isn't style-file defined
---line 256 of file ./bibliografia/bibliografia1.bib
 Warning--entry type for "Ghassan2018" isn't style-file defined
---line 270 of file ./bibliografia/bibliografia1.bib
+--line 207 of file ./bibliografia/bibliografia1.bib
+Warning--entry type for "Lucio2019" isn't style-file defined
+--line 319 of file ./bibliografia/bibliografia1.bib
+Warning--entry type for "Sprace2019" isn't style-file defined
+--line 548 of file ./bibliografia/bibliografia1.bib
+Warning--entry type for "Sachin2018" isn't style-file defined
+--line 561 of file ./bibliografia/bibliografia1.bib
+Warning--entry type for "Wikipedia2019" isn't style-file defined
+--line 633 of file ./bibliografia/bibliografia1.bib
+Warning--I didn't find a database entry for "tomei"
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
@@ -38,45 +39,45 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 | Em caso de d?vidas ou problemas com este estilo procure |
 | http://abntex.codigolivre.org.br                        |
 +---------------------------------------------------------+
-You've used 30 entries,
+You've used 34 entries,
             6480 wiz_defined-function locations,
-            1351 strings with 14194 characters,
-and the built_in function-call counts, 20677 in all, are:
-= -- 1623
-> -- 648
-< -- 13
-+ -- 299
-- -- 199
-* -- 1433
-:= -- 2874
-add.period$ -- 119
-call.type$ -- 31
-change.case$ -- 239
-chr.to.int$ -- 43
-cite$ -- 27
-duplicate$ -- 1005
-empty$ -- 1733
-format.name$ -- 1007
-if$ -- 4929
+            1379 strings with 15116 characters,
+and the built_in function-call counts, 23980 in all, are:
+= -- 1864
+> -- 778
+< -- 20
++ -- 348
+- -- 238
+* -- 1689
+:= -- 3308
+add.period$ -- 135
+call.type$ -- 35
+change.case$ -- 283
+chr.to.int$ -- 53
+cite$ -- 31
+duplicate$ -- 1171
+empty$ -- 1967
+format.name$ -- 1199
+if$ -- 5713
 int.to.chr$ -- 3
 int.to.str$ -- 1
-missing$ -- 530
-newline$ -- 147
-num.names$ -- 135
-pop$ -- 568
+missing$ -- 601
+newline$ -- 167
+num.names$ -- 155
+pop$ -- 646
 preamble$ -- 1
-purify$ -- 96
+purify$ -- 112
 quote$ -- 0
-skip$ -- 1221
+skip$ -- 1400
 stack$ -- 1
-substring$ -- 622
-swap$ -- 490
-text.length$ -- 8
+substring$ -- 740
+swap$ -- 579
+text.length$ -- 13
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 21
+type$ -- 26
 warning$ -- 0
-while$ -- 168
+while$ -- 194
 width$ -- 0
-write$ -- 443
+write$ -- 509
 (There was 1 error message)

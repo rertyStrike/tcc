@@ -1,90 +1,379 @@
-\chapter{SCRAMBLERS}
-\label{cap:6}
+\chapter{FORWARD ERROR CORRECTION (FEC)}
+\label{cap:fec}
 \vspace{-2cm}
 
+Em sistemas de transmissão em alta velocidade muitos tipos de erros podem ocorrer, originando-se de diversas fontes no circuito, como por exemplo: ruído térmico, \textit{crosstalk}, \textit{jitter} de fase, atenuação do sinal, dessincronização entre transmissor e receptor. Diante disso, várias técnicas foram desenvolvidas para controlarem os erros em sistemas de comunicações. Basicamente existe dois tipos de mecanismos que realizam o controle de erros: Detecção de erro e Correção de erro \cite{Sklar1998}. 
 
-Em sistemas de comunicação, um \textit{scrambler} é um dispositivo que consegue embaralhar ou modificar uma mensagem no lado do emissor para tornar a mensagem ininteligível ou com determinadas propriedades para o receptor que não possui a capacidade de interpretar aquela mensagem. O embaralhamento é realizado pela adição ou reordenamento de componentes ao sinal original a fim de dificultar a extração do mesmo. Alguns \textit{scramblers} modernos são, na verdade, dispositivos de criptografia, permanecendo o nome devido às semelhanças no uso, em oposição à operação interna \cite{Ghassan2018}.
+A detecção de erro é feita pela introdução de redundância no dado, sendo possível verificar se houve um erro na transmissão. Este tipo de sistema normalmente é usado com a técnica de retransmissão em cenários onde há uma baixa taxa de erros recebidos. Entretanto, há vários esquemas de detecção além da retransmissão, como por exemplo: paridade, \textit{checksum}, \textit{Cyclic Redundancy Check} (CRC), distância de Hamming baseado no esquema do \textit{checksum} e polaridade \cite{mohit}. 
 
+Para cenários com altas taxas de erros é preferível técnicas de correção de erro, uma vez que retransmissões geram grande perda na performance. Para empregar correções de erro deve-se utilizar o FEC como técnica de implementação nos sistemas de comunicação. Esta ferramenta insere no dado a ser transmitido redundâncias de acordo com um algoritmo. O dado ao chegar no receptor, é decodificado pelo algoritmo correspondente e os erros durante a transmissão são detectados. Portanto, a latência da decodificação do FEC é constante e mais viável em cenários com alta taxa de erros. Porém, existe a possibilidade de implementar sistemas com retransmissão e um FEC, para contornar o problema da mudança da condição de transmissão do canal \cite{Huang}.
 
-Nas comunicações digitais, em muitos casos, um \textit{scrambler} é usado para manipular um fluxo de dados antes de transmitir. As manipulações são invertidas por um \textit{descrambler} no lado de recepção. Estas manipulações tem o objetivo de embaralhar o dado a ser transmitido, porém pode não haver criptografia neste processo. A intenção nesse caso não é tornar a mensagem ininteligível, mas dar aos dados transmitidos propriedades de engenharia úteis \cite{Ghassan2018}. Estas propriedades são úteis para a codificação 64b/66b.
+O sistema implementado nesse trabalho usa a técnica de correção de erros, especificamente um FEC implementado com o algoritmo Reed-Solomon. Desta forma, na próximas seções terão o objetivo de dar uma ideia geral do FEC e focar mais na descrição do algoritmo Reed-Solomon.
 
+\section{Tipos de FECs}
 
-Estas propriedades podem serem resumidas em dua principais \cite{Ghassan2018}:
+A maioria dos sistemas FEC podem serem divididos em duas categorias: \textit{Block Codes} e \textit{Convolutional Codes}. Na Figura \ref{fecTypes} é ilustrado um esquemático de alguns tipos de FECs e suas classificações.
 
+%\begin{figure}[htbp]
+\begin{figure}[H]
+	\tiny \caption{\small A relação entre diferentes tipos de FEC. \label{fecTypes}}
+	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
+	\vspace{-0.3 cm}
+	\begin{center}
+		\begin{psfrags}
+			\epsfxsize=4cm
+			\centerline{\includegraphics[width=16.0 cm]{./capitulo_6/fecTypes.eps}}
+		\end{psfrags}
+		{\small Fonte: \citeonline{Huang}}
+	\end{center}
+\end{figure}
+
+\subsection{Block Codes}
+
+Os códigos de bloco funcionam em blocos de tamanho fixo de bits ou símbolos de tamanho predeterminado, permitindo uma transmissão digital confiável através de canais de comunicação sujeitos a ruído do canal. O código de bloco adiciona "r" bits de verificação sobre a mensagem original com k bits, alternado a mensagem que será transmitida em uma sequência de comprimento fixo de n bits, chamados palavra de código. As palavras de bits de verificação, ou seja, a redundância inserida permite ao receptor detectar os bits de erro através de algum algoritmo de decodificação e corrigi-lo sem retransmitir o pacote \cite{Huang}.
+
+\subsubsection{Cyclic Codes}
+
+Os códigos de correção de erro cíclicos são códigos de bloco lineares, que possuem estruturas algébricas convenientes para detecção e correção de erros eficientes. Se $C = [c_{n-1} c_{n-2} ... c_{1} c_{0}]$ for uma palavra de código de um código cíclico, $[c_{n-2} c_{n-3} ... c_{0} c_{n-1}]$, obtido por deslocamento cíclico de todas os elementos à esquerda também são palavra de código. Em outras palavras, toda mudança cíclica de uma palavra de código resulta em outra palavra de código. Essa estrutura cíclica é muito útil em operações de codificação e decodificação, pois é muito fácil de implementar em hardware \cite{Huang}. 
+
+No transmissor, uma função é usada para calcular um valor para os bits de verificação com base nos dados a serem transmitidos. Esses bits de verificação são transmitidos juntamente com os dados ao receptor. O receptor executa o mesmo cálculo nos dados recebidos e os compara com os bits de verificação que recebeu. Se corresponderem, considera-se que nenhum erro de bit ocorreu durante a transmissão. Embora seja possível que certos padrões de erro não sejam detectados, uma seleção cuidadosa da função do gerador minimizará essa possibilidade. Usando diferentes tipos de polinômios do gerador, é possível usar os bits de verificação para detectar tipos diferentes de erros, como todos os bits únicos. erros, todos os erros de bit duplo, qualquer número ímpar de erros ou erro de burst menor que um valor específico \cite{gupta}.
+
+Um código cíclico que visa à detecção de erros é chamado código \textit{Cyclic Redundancy Check} (CRC). Com os caracteres simples de implementar, fáceis de analisar e bons em detectar erros comuns causados por ruídos, os CRCs se tornam populares e amplamente utilizados na detecção de erros \cite{Huang}. 
+
+\subsubsection{Hamming Codes} 
+
+Os códigos Hamming detectam e corrigem um único erro de bit no bloqueio de dados. Nesses códigos, cada bit é incluído em um conjunto exclusivo de bits de paridade. A presença e a localização de um erro de paridade único são determinadas pela análise de paridades de combinações de bits recebidos, para produzir uma tabela de paridades em que cada uma corresponde a uma combinação de erro de bit específica. Esta tabela de erros é conhecida como síndrome do erro. Se todas as paridades estiverem corretas de acordo com esse padrão, pode-se concluir que não há um único erro de bit na mensagem (pode haver vários erros de bit). Se houver erros nas paridades causados por um único erro de bit, o bit de dados incorreto pode ser encontrado adicionando as posições das paridades erradas. 
+
+Embora os códigos de Hamming sejam fáceis de implementar, surge um problema se mais de um bit na mensagem recebida estiver incorreto. Em alguns casos, o erro pode ser detectado, mas não pode ser corrigido. Em outros casos, o erro pode ser detectado, resultando em uma interpretação incorreta das informações transmitidas. Portanto, são necessários esquemas de detecção e correção de erros mais robustos que possam detectar e corrigir vários erros nas mensagens transmitidas.
+
+\subsubsection{Bose-Chaudhuri Hocquen-hem (BCH) Codes} 
+
+Os códigos de correção de erros BCH são códigos cíclicos. A principal vantagem é a facilidade com que eles podem ser decodificados, por meio de um método algébrico conhecido como decodificação de síndrome. Isso permite que um hardware eletrônico muito simples execute a tarefa, evitando a necessidade de um computador e implicando que um dispositivo de decodificação pode ser pequeno e com baixo consumo de potência \cite{Huang}. 
+
+\subsection{Convolutional Codes}
+
+Os códigos convencionais são adequados para a transmissão de fluxos de bits ou símbolos e possuem um curto tempo de atraso. Diferentemente do código de bloco, o código de n bits gerado pelo código convolucional é determinado e calculado não apenas pelo sinal de entrada de k bits durante o tempo atual, mas também pelos pacotes N-1 transmitidos no passado. Assim, o código convolucional geralmente representa como $[n, k, N-1]$. Um código convolucional pode ser transformado em um código de bloco, se desejado. 
+
+Para diminuir a complexidade do processo de codificação do código convolucional, os códigos Trellis são amplamente aplicados. O algoritmo Viterbi é uma representação típica do código Trellis. Uma ilustração do código Trellis é representada na Figura \ref{trellis}
+
+%\begin{figure}[htbp]
+\begin{figure}[H]
+	\tiny \caption{\small Diagrama do código Trellis para o codificador \label{trellis}}
+	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
+	\vspace{-0.3 cm}
+	\begin{center}
+		\begin{psfrags}
+			\epsfxsize=4cm
+			\centerline{\includegraphics[width=16.0 cm]{./capitulo_6/trellisViterbi.eps}}
+		\end{psfrags}
+		{\small Fonte: \citeonline{Huang}}
+	\end{center}
+\end{figure}
+
+\section{Propriedades dos códigos FEC}
+
+Quatro propriedades básicas com base nas quais um FEC pode ser selecionado são descritas a seguir: 
 
 \begin{itemize}
+	\item \textbf{Ganho de codificação:} Expressa em dB, a diferença entre $\frac{Eb}{N0}$ necessária para obter uma determinada probabilidade de erro de bit com e sem codificação. 
+	\item \textbf{Taxa:} É a razão entre o número de bits de mensagem transmitidos e o número total de bits transmitidos $(\frac{k}{n})$. 
+	\item \textbf{Penalidade de energia:} é o resultado do envio de uma grande constelação que inclui a paridade extra ou bits de verificação do erro código de correção. $Pena de potência = \frac{2B -1}{2b -1}$. 
+	\item  A complexidade do envolvido na codificação e decodificação aumenta o tempo de design e a latência.
+\end{itemize}
 
-	\item O embaralhamento em sistemas de comunicação digital facilita a atuação dos circuitos de recuperação de \textit{clock}, controle de ganho e outros circuitos adaptativos do receptor pela eliminação de sequências consistindo apenas de $0's$ ou $1's$.
+\section{Código Reed-Solomon } 
 
-	\item Um circuito \textit{scrambler} torna o espectro de potência do sinal mais disperso para atender ao requisitos de densidade espectral de potência. Este requisito trata da potência concentrada em uma faixa de frequência estreita, uma vez que esta característica pode interferir canais devido à modulação cruzada e à intermodulação causada 	pela não linearidade do receptor.
+Os códigos Reed-Solomon (R-S) são cíclicos e não binários com símbolos construídos com m-bits, em que $m$ é um número maior do que 2. Para um R-S da forma (n,k), em que $k$ representa o número é número de símbolos no dado e $n$ o número de símbolos de código que a codificação insere \cite[p.~438]{Sklar1998}. Para um código R-S(n,k) tem-se as seguintes propriedades: 
 
+\begin{equation}
+0<k<n<2^{m}+2
+\end{equation}
+\begin{equation}
+(n,k) = (2^{m}-1, 2^{m}-1-2*t)
+\end{equation}
+
+Em que $t$ representa a capacidade de símbolos que o código pode corrigir e $n - k = 2*t$ é o número de paridade. Por meio de uma codificação R-S é possível obter a menor distância Hamming para um código linear com o mesmo comprimento do \textit{encoder} e \textit{decoder}. Em particular, um código $C$pode recuperar $k$ bits de erro se, e somente se, a distância mínima de Hamming entre duas de suas palavras do código é pelo menos $k + 1$ \cite[p.~438]{Sklar1998}.
+
+Diz-se que um código $C$ corrige $k$ erros, caso para cada palavra $w$ no espaço Hamming subjacente $H$, existir no máximo uma palavra de código $c$ (de $C$), de modo que a distância de Hamming entre $w$ e $c$ seja no máximo $k$. Em outras palavras, um código corrige k-erros se, e somente se, a distância mínima de Hamming entre duas de suas palavras de código é pelo menos $2k + 1$. Isso é mais facilmente entendido geometricamente como qualquer esfera fechada de raio k centrada em palavras de código distintas sendo disjuntas \cite[p.~437]{Sklar1998}. 
+
+Para o R-S, a mínima distância é dado por: 
+
+\begin{equation}
+d_{min} = n - k + 1
+\end{equation}
+
+O código é capaz de corrigir até $t$ símbolos de erros no bloco, em que $t$ é dado por: 
+
+\begin{equation} 
+d_{min} = \begin{bmatrix} \frac{d_{min}-1}{2} \end{bmatrix} = \begin{bmatrix} \frac{n-k}{2} \end{bmatrix}
+\label{eqtError}
+\end{equation} 
+ 
+em que $\begin{bmatrix} x \end{bmatrix}$ significa o maior inteiro não maior do que $x$. Portanto, pela equação \ref{eqtError} é fácil perceber que um R-S requer $2t$ símbolos de paridadem onde portante $m = n-k$ \cite[p.~438]{Sklar1998}.
+
+\subsection{Performance de códigos R-S contra Burst Noise}
+
+Considere um código R-S $(n, k) = (255, 247)$, em que cada símbolo é composto por m = 8 bits (esses símbolos são geralmente chamados de bytes). Como $n-k = 8$. Pela equação \ref{eqtError}, esse código pode corrigir quaisquer erros de 4 símbolos em um bloco de 255 bits. Imagine  a presença de um \textit{burst noise}, com duração de 25 bits e perturbando um  bloco  de dados durante a transmissão, conforme ilustrado na Figura \ref{burstNoise}. 
+
+%\begin{figure}[htbp]
+\begin{figure}[H]
+	\tiny \caption{\small Bloco de dados deteriorado por 25 bits de \textit{noise burst} \label{burstNoise}}
+	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
+	\vspace{-0.3 cm}
+	\begin{center}
+		\begin{psfrags}
+			\epsfxsize=4cm
+			\centerline{\includegraphics[width=16.0 cm]{./capitulo_6/burstNoise.eps}}
+		\end{psfrags}
+		{\small Fonte: \citeonline[p.~441]{Sklar1998}}
+	\end{center}
+\end{figure}
+
+Neste exemplo, observe que um \textit{burst noise} dura 25 bits contíguos pertubando exatamente 4 símbolos. O decodificador R-S para o código (255, 247) corrigirá erros de 4 símbolos sem considerar o tipo de dano sofrido pelo símbolo. Em outras palavras, quando um decodificador corrige um byte, substitui o byte inteiro incorreto pelo correto. Esta substituição pode ocorrer pelo fato de um bit ou todos os 8 bits estarem incorretos. Isso dá ao código R-S uma tremenda vantagem sobre o \textit{burst noise} em relação aos códigos binários. 
+
+\subsection{Codificador Reed-Solomon}
+
+O polinômio gerador para um código R-S é descrito da seguinte forma:
+
+\begin{equation}
+g(x)= g_{0} + g_{1}X + g_{2}X^{2} + ... + g_{2t -1}X^{2t-1} + X^{2t}
+\end{equation}
+
+em que $2t$ é número de símbolos de paridade, portanto o grau do polinômio é igual ao número de símbolos de paridade. Desde que o polinômio gerador é de grau $2t$, deve-se encontrar as raízes do polinômio gerador $g(x)$ como: $ \alpha, \alpha^{2},...,\alpha^{2t}$. Considerando o exemplo de um R-S $(7,5)$, pode-se descrever o polinômio gerador em termos de $2t = n - k = 7 - 5 = 2$ raízes como se segue:
+
+\begin{equation}
+g(X) = (X - \alpha)(X - \alpha^{2}) = X^{2} - (\alpha^{2} + \alpha)X + \alpha^{3} = X^{2} - \alpha^{4}X + \alpha^{3} = X^{2} + \alpha^{4}X + \alpha^{3}
+\end{equation}
+
+Uma importante propriedade da palavra código é a de ser divisível pelo polinômio gerador. Considerando  que o quociente e o resto da divisão entre uma palavra código e o polinômio gerador são representados respectivamente pelos polinômios $Q(x)$ e $P(x)$, pode-se afirmar que a relação: 
+
+\begin{equation}
+C(x) = M(x)x^{n?k} + P(x) = Q(x)G(x)
+\end{equation}
+
+é verdadeira. Os coeficientes da palavra código são representados também na forma polinomial em C(x). O polinômio $C(x)$ de grau $n-1$ é pertencente a $GF(2^{m})$ se e somente se $C(x)$ for divisível por $G(x)$. Conforme mencionado anteriormente, para calcular o polinômio de paridade $P(x)$, o polinômio de mensagem $M(x)$ é deslocado $n ? k$ posições e dividido por $G(x)$. O resto desta divisão é concatenado à mensagem para formar a palavra código. Adicionalmente, conforme pode ser observado em:
+
+\begin{equation}
+C(x) = x^{n_{k}}M(X) + M(x) mod G(x)
+\end{equation}
+
+o polinômio $C(x)$ possui essencialmente dois termos. O primeiro corresponde ao polinômio mensagem, que é deslocado $n-k$ posições para esquerda e o segundo termo, corresponde ao resultado da paridade. Deste modo, a palavra código será um múltiplo inteiro do polinômio gerador.
+
+\subsection{Decodificador Reed-Solomon}
+
+Depois de transmitir uma palavra código em um canal de transmissão, os dados podem degradar-se. Deste modo, o polinômio que representa os símbolos da palavra código $C(x)$ modificados pelos erros $E(x)$ somados durante a transmissão, será referenciado a seguir como, $R(x) = C(x) + E(x)$. Este polinômio recebido pode ser escrito como, $R(x) = r_{n_{1}}x^{n_{1}} + r_{n_{2}}x^{n_{2}} + ... + r_{1}x + r_{0}$ onde $E(x)$ é o polinômio correspondente aos símbolos de erro.
+
+O processo de decodificação R-S consiste em encontrar o polinômio $E(x)$. Para isto, é necessário que duas informações sejam extraídas do polinômio $R(x)$: a localização dos erros e suas correspondentes magnitudes. Estas localizações e magnitudes constituem o polinômio de erro $E(x)$. Um processo típico de decodificação R-S, compreende as seguintes etapas:
+
+\begin{itemize}
+	\item \textbf{Síndrome:} Cálculo do polinômio de síndrome, $S(x)$.
+	\item \textbf{Berlekamp Massey:} Cálculo dos coeficientes do polinômio localizador de erros $\bigwedge(x)$, e cálculo dos coeficientes do polinômio avaliador de erros $\omega(x)$ 
+	\item \textbf{Chien Search:} Encontra a posição dos erros calculando as raízes do polinômio localizador de erros, $\bigwedge(\alpha^{i})$. Gera dois parâmetros intermediários para o cálculo do valor dos erros, $\bigwedge'(\alpha^{i})$ e $\omega(\alpha^{i})$.
+	\item \textbf{Forney Algorithm:} Encontra o valor dos coeficientes do polinômio de erro $E(x)$ a partir do parâmetros intermediários, $\bigwedge'(\alpha^{i})$ e $\omega(\alpha^{i})$, calculados no bloco \textit{Chien Search}.
+	\item \textbf{Correção:} Corrige os erros do polinômio $C(x)$ através do polinômio de erro $E(x)$.
 \end{itemize}
 
 
-Os \textit{scramblers} usualmente são definidos com base em LFSR por conta de suas boas características estatísticas, bem como pela facilidade de implementação em hardware. Os \textit{scramblers} podem serem separados em dois tipos: \textit{Scramblers} Aditivos (Synchronous) e Multiplicativos (Self-Synchronizing).
-
-
-\section{\textit{Scramblers} Aditivos (Synchronous)}
-
-
-\textit{Scramblers} Aditivos transformam o fluxo de dados de entrada, aplicando uma sequência binária pseudoaleatória (PRBS) por adição módulo-2. Em alguns casos, um PRBS pré-calculado é armazenado em uma memória ROM, sendo usado quando necessário. Entretanto, frequentemente é gerado por um LFSR devidamente implementado no sistema. Um esquema de um \textit{scrambler} aditivo é ilustrado na Figura \ref{additive_scrambler}.
-
+Na figura \ref{decFEC}, é ilustrado um diagrama do processo de decodificação.
 
 %\begin{figure}[htbp]
 \begin{figure}[H]
-	\tiny \caption{\small Esquema de um \textit{Scramblers} Aditivo. \label{additive_scrambler}}
+	\tiny \caption{\small Diagrama em Blocos do Decodificador FEC Reed-Solomon \label{decFEC}}
 	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
 	\vspace{-0.3 cm}
 	\begin{center}
 		\begin{psfrags}
 			\epsfxsize=4cm
-			\centerline{\includegraphics[width=16.0 cm]{./capitulo_4/Scrambler_randomizer_additive.eps}}
+			\centerline{\includegraphics[width=16.0 cm]{./capitulo_6/decFEC.eps}}
 		\end{psfrags}
-		{\small Fonte: Elaborado pelo Autor.}
+		{\small Fonte: \citeonline[p.~39]{salvador2015}}
 	\end{center}
 \end{figure}
 
-Uma palavra de sincronização é usada para assegurar uma operação síncrona do LFSR. Esta palavra é um padrão inserido no fluxo de dados em intervalos de tempos iguais, como por exemplo logo após o tempo para processar o dado introduzido no circuito. Um receptor procura algumas palavras de sincronização em dados adjacentes e, portanto, determina o local em que seu LFSR deve ser recarregado com um estado inicial predefinido \cite{Ghassan2018}.
+\subsubsection{Computação da Síndrome}
 
+A síndrome é o resultado da verificação dos bits de paridade no dado recebido para determinar se o dado recebido é um dado válido. Caso o dado for válido, a síndrome possui valor 0. Qualquer valor diferente de zero indica erros no dado recebido. A síndromo é construída de $n-k$ símbolos, ${S_{i}(i=1,...,n-k)}$, portanto há dois símbolos em cada vetor para um código R-S $(7,5)$. Os seus valores podem serem computados pelo sinal recebido. Pela expressão da palavra $U(X) = m(X)g(X)$, pode-se observar que todo $U(X)$ é um múltiplo do polinômio gerador $g(x)$ e todas as raízes de $g(x)$ devem ser raízes de $ U(X) $  \cite[p.~455]{Sklar1998}.
 
-O \textit{descrambler} aditivo é apenas o mesmo dispositivo que o \textit{scrambler} aditivo. O \textit{scrambler} /  \textit{descrambler} aditivo são definidos pelo polinômio de seu LFSR e seu estado inicial.
+A mensagem recebida é descrita como sendo $ r(x) = U(x) + e(x) $, portanto ao se avaliar as raízes do polinômio gerador na mensagem recebida deve-se obter um resultado nulo caso a palavra recebida não contém erros. Caso o resultado da equação $ r(x) $ apresentar um resultado não nulo, houve algum erro na transmissão do dado \cite[p.~455]{Sklar1998}. A computação de cada símbolo de síndrome pode ser descrito como: 
 
+\begin{equation}
+S_{i} = r(X)\mid_{X = \alpha^{i}} = r(\alpha^{i}) i = 1,...,n-k
+\end{equation}
 
-\section{\textit{Scramblers} Multiplicativos (Self-Synchronizing)} \label{scrambler_multi}
+Se $ r(x) $ for uma palavra válida, o símbolo de síndrome $ S_{i} $ vai para zero. Considerando que $R(x) = C(x) + E(x)$, os coeficientes de síndrome podem ser definidos como:
 
+\begin{equation}
+S_{i} = C(\alpha^{i}) + E(\alpha^{i}), i = 1, 2, 3,..., n?1.
+\end{equation}
 
-Os \textit{scramblers} multiplicativos são chamados assim por executarem uma multiplicação do sinal de entrada pela função de transferência do \textit{scrambler} no espaço Z. Eles são sistemas lineares invariantes no tempo. Ao contrário dos \textit{scramblers} aditivos, os \textit{scramblers} multiplicativos não precisam da palavra sincronização, por isso eles também são chamados de auto-sincronizadores.  Um exemplo da topologia dos \textit{scramblers} multiplicativos está representado na \ref{multiplicative_scrambler}. Na letra (a) é representado um \textit{scrambler} e na letra (b) um \textit{descrambler} \cite{Ghassan2018}.
+Como $C(x)$ possui os coeficientes $\alpha^{j}$ como raízes, ou seja, $C(\alpha^{j})$ é sempre 0, a equação de $S_{i}$ pode ser simplificada e redefinida como:
 
+\begin{equation}
+S_{ i} = E(\alpha_{i}) = \sum_{j=1}^{t} e_{j}\alpha^{i_{j}} , i = 1, 2, 3, · · · , n ? 1,
+\end{equation}
 
+onde $ e_{i} $ corresponde ao valor do erro do j-ésimo erro encontrado na i-ésima posição da palavra
+código e $ \alpha_{j}^{i} $ corresponde ao j-ésimo erro encontrado na i-ésima posição da palavra código. O $t$, como definido anteriormente, corresponde ao número de símbolos que o R-S pode corrigir. Seja $ \mu $ a quantidade de erros, $ 0 ? \mu ? t $, que estão nas posições $ i_{1} , i_{2} , ... , i_{\mu} $ \cite{salvador2015}. Deste modo, pode-se definir um novo polinômio de erros que pode ser escrito como:
 
-%\begin{figure}[htbp]
-\begin{figure}[H]
-	\tiny \caption{\small Esquema de um \textit{Scramblers} Multiplicativo. \label{multiplicative_scrambler}}
-	% o que está dentro do colchetes é o que aparecerá na lista de figuras.
-	\vspace{-0.3 cm}
-	\begin{center}
-		\begin{psfrags}
-			\epsfxsize=4cm
-			\centerline{\includegraphics[width=16.0 cm]{./capitulo_4/Scrambler_randomizer_multiplicative.eps}}
-		\end{psfrags}
-		{\small Fonte: Elaborado pelo Autor.}
-	\end{center}
-\end{figure}
+\begin{equation}
+E(x) = e_{i1}\alpha^{i1} + e_{i2}\alpha^{i2} + ... + e_{i\mu}\alpha^{i\mu}
+\label{eqError}
+\end{equation}
 
-\textit{Scrambler} multiplicativo é definido similarmente por um polinômio, que também é uma função de transferência do \textit{descrambler}. A saída codificada, $S(x)$, é gerada no transmissor dividindo os dados $M(x)$ por um polinômio gerador $G(x)$:
+Definindo $ \alpha_{j}^{i} = \beta_{i} $ , a equação \ref{eqError} pode ser utilizada para gerar $2t$ novas equações a partir dos coeficientes de síndrome diferentes de 0. A seguir são representadas as $ i $, para $ 0 < i_{j} <= 2t $, equações geradas a partir de \ref{eqError}, da seguinte forma:
 
+\begin{equation}
+\begin{split}
+s_{1} = R(\alpha) = E(\alpha) = e_{i1}\beta_{1} + e_{i2}\beta_{2} + ... + e_{i\mu}\beta_{\mu}\\
+s_{2} = R(\alpha^{2}) = E(\alpha^{2}) = e_{i1}\beta_{1}^{2} + e_{i2}\beta_{2}^{2} + ... + e_{i\mu}\beta_{\mu}^{2}\\
+\vdots\\
+%.\\
+%.\\
+s_{2t} = R(\alpha^{2t}) = E(\alpha^{2t}) = e_{i1}\beta_{1}^{2t} + e_{i2}\beta_{2}^{2t} + ... + e_{i\mu}\beta_{\mu}^{2t}
+\end{split}
+\label{eqSin}
+\end{equation}
 
-$$S(x) = \dfrac{M(x)}{G(x)}$$
+Portanto, na decodificação existirão no máximo $ 2t $ equações com $ 2t $ incógnitas: $ t $ valores de erros e $ t $ localizações de erros. Entretanto, as $ 2t $ equações não podem ser resolvidas de modo usual pois são não-lineares (algumas incógnitas possuem expoentes). As técnicas que resolvem este sistema de equações são conhecidas como algoritmos de decodificação R-S. A solução dessas equações é bastante complexa, exigindo que polinômios intermediários sejam computados. Assim, conforme já mencionado, dois novos polinômios são determinados antes que as posições e valores dos erros possam ser encontrados \cite{salvador2015}. O polinômio localizador de erros é definido como:
 
+\begin{equation}
+\bigwedge(x) = \lambda_{0} + \lambda_{1}x + \lambda_{2}x^{2} + ... + \lambda_{\mu}x^{\mu}
+\end{equation}
 
-A operação de divisão é realizada bit a bit e cada etapa da divisão resulta em um novo bit embaralhado. O receptor reordena o sinal embaralhado multiplicando pelo mesmo polinômio gerador:
+e o polinômio avaliador de erros é definido como:
 
+\begin{equation}
+\omega(x) = 1 + ?_{1}x + ?_{2}x^{2} + ... + ?_{?}x^{?}
+\end{equation}
 
-$$M(x) = S(x)*G(x)$$
+Existem dois métodos tipicamente utilizados para obter estes dois novos polinômios a partir do polinômio de síndrome:
 
+\begin{itemize}
+	\item Berlekamp Massey
+	\item Euclidiano
+\end{itemize}
 
-A implementação da divisão e multiplicação polinomial é feita usando \textit{Linear feedback shift registers}, além de toda a teoria de campos finitos e suas operações em módulo 2. 
+Ambos os métodos possuem uma complexidade similar. Entretanto, o algoritmo Berlekamp-Massey apresenta uma eficiência um pouco maior nas operações realizadas \cite{salvador2015}.
 
+\subsubsection{Algoritmo Berlekamp-Massey}
 
-Os embaralhadores multiplicativos levam à multiplicação de erros durante a descodificação. Um erro de bit único na entrada do descodificador resultará em $w$ erros na sua saída. Este aumento no número de erros depende do número de \textit{taps} existente no sistema. Caso existir duas \textit{taps}, um único bit de erro inserido no sistema resultará em 3 bits errôneos na saída do \textit{descrambler} \cite{Ghassan2018}. 
+Uma vez que um vetor de síndromes diferente de zero foi calculado, podemos afirmar que a  sequência  recebida  possui  erros.  Portanto,  é  necessário  descobrir  a  localização  dos  erros.  Um polinômio localizador de erros, $ \bigwedge(X) $, pode ser definido da seguinte maneira \cite[p.~457]{Sklar1998}:
 
+\begin{equation}
+\bigwedge(x) = (1 - \beta_{1}x)(1 - \beta_{2}x)(1 - \beta_{3}x)... (1 - \beta_{\mu}x)
+\bigwedge(x) = 1 + \bigwedge_{1}x + \bigwedge_{2}x^{2} + \dots + \bigwedge_{\mu}x^{\mu}
+\label{eqLocError}
+\end{equation}
+
+As  raízes  de $ \bigwedge(x) $  são $\beta_{1}^{-1}, \beta_{2}^{-1},...,\beta_{\mu}^{-1}$.  Logo,  o  inverso  das  raízes  de $ \bigwedge(X) $  indicam as localizações de erro de do padrão de erro $ e(X) $. Para determinar os coeficientes $\bigwedge_{1}, \bigwedge_{2},\dots, \bigwedge_{v}$, é necessário utilizar uma técnica denominada modelagem auto-regressiva, que utiliza uma matriz de síndromes, onde as t primeiras síndromes são utilizadas para prever a próxima síndrome, como mostra a equação abaixo \cite[p.~457]{Sklar1998}:
+
+\begin{equation}
+\begin{split}
+	\begin{bmatrix}
+		S_{1} & S_{2} & S_{3} & \dots & S_{t-1} & S_{t} \\
+		S_{2} & S_{3} & S_{4} & \dots & S_{t} & S_{t+1} \\
+		{} & {} & {} & \vdots & {} & {} \\
+		S_{t-1} & S_{t} & S_{t+1} & \dots & S_{2t-3} & S_{2t-2} \\
+		S_{t} & S_{t+1} & S_{t+2} & \dots & S_{2t-2} & S_{2t-1}
+	\end{bmatrix}
+		\begin{bmatrix}
+		\bigwedge_{t} \\
+		\bigwedge_{t-1} \\
+		\vdots \\
+		\bigwedge_{2} \\
+		\bigwedge_{2}
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		-S_{t-1} \\
+		-S_{t+2}  \\
+		\vdots \\
+		-S_{2t-1} \\
+		-S_{t} 
+	\end{bmatrix}
+\end{split}
+\end{equation}
+
+Deve-se encontrar os termos $\bigwedge_{1}, \bigwedge_{2} , ... , \bigwedge_{t}$ através de técnicas matemáticas que podem serem encontradas em \citeonline[p.~458]{Sklar1998}. A partir dos coeficientes $ \bigwedge_{1}, \bigwedge_{2},\dots, \bigwedge_{t}  $, pode-se representar corretamente o polinômio da equação \ref{eqLocError}. Portanto as raízes do polinômio $ \bigwedge(x) $ corresponde a uma localização do erro \cite[p.~459]{Sklar1998}. 
+
+Suponha um polinômio qualquer obtido pela equação \ref{eqLocError} é obtido uma raiz na forma $ \alpha^{y} $. Isto significa que existem erros nas localizações de $ \alpha^{y} $, em que o índex $j$ é completamente arbitrário. Portanto, pode-se obter o $ \beta_{l}=\dfrac{1}{\alpha_{l}^{j}} = \alpha^{y} $ e consequentemente a equação \ref{eqSin} \cite[p.~459]{Sklar1998}.
+
+O objetivo do algoritmo Berlekamp-Massey é encontrar o m??nimo grau do polinômio $ \bigwedge(x) $ cujos coeficientes satisfazem estas identidades de Newton \cite{salvador2015}. O algoritmo procede como segue:
+
+\begin{itemize}
+	\item A primeira fase do algoritmo BM visa determinar o grau mínimo do polinômio $ \bigwedge_{BM}^{(1)}(x) $
+	que satisfaz a primeira identidade de Newton.
+	\item A segunda identidade de Newton é testada. Se o polinômio ? BM (x) satisfaz a segunda identidade de Newton, então $ \bigwedge_{BM}^{(2)}(x) = \bigwedge_{BM}^{(2)}(x) $. Caso contrário, o algoritmo adiciona um termo de correção em $ \bigwedge_{BM}^{(1)}(x) $ para o polinômio $ \bigwedge_{BM}^{(2)}(x) $ seja capaz de satisfazer as duas primeiras identidades de Newton.
+	\item  Na k-ésima iteração, o polinômio de grau mínimo será:
+	\begin{equation}
+	 \bigwedge_{BM}^{(k)}(x) = 1 + \lambda_{1}^{k}x + \lambda_{2}^{k}x^{2} + \dots + \lambda_{lk}^{k}x^{lk}
+	\end{equation}
+	Onde $ l_{k} $ define a ordem do polinômio e $ 1\leqslant l_{k} \leqslant k $, para os quais os coeficientes satisfaçam as seguintes identidades:
+	\item o próximo passo consiste em definir um novo polinômio de grau mínimo:
+	
+	\begin{equation}
+	\begin{split}	
+	s_{1}+\lambda^{(k+1)}=0\\
+	s_{2} + s_{1}\lambda^{(k+1)}=0\\
+	s_{3} + \lambda_{1}^{(k+1)}s_{2} + s_{1}\lambda^{(k+1)}=0\\
+	\vdots\\
+	s_{l_{k+1}} + \lambda_{1}^{(k+1)}s_{l_{k}} + \lambda_{2}^{(k+1)}s_{l_{k-1}} + \dots + \lambda_{l_{k}}^{(k+1)}s_{2} + \lambda_{l_{k+1}}^{(k+1)}s_{1}=0	
+	\end{split}	
+	\end{equation}
+	
+	Uma vez que o algoritmo BM alcança o \textit{pass 2t}, o polinômio $ \bigwedge_{BM}^{2t}(x) $ é chamado como polinômio localizador de erro $ \alpha(x) $.
+\end{itemize}
+
+Para encontrar o polinômio avaliador de erro, uma vez encontrado o polinômio localizador
+de erros, utiliza-se uma equação que relaciona os polinômios $S(x), \bigwedge(x) e \omega(x)$ \cite{salvador2015}. Esta equação é chamada de equação chave e é definida como:
+
+\begin{equation}
+\bigwedge(x)S(x) = \omega(x) mod x^{2t+1}
+\end{equation}
+
+Como os polinômios $ S(x) $ e $ \bigwedge(x) $ já foram determinados através da primeira etapa do algorítimo BM, a equação chave pode ser rearranjada na forma:
+
+\begin{equation}
+\omega(x) = \bigwedge(x)S(x) mod x^{2t +1}
+\end{equation}
+
+\subsubsection{Algoritmo Chien Search}
+
+Depois de obter os dois polinômios de localização e avaliação dos erros, precisa-se determinar
+as raízes do polinômio localizador de erros, as quais representam o inverso da posição dos
+erros. Portanto, para todos os elementos de $GF(2^{m})$ deve-se calcular o valor de $ \lambda(\alpha^{i}) $,onde $ i = 1, 2, 3, \dots , 2^{m-1}  $ \cite{kamar2017}.
+
+Se algum elemento de GF se revelar raiz deste polinômio $ \lambda(\alpha^{i}) = 0 $, um erro ocorreu na posição inversa de $i$, isto é, em $ (n_{i}) $. Consequentemente, se esta condição não for satisfeita, significa que não existe erro na palavra código \cite{kamar2017}.
+
+\subsubsection{Algoritmo de Forney}
+
+O algoritmo Forney é usado para encontrar o valor dos erros. Para tal, o polinômio $ \omega(x) $ possibilita o cálculo do valor do erro através da equação \cite{salvador2015}:
+
+\begin{equation}
+e_{j_{l}} = \dfrac{\omega(\beta_{l}^{-i} )}{\bigwedge'(\beta^{-i} )}
+\label{eqValError}
+\end{equation}
+
+Portanto, para um erro na posição $ \alpha^{i} $, a equação \ref{eqValError} fica:
+
+\begin{equation}
+e_{j_{l}} = \dfrac{\omega(\alpha_{l}^{-i} )}{\bigwedge'(\alpha^{-i} )}
+\end{equation}
+
+O polinômio $ \bigwedge'(x) $ corresponde a derivada do polinômio $ \bigwedge(x) $ em um ponto x. A derivada de uma função polinomial $ f(x) $ pertencente a $ GF(2^{m}) $ é uma função polinomial $ f'(x) $ com os seus coeficientes ímpares, conforme observado nas equações \cite{salvador2015}:
+
+\begin{equation}
+f(x) = f_{1} + f_{2}x^{2} + f_{3}x^{3} + f_{4}x^{4} + \dots + f_{n-1}x^{n-1}
+\end{equation}
+
+e
+
+\begin{equation}
+f'(x) = f_{1} + f_{3}x^{3} + f_{5}x^{5} + \dots + f_{n-1}x^{n-1}
+\end{equation}
+
+Portanto, com o valor do erro é possível restaurar o dado somando o erro estimado $ \^{e}(x) $ ao dado recebido. Desta forma, o dado ao final da operação de decodificação do FEC é da forma:
+
+\begin{equation}
+\^{U}(x) = r(x) + \^{e}(x) = U(x) + e(x) + \^{e}(x)  
+\end{equation}

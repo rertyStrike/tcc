@@ -27,6 +27,14 @@
 Dispon{\'\i}vel em:
   $<$https://doi.org/10.1088%2F1748-0221%2F12%2F12%2Fp12019$>$.}
 
+\bibitem[Agrawal 2011]{mohit}
+\abntrefinfo{Agrawal}{AGRAWAL}{2011}
+{AGRAWAL, M.
+\emph{Implementation of reed solomon error correcting codes}.
+48~p. Disserta??o (Bachelor of Technology in Electronics and Communication
+  Engineering) --- National Instute of Technology, Rourkela, Odisha, India,
+  2011.}
+
 \bibitem[Assaad 2009]{assaad}
 \abntrefinfo{Assaad}{ASSAAD}{2009}
 {ASSAAD, M.
@@ -88,6 +96,12 @@ Dispon{\'\i}vel em:
 {GHATAK, A.; THYAGARAJAN, K. \emph{An Introduction to Fiber Optics}. [S.l.]:
   Cambridge University Press, 1998.}
 
+\bibitem[Gupta e Verma 2012]{gupta}
+\abntrefinfo{Gupta e Verma}{GUPTA; VERMA}{2012}
+{GUPTA, V.; VERMA, D.~C. Error detection and correction: An introduction.
+\emph{nternational Journal of Advanced Research inComputer Science and Software
+  Engineering}, v.~2, n.~11, p. 212 -- 218, Nov. 2012.}
+
 \bibitem[Hassan 2019]{Ghassan2018}
 \abntrefinfo{Hassan}{HASSAN}{2019}
 {HASSAN, G.~M. \emph{Scramble Image Based on LFBSR (Linear Feedback Shift
@@ -95,6 +109,19 @@ Dispon{\'\i}vel em:
 14~p.
 Dispon{\'\i}vel em: $<$https://www.iasj.net/iasj?func=fulltext\&aId=58271$>$.
   Acesso em: 20 set. 2019.}
+
+\bibitem[{Huang} e {Zhang} 2011]{Huang}
+\abntrefinfo{{Huang} e {Zhang}}{{Huang}; {Zhang}}{2011}
+{{Huang}, S.; {Zhang}, Z. Principles of fecs with evaluating different types of
+  fec used in the internet and wireless networks. In:  \emph{2011 International
+  Conference on Electronics, Communications and Control (ICECC)}. [S.l.: s.n.],
+  2011. p. 2181--2184.}
+
+\bibitem[Kamar et al. 2017]{kamar2017}
+\abntrefinfo{Kamar et al.}{KAMAR et al.}{2017}
+{KAMAR, S.; FOUDA, A.; ZEKRY, A.; EL-MAHDY, A. Fpga implementation of rs codec
+  with interleaver in dvb-t using vhdl.
+\emph{International Journal of Engineering \& Technology}, v.~6, 11 2017.}
 
 \bibitem[Kerl 2004]{John2004}
 \abntrefinfo{Kerl}{KERL}{2004}
@@ -148,6 +175,16 @@ Dispon{\'\i}vel em: $<$https://cds.cern.ch/record/2197559$>$.}
 124~p. Disserta??o (Master of Science in Electrical and Computer Engineering)
   --- University of Illinois, rbana-Champaign, Ilinois, EUA, 2014.}
 
+\bibitem[Salvador 2015]{salvador2015}
+\abntrefinfo{Salvador}{SALVADOR}{2015}
+{SALVADOR, A.~H.
+\emph{Implementação em VHDL de uma arquitetura paralela de um código de
+  Reed-Solomon aplicado a Redes OTN}.
+92~p. Disserta??o (Dissertação(mestrado)) --- Universidade Estadual de
+  Campinas, Faculdade de Engenharia Elétrica e Computação, UNICAMP, Campinas -
+  SP, 2015. Disponível em:
+  <http://repositorio.unicamp.br/handle/REPOSIP/258899>.}
+
 \bibitem[Silva 2011]{Daniel2011}
 \abntrefinfo{Silva}{SILVA}{2011}
 {SILVA, D. C.~C. e.
@@ -179,14 +216,6 @@ Dispon{\'\i}vel em: $<$http://sprace.org.br$>$. Acesso em: 15 set. 2018.}
 [S.l.], 2019. Dispon{\'\i}vel em:
   $<$http://padley.rice.edu/cms/OH\_GE21\_LpGBT/lpGBT\_20190215.pdf$>$. Acesso em:
   20 Set. 2019.}
-
-\bibitem[TOMEI 2012]{tomei}
-\abntrefinfo{TOMEI}{TOMEI}{2012}
-{TOMEI, T. F.~P.
-\emph{Busca por dimensões extras no detector CMS do Large Hadron Collider}.
-Tese (doutorado) --- Universidade Estadual Paulista, Instituto de Física
-  Teórica, São Paulo, 2012. Disponível em:
-  <http://hdl.handle.net/11449/102537>.}
 
 \bibitem[WIKIPÉDIA 2019]{Wikipedia2019}
 \abntrefinfo{WIKIPÉDIA}{WIKIPÉDIA}{2019}
